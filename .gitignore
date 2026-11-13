@@ -1,0 +1,4 @@
+optics-mod/.gradle/
+optics-mod/build/
+optics-mod/runs/
+*.log

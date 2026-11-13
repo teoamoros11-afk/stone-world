@@ -1,0 +1,65 @@
+# STONE WORLD REBORN — lista de mods
+# Base: Minecraft 1.21.1 + NeoForge 21.1.262
+#
+# COLUMNA "DONDE":
+#   CF  = solo en CurseForge (buscarlo en Modrinth da 404, comprobado hoy)
+#   MOD = solo en Modrinth
+#   AMB = en las dos
+# ESTADO:
+#   [OK] = build 1.21.1/neoforge confirmada hoy contra la API
+#   [?]  = existe el mod, pero la versión exacta hay que mirarla al instalar
+#
+# Instalar en ESTE orden (dependencias primero).
+
+## 0. CARGA
+[OK] NeoForge 21.1.262                                  AMB   (loader, no es mod)
+
+## 1. DR. STONE — el nucleo de la historia
+[OK] Dr. Stone: Kingdom of Science 2.0.4                AMB   petrificacion, cueva del milagro, fluido milagroso
+[?]  Geckolib                                           AMB   dependencia obligatoria
+[?]  Kleider's Custom Renderer                          CF    dependencia obligatoria (en Modrinth da 404)
+
+## 2. PUEBLOS AUTONOMOS — el "0 A.D."
+[OK] MineColonies 1.1.1403                              CF    ciudadanos, oficios, obras
+[?]  Structurize                                        CF    dependencia
+[?]  Domum Ornamentum                                   CF    dependencia
+[?]  BlockUI                                            CF    dependencia
+[?]  Multi-Piston                                       CF    dependencia
+[OK] Colony Autopilot 1.3.4                             CF    automatiza la gestion de colonias
+[OK] Autonomous Colonies 0.4.3                          CF    funda y opera colonias sin ti (MIT; exige MineColonies 1.1.1403 + NeoForge 21.1.262)
+[OK] Millenaire 9.1.0                                   CF    aldeas del ano 1000: nacen, comercian, hacen razzias
+
+## 3. TECNOLOGIA POR ERAS
+[OK] Create 6.0.10+mc1.21.1                             AMB   vapor, engranajes, molinos  (era Stone Wars)
+[?]  Create: Crafts & Additions                         AMB   piezas y generadores de Create
+[?]  Immersive Engineering                              CF    electricidad (era New World). Si aun no hay build 1.21.1, sáltalo: Mekanism cubre esa era
+[OK] CC: Tweaked 1.121.0                                AMB   computacion (era Science Future, el telefono/chip de Senku)
+[OK] Mekanism 10.7.19.85 (+Generators)                  AMB   quimica fina y circuito impreso
+
+## 4. REALISMO SIN ROMPER LAS COLONIAS
+[OK] Thirst Was Taken 1.21.1-2.1.5                      MOD   sed y agua sucia
+[OK] Tough as Nails 10.1.0.13                           MOD   temperatura corporal
+[?]  Serene Seasons                                     CF    estaciones: no hay cosecha todo el ano
+     # No Tree Punching NO tiene build 1.21.1/neoforge (comprobado): se queda fuera.
+     # El arranque desde cero se consigue con las eras de FTB Quests, no con ese mod.
+
+## 5. INFRAESTRUCTURA
+[?]  FTB Quests                                         CF    el libro de eras (aqui van los gates)
+[?]  JEI                                                AMB
+[?]  Jade                                               AMB
+[?]  AppleSkin                                          AMB
+[?]  FerriteCore + ModernFix                            AMB   RAM y arranque
+
+## 6. PANEL Y MUNDO
+[OK] Colony Dashboard 0.2.0                             CF    HUD permanente de la colonia: constructores, encargos, salud, muertes, ciudadanos (1.21.1 NeoForge)
+[?]  Earth Platform                                    GH    github.com/pirut/earth-platform — Tierra real 1:1, NeoForge 21.1.259+, LGPL-3.0
+                                                             OPCIONAL y en mundo aparte: rompe el worldgen de Millenaire/MineColonies
+
+## 7. SOLO MODO EXPERTO EN SOLITARIO (no en el mundo de 2 jugadores)
+[OK] TerraFirmaCraft 4.2.16 (2026-11-12)                AMB   worldgen y metalurgia reales; rompe colonias y Dr. Stone
+
+# ---------------------------------------------------------------
+# NO PONER:
+#   TerraFirmaCraft en el pack compartido -> cambia worldgen y renombra materiales
+#   OptiFine                              -> incompatible con NeoForge
+#   mods de 1.20.1                        -> Dr. Stone KoS para 1.20.1 va con Forge: no se mezcla

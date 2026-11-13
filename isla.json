@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "nombre": "Isla del Reino de la Ciencia",
+  "unidad": "bloques (1 bloque = 1 metro)",
+  "escala_mapa_px_por_bloque": "el plano cubre 2400x2400 bloques",
+  "isla": {
+    "poligono_xz": [
+      [-700, 180], [-560, -260], [-240, -520], [140, -560], [480, -460],
+      [700, -160], [760, 220], [620, 520], [300, 700], [-80, 740],
+      [-420, 620], [-640, 420]
+    ]
+  },
+  "rio": {
+    "puntos_xz": [[300, -470], [120, -300], [40, -120], [-60, 60], [0, 260], [60, 460], [110, 700]],
+    "anchura": 6,
+    "cascada": { "x": -60, "z": 60, "caida": 18 }
+  },
+  "zonas": [
+    { "n": 1, "id": "aldea", "nombre": "Aldea de Ishigami", "x": -370, "z": -300, "ancho": 220, "profundo": 200, "y": 70, "color": [150, 132, 110], "funcion": "Colonia principal: Town Hall de MineColonies, 6 chozas, horno tatara, laboratorio" },
+    { "n": 2, "id": "cueva", "nombre": "Cueva del milagro (Montana Calva)", "x": 110, "z": -490, "ancho": 180, "profundo": 140, "y": 78, "color": [70, 70, 74], "funcion": "Entrada de la cueva y camara del fluido milagroso; aqui empieza el bucle de revivir" },
+    { "n": 3, "id": "estatuas", "nombre": "Campo de estatuas", "x": 290, "z": 10, "ancho": 260, "profundo": 260, "y": 65, "color": [150, 150, 150], "funcion": "Llanura de aldeanos petrificados: la mano de obra del reino" },
+    { "n": 4, "id": "cascada", "nombre": "Cascada y central", "x": -120, "z": -10, "ancho": 120, "profundo": 140, "y": 62, "color": [60, 130, 200], "funcion": "Salto de agua de 18 bloques para la central hidroelectrica de la era 3" },
+    { "n": 5, "id": "puerto", "nombre": "Puerto y astillero", "x": -50, "z": 450, "ancho": 220, "profundo": 140, "y": 63, "color": [120, 100, 70], "funcion": "Muelle, grua y varadero del barco de la era 4" },
+    { "n": 6, "id": "bambu", "nombre": "Bambu y cantera", "x": -520, "z": 20, "ancho": 200, "profundo": 200, "y": 72, "color": [46, 84, 44], "funcion": "Bambu (filamento), carbon vegetal, cobre y estaño: la despensa de la era 2" },
+    { "n": 7, "id": "rival", "nombre": "Colonia rival (Tsukasa)", "x": 160, "z": -200, "ancho": 180, "profundo": 180, "y": 74, "color": [140, 90, 90], "funcion": "Segunda colonia, para el otro jugador: a 510 bloques de la aldea, fuera del radio de la primera" },
+    { "n": 8, "id": "spawn", "nombre": "Punto de aparicion", "x": 240, "z": 600, "ancho": 40, "profundo": 40, "y": 64, "color": [200, 184, 130], "funcion": "Playa sureste: se llega a la aldea caminando, no teletransportado" }
+  ],
+  "fuera_del_mapa": {
+    "isla_del_tesoro": { "direccion": "este", "distancia_bloques": 3000, "funcion": "Era 4: platino, la medusa y el primer barco de vapor" }
+  }
+}
