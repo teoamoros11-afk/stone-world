@@ -1,0 +1,55 @@
+{
+	id: "1500000000000000"
+	filename: "era5"
+	group: ""
+	order_index: 4
+	title: "Era 5 - Science Future"
+	icon: "minecraft:repeater"
+	quest_links: [ ]
+	quests: [
+		{
+			id: "2500000000000000"
+			x: 0.0d
+			y: 0.0d
+			title: "Computadora"
+			subtitle: "Circuito impreso con CC:Tweaked"
+			icon: "minecraft:repeater"
+			tasks: [ { id: "3500000000000000", type: "checkmark", title: "Computadora" } ]
+			rewards: [ { id: "4500000000000000", type: "xp", xp: 35 } ]
+			dependencies: [ "2400000000000004" ]
+		}
+		{
+			id: "2500000000000001"
+			x: 2.0d
+			y: 0.0d
+			title: "Telescopio de fluorita"
+			subtitle: "Mod de optica del pack"
+			icon: "minecraft:spyglass"
+			tasks: [ { id: "3500000000000001", type: "checkmark", title: "Telescopio de fluorita" } ]
+			rewards: [ { id: "4500000000000001", type: "xp", xp: 30 } ]
+			dependencies: [ "2500000000000000" ]
+		}
+		{
+			id: "2500000000000002"
+			x: 4.0d
+			y: 0.0d
+			title: "Pan de larga duracion"
+			subtitle: "Comida para expediciones largas"
+			icon: "minecraft:bread"
+			tasks: [ { id: "3500000000000002", type: "checkmark", title: "Pan de larga duracion" } ]
+			rewards: [ { id: "4500000000000002", type: "xp", xp: 20 } ]
+			dependencies: [ "2500000000000001" ]
+		}
+		{
+			id: "2500000000000003"
+			x: 6.0d
+			y: 0.0d
+			title: "Cierre del reino"
+			subtitle: "Cinco eras cerradas; el cohete queda pendiente de Ad Astra"
+			icon: "minecraft:nether_star"
+			tasks: [ { id: "3500000000000003", type: "checkmark", title: "Cierre del reino" } ]
+			rewards: [ { id: "4500000000000003", type: "xp", xp: 50 } ]
+			dependencies: [ "2500000000000002" ]
+		}
+	]
+}

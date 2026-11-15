@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    { "item": "stoneoptics:rough_lens" },
+    { "item": "minecraft:sand" },
+    { "item": "minecraft:sand" },
+    { "item": "minecraft:sand" }
+  ],
+  "result": {
+    "id": "stoneoptics:polished_lens",
+    "count": 1
+  }
+}

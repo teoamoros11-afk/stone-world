@@ -1,0 +1,65 @@
+{
+	id: "1100000000000000"
+	filename: "era1"
+	group: ""
+	order_index: 0
+	title: "Era 1 - No morir"
+	icon: "minecraft:wooden_pickaxe"
+	quest_links: [ ]
+	quests: [
+		{
+			id: "2100000000000000"
+			x: 0.0d
+			y: 0.0d
+			title: "Sobrevivir la primera noche"
+			subtitle: "Pico, hacha, horno y refugio cerrado"
+			icon: "minecraft:wooden_pickaxe"
+			tasks: [ { id: "3100000000000000", type: "checkmark", title: "Sobrevivir la primera noche" } ]
+			rewards: [ { id: "4100000000000000", type: "xp", xp: 10 } ]
+		}
+		{
+			id: "2100000000000001"
+			x: 2.0d
+			y: 0.0d
+			title: "Fuego y cama"
+			subtitle: "Antorchas, cama y comida cocinada"
+			icon: "minecraft:campfire"
+			tasks: [ { id: "3100000000000001", type: "checkmark", title: "Fuego y cama" } ]
+			rewards: [ { id: "4100000000000001", type: "xp", xp: 10 } ]
+			dependencies: [ "2100000000000000" ]
+		}
+		{
+			id: "2100000000000002"
+			x: 4.0d
+			y: 0.0d
+			title: "Ceramica y cuero"
+			subtitle: "Arcilla, horno y ropa de invierno"
+			icon: "minecraft:brick"
+			tasks: [ { id: "3100000000000002", type: "checkmark", title: "Ceramica y cuero" } ]
+			rewards: [ { id: "4100000000000002", type: "xp", xp: 15 } ]
+			dependencies: [ "2100000000000001" ]
+		}
+		{
+			id: "2100000000000003"
+			x: 6.0d
+			y: 0.0d
+			title: "La cueva del milagro"
+			subtitle: "Encuentra el fluido milagroso"
+			icon: "minecraft:glass_bottle"
+			tasks: [ { id: "3100000000000003", type: "checkmark", title: "La cueva del milagro" } ]
+			rewards: [ { id: "4100000000000003", type: "xp", xp: 20 } ]
+			dependencies: [ "2100000000000002" ]
+		}
+		{
+			id: "2100000000000004"
+			x: 8.0d
+			y: 0.0d
+			title: "Primer revivido"
+			subtitle: "Despetrifica a tu primer aldeano"
+			icon: "minecraft:golden_apple"
+			tasks: [ { id: "3100000000000004", type: "checkmark", title: "Primer revivido" } ]
+			rewards: [ { id: "4100000000000004", type: "xp", xp: 30 } ]
+			dependencies: [ "2100000000000003" ]
+		}
+	]
+}
