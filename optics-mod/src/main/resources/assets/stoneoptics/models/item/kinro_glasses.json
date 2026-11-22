@@ -1,0 +1,4 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": { "layer0": "stoneoptics:item/kinro_glasses" }
+}

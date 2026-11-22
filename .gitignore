@@ -1,0 +1,29 @@
+# Stone World · qué NO se sube al repositorio
+#
+# El proyecto son tres mods, un datapack, un resourcepack y unas herramientas.
+# Lo que se versiona es el código y la documentación; lo que se compila o se
+# genera se rehace con los comandos de LEEME.md y no tiene por qué viajar.
+
+# Lo que escupe Gradle: los tres mods suman más de 200 MB de classes, jar
+# intermedios y caché, y sale de `./gradlew build`. Los jar que se pasan a la
+# gente (los de dist/) también se rehacen, así que tampoco entran.
+*/build/
+*/dist/
+.gradle/
+build/
+
+# El zip del datapack lo reescribe herramientas/generar_mapa.py a partir de
+# panel/; el del pack de inmersión, herramientas/generar_pack_inmersion.py.
+panel-del-reino.zip
+
+# Python: cachés, entorno y resultados de las pruebas.
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+
+# Lo que dejan las herramientas y los lanzadores al probar.
+*.log
+*.bak
+*~

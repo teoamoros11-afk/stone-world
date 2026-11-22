@@ -1,0 +1,88 @@
+{
+	id: "1500000000000000"
+	filename: "era5"
+	group: ""
+	order_index: 4
+	title: "Era 5 - Science Future"
+	icon: "minecraft:repeater"
+	quest_links: [ ]
+	quests: [
+		{
+			id: "2500000000000000"
+			x: 0.0d
+			y: 0.0d
+			title: "Computadora"
+			subtitle: "Circuito impreso con CC:Tweaked"
+			icon: "minecraft:repeater"
+			tasks: [ { id: "3500000000000000", type: "checkmark", title: "Computadora" } ]
+			rewards: [ { id: "4500000000000000", type: "xp", xp: 35 } ]
+			dependencies: [ "2400000000000008" ]
+		}
+		{
+			id: "2500000000000001"
+			x: 2.0d
+			y: 0.0d
+			title: "Telescopio de fluorita"
+			subtitle: "Mod de optica del pack"
+			icon: "minecraft:spyglass"
+			tasks: [ { id: "3500000000000001", type: "checkmark", title: "Telescopio de fluorita" } ]
+			rewards: [ { id: "4500000000000001", type: "xp", xp: 30 } ]
+			dependencies: [ "2500000000000000" ]
+		}
+		{
+			id: "2500000000000002"
+			x: 4.0d
+			y: 0.0d
+			title: "Pan de larga duracion"
+			subtitle: "Comida para expediciones largas"
+			icon: "minecraft:bread"
+			tasks: [ { id: "3500000000000002", type: "checkmark", title: "Pan de larga duracion" } ]
+			rewards: [ { id: "4500000000000002", type: "xp", xp: 20 } ]
+			dependencies: [ "2500000000000001" ]
+		}
+		{
+			id: "2500000000000003"
+			x: 6.0d
+			y: 0.0d
+			title: "Cohete Dr.1"
+			subtitle: "Ad Astra: cohete de nivel 1 y plataforma de lanzamiento"
+			icon: "minecraft:firework_rocket"
+			tasks: [ { id: "3500000000000003", type: "checkmark", title: "Cohete Dr.1" } ]
+			rewards: [ { id: "4500000000000003", type: "xp", xp: 40 } ]
+			dependencies: [ "2500000000000002" ]
+		}
+		{
+			id: "2500000000000004"
+			x: 8.0d
+			y: 0.0d
+			title: "Satelite en orbita"
+			subtitle: "Ad Astra: pon el satelite en orbita"
+			icon: "minecraft:ender_eye"
+			tasks: [ { id: "3500000000000004", type: "checkmark", title: "Satelite en orbita" } ]
+			rewards: [ { id: "4500000000000004", type: "xp", xp: 40 } ]
+			dependencies: [ "2500000000000003" ]
+		}
+		{
+			id: "2500000000000005"
+			x: 10.0d
+			y: 0.0d
+			title: "Base lunar"
+			subtitle: "Ad Astra: Luna, oxigeno, traje y base presurizada"
+			icon: "minecraft:white_bed"
+			tasks: [ { id: "3500000000000005", type: "checkmark", title: "Base lunar" } ]
+			rewards: [ { id: "4500000000000005", type: "xp", xp: 50 } ]
+			dependencies: [ "2500000000000004" ]
+		}
+		{
+			id: "2500000000000006"
+			x: 12.0d
+			y: 0.0d
+			title: "Cierre del reino"
+			subtitle: "Cinco eras cerradas y la humanidad fuera de la Tierra"
+			icon: "minecraft:nether_star"
+			tasks: [ { id: "3500000000000006", type: "checkmark", title: "Cierre del reino" } ]
+			rewards: [ { id: "4500000000000006", type: "xp", xp: 60 } ]
+			dependencies: [ "2500000000000005" ]
+		}
+	]
+}

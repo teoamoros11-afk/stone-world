@@ -1,0 +1,26 @@
+modLoader = "javafml"
+loaderVersion = "[4,)"
+license = "MIT"
+
+[[mods]]
+modId = "stoneoptics"
+version = "${mod_version}"
+displayName = "Stone Optics"
+description = '''
+Optica del mundo de piedra: lentes talladas y pulidas, y un telescopio con zoom.
+Primera pieza del pack Stone World Reborn (Dr. Stone).
+'''
+
+[[dependencies.stoneoptics]]
+modId = "neoforge"
+type = "required"
+versionRange = "[21.1.0,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.stoneoptics]]
+modId = "minecraft"
+type = "required"
+versionRange = "[1.21.1,1.22)"
+ordering = "NONE"
+side = "BOTH"

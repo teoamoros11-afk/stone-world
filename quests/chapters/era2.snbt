@@ -1,0 +1,99 @@
+{
+	id: "1200000000000000"
+	filename: "era2"
+	group: ""
+	order_index: 1
+	title: "Era 2 - Ganarse la aldea"
+	icon: "minecraft:bell"
+	quest_links: [ ]
+	quests: [
+		{
+			id: "2200000000000000"
+			x: 0.0d
+			y: 0.0d
+			title: "Diez revividos"
+			subtitle: "Reune 10 aldeanos despetrificados"
+			icon: "minecraft:villager_spawn_egg"
+			tasks: [ { id: "3200000000000000", type: "checkmark", title: "Diez revividos" } ]
+			rewards: [ { id: "4200000000000000", type: "xp", xp: 20 } ]
+			dependencies: [ "2100000000000004" ]
+		}
+		{
+			id: "2200000000000001"
+			x: 2.0d
+			y: 0.0d
+			title: "Town Hall"
+			subtitle: "Funda la colonia en suelo llano"
+			icon: "minecraft:bell"
+			tasks: [ { id: "3200000000000001", type: "checkmark", title: "Town Hall" } ]
+			rewards: [ { id: "4200000000000001", type: "xp", xp: 25 } ]
+			dependencies: [ "2200000000000000" ]
+		}
+		{
+			id: "2200000000000002"
+			x: 4.0d
+			y: 0.0d
+			title: "El pueblo de los agradecidos"
+			subtitle: "Al tercer despetrificado levantan su plaza; arranca la obra y termina el taller: /function swr:pueblo/obra/iniciar"
+			icon: "minecraft:scaffolding"
+			tasks: [ { id: "3200000000000002", type: "checkmark", title: "El pueblo de los agradecidos" } ]
+			rewards: [ { id: "4200000000000002", type: "xp", xp: 30 } ]
+			dependencies: [ "2200000000000001" ]
+		}
+		{
+			id: "2200000000000003"
+			x: 6.0d
+			y: 0.0d
+			title: "Almacen y constructor"
+			subtitle: "Coloca almacen y choza de constructor"
+			icon: "minecraft:chest"
+			tasks: [ { id: "3200000000000003", type: "checkmark", title: "Almacen y constructor" } ]
+			rewards: [ { id: "4200000000000003", type: "xp", xp: 20 } ]
+			dependencies: [ "2200000000000002" ]
+		}
+		{
+			id: "2200000000000004"
+			x: 8.0d
+			y: 0.0d
+			title: "Granja y lenador"
+			subtitle: "Comida y madera sin parar"
+			icon: "minecraft:wheat"
+			tasks: [ { id: "3200000000000004", type: "checkmark", title: "Granja y lenador" } ]
+			rewards: [ { id: "4200000000000004", type: "xp", xp: 20 } ]
+			dependencies: [ "2200000000000003" ]
+		}
+		{
+			id: "2200000000000005"
+			x: 10.0d
+			y: 0.0d
+			title: "Cerrar la era 2"
+			subtitle: "Sulfamidas: azufre, azucar y frasco (mod Stone Pharmacy)"
+			icon: "minecraft:brewing_stand"
+			tasks: [ { id: "3200000000000005", type: "checkmark", title: "Cerrar la era 2" } ]
+			rewards: [ { id: "4200000000000005", type: "xp", xp: 30 } ]
+			dependencies: [ "2200000000000004" ]
+		}
+		{
+			id: "2200000000000006"
+			x: 12.0d
+			y: 0.0d
+			title: "Primera luz electrica"
+			subtitle: "Dinamo, cable de cobre y bombilla"
+			icon: "minecraft:redstone_lamp"
+			tasks: [ { id: "3200000000000006", type: "checkmark", title: "Primera luz electrica" } ]
+			rewards: [ { id: "4200000000000006", type: "xp", xp: 25 } ]
+			dependencies: [ "2200000000000005" ]
+		}
+		{
+			id: "2200000000000007"
+			x: 14.0d
+			y: 0.0d
+			title: "Las cien historias"
+			subtitle: "Pide el libro de Ruri: /function swr:serie/historias"
+			icon: "minecraft:written_book"
+			tasks: [ { id: "3200000000000007", type: "checkmark", title: "Las cien historias" } ]
+			rewards: [ { id: "4200000000000007", type: "xp", xp: 15 } ]
+			dependencies: [ "2200000000000006" ]
+		}
+	]
+}

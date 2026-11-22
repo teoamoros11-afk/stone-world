@@ -1,0 +1,23 @@
+{
+  "display": {
+    "background": "minecraft:textures/gui/advancements/backgrounds/stone.png",
+    "icon": {
+      "id": "minecraft:stone"
+    },
+    "title": {
+      "text": "Dr. Stone",
+      "color": "gold"
+    },
+    "description": {
+      "text": "El Reino de la Ciencia, era por era. Lo que la serie cuenta como descubrimiento, aquí es un hito que hay que cumplir."
+    },
+    "frame": "task",
+    "show_toast": false,
+    "announce_to_chat": true
+  },
+  "criteria": {
+    "inicio": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

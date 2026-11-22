@@ -1,0 +1,7 @@
+{
+  "lilian": {
+    "sounds": [
+      { "name": "swr:lilian", "stream": true }
+    ]
+  }
+}

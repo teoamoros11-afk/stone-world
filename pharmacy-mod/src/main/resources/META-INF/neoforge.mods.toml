@@ -1,0 +1,26 @@
+modLoader = "javafml"
+loaderVersion = "[4,)"
+license = "MIT"
+
+[[mods]]
+modId = "stonepharmacy"
+version = "${mod_version}"
+displayName = "Stone Pharmacy"
+description = '''
+La farmacia del Reino de la Ciencia: sulfamidas y jeringa. Es el hueco que la serie
+cubre en la era 2 y que ningun mod del pack resolvia. Pack Stone World Reborn (Dr. Stone).
+'''
+
+[[dependencies.stonepharmacy]]
+modId = "neoforge"
+type = "required"
+versionRange = "[21.1.0,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.stonepharmacy]]
+modId = "minecraft"
+type = "required"
+versionRange = "[1.21.1,1.22)"
+ordering = "NONE"
+side = "BOTH"

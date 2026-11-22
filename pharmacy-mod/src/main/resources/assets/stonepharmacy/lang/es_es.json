@@ -1,0 +1,6 @@
+{
+  "item.stonepharmacy.sulfamida": "Sulfamida",
+  "item.stonepharmacy.jeringa": "Jeringa con sulfamida",
+  "item.stonepharmacy.jeringa.curado": "Infeccion cortada. La herida ya no supura.",
+  "item.stonepharmacy.jeringa.sano": "No hacia falta: no habia infeccion."
+}

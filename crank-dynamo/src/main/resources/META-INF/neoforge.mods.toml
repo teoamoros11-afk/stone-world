@@ -1,0 +1,26 @@
+modLoader = "javafml"
+loaderVersion = "[4,)"
+license = "MIT"
+
+[[mods]]
+modId = "stoneindustry"
+version = "${mod_version}"
+displayName = "Stone Industry"
+description = '''
+La dinamo de manivela del Reino de la Ciencia: dos personas girando abren la era de la
+electricidad. Primer bloque de la linea industrial del pack Stone World Reborn (Dr. Stone).
+'''
+
+[[dependencies.stoneindustry]]
+modId = "neoforge"
+type = "required"
+versionRange = "[21.1.0,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.stoneindustry]]
+modId = "minecraft"
+type = "required"
+versionRange = "[1.21.1,1.22)"
+ordering = "NONE"
+side = "BOTH"

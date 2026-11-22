@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    { "item": "minecraft:glass" },
+    { "item": "minecraft:glass" },
+    { "item": "minecraft:flint" }
+  ],
+  "result": {
+    "id": "stoneoptics:rough_lens",
+    "count": 2
+  }
+}

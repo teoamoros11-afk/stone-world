@@ -1,0 +1,22 @@
+{
+  "parent": "swr:serie/perseus",
+  "display": {
+    "icon": {
+      "id": "minecraft:heart_of_the_sea"
+    },
+    "title": {
+      "text": "La medusa"
+    },
+    "description": {
+      "text": "El dispositivo de la isla del tesoro. Desde aquí la petrificación tiene dueño y la pregunta ya no es cómo reconstruir, sino quién debe tener el botón."
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "criteria": {
+    "hecho": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

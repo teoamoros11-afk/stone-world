@@ -1,0 +1,48 @@
+plugins {
+    id 'java-library'
+    id 'net.neoforged.moddev' version '2.0.78'
+}
+
+version = project.mod_version
+group = project.mod_group_id
+
+base {
+    archivesName = project.mod_id
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(21)
+    }
+}
+
+neoForge {
+    version = project.neo_version
+
+    runs {
+        server {
+            server()
+        }
+    }
+
+    mods {
+        stoneindustry {
+            sourceSet sourceSets.main
+        }
+    }
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+}
+
+processResources {
+    filesMatching('META-INF/neoforge.mods.toml') {
+        expand(
+            mod_id: project.mod_id,
+            mod_version: project.mod_version,
+            mod_group_id: project.mod_group_id,
+            neo_version: project.neo_version
+        )
+    }
+}

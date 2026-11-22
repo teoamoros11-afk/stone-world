@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "  L",
+    " C ",
+    "C  "
+  ],
+  "key": {
+    "L": { "item": "stoneoptics:polished_lens" },
+    "C": { "item": "minecraft:copper_ingot" }
+  },
+  "result": {
+    "id": "stoneoptics:telescope",
+    "count": 1
+  }
+}

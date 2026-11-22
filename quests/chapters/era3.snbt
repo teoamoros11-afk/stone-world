@@ -1,0 +1,66 @@
+{
+	id: "1300000000000000"
+	filename: "era3"
+	group: ""
+	order_index: 2
+	title: "Era 3 - Stone Wars"
+	icon: "minecraft:blast_furnace"
+	quest_links: [ ]
+	quests: [
+		{
+			id: "2300000000000000"
+			x: 0.0d
+			y: 0.0d
+			title: "Hierro a escala"
+			subtitle: "Horno nivel 3 y mina organizada"
+			icon: "minecraft:blast_furnace"
+			tasks: [ { id: "3300000000000000", type: "checkmark", title: "Hierro a escala" } ]
+			rewards: [ { id: "4300000000000000", type: "xp", xp: 25 } ]
+			dependencies: [ "2200000000000007" ]
+		}
+		{
+			id: "2300000000000001"
+			x: 2.0d
+			y: 0.0d
+			title: "Baterias de plomo-acido"
+			subtitle: "Almacena energia para la guerra"
+			icon: "minecraft:bucket"
+			tasks: [ { id: "3300000000000001", type: "checkmark", title: "Baterias de plomo-acido" } ]
+			rewards: [ { id: "4300000000000001", type: "xp", xp: 25 } ]
+			dependencies: [ "2300000000000000" ]
+		}
+		{
+			id: "2300000000000002"
+			x: 4.0d
+			y: 0.0d
+			title: "Central hidroelectrica"
+			subtitle: "Salto de agua, central y tendido a la aldea"
+			icon: "minecraft:water_bucket"
+			tasks: [ { id: "3300000000000002", type: "checkmark", title: "Central hidroelectrica" } ]
+			rewards: [ { id: "4300000000000002", type: "xp", xp: 30 } ]
+			dependencies: [ "2300000000000001" ]
+		}
+		{
+			id: "2300000000000003"
+			x: 6.0d
+			y: 0.0d
+			title: "Papel, tinta y polvora"
+			subtitle: "Municion y libros"
+			icon: "minecraft:paper"
+			tasks: [ { id: "3300000000000003", type: "checkmark", title: "Papel, tinta y polvora" } ]
+			rewards: [ { id: "4300000000000003", type: "xp", xp: 20 } ]
+			dependencies: [ "2300000000000002" ]
+		}
+		{
+			id: "2300000000000004"
+			x: 8.0d
+			y: 0.0d
+			title: "Radio entre colonias"
+			subtitle: "CC:Tweaked con modems inalambricos"
+			icon: "minecraft:ender_pearl"
+			tasks: [ { id: "3300000000000004", type: "checkmark", title: "Radio entre colonias" } ]
+			rewards: [ { id: "4300000000000004", type: "xp", xp: 30 } ]
+			dependencies: [ "2300000000000003" ]
+		}
+	]
+}

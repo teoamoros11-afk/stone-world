@@ -1,0 +1,22 @@
+{
+  "parent": "swr:serie/aldea",
+  "display": {
+    "icon": {
+      "id": "minecraft:blast_furnace"
+    },
+    "title": {
+      "text": "La logística es el arma"
+    },
+    "description": {
+      "text": "Era 3 cerrada. Capítulos 61-100: baterías de plomo-ácido, central hidroeléctrica y teléfono. Gen gana más terreno con la radio que cualquier ejército."
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "criteria": {
+    "hecho": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

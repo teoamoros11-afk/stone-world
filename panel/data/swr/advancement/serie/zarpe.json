@@ -1,0 +1,22 @@
+{
+  "parent": "swr:serie/tripulacion",
+  "display": {
+    "icon": {
+      "id": "minecraft:oak_boat"
+    },
+    "title": {
+      "text": "Zarpa, Perseus"
+    },
+    "description": {
+      "text": "Barco botado, tripulacion a bordo y carta de navegacion en mano. El viaje se hace en bote: 3.000 bloques al este."
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "criteria": {
+    "hecho": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

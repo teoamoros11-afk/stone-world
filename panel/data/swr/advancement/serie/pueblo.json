@@ -1,0 +1,22 @@
+{
+  "parent": "swr:serie/tripulacion",
+  "display": {
+    "icon": {
+      "id": "minecraft:bell"
+    },
+    "title": {
+      "text": "El pueblo de los agradecidos"
+    },
+    "description": {
+      "text": "Tres despetrificados levantan una plaza sin que nadie se lo pida, y cuando arranca el temporizador todos cogen materiales y construyen. La gratitud como mano de obra."
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "criteria": {
+    "hecho": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

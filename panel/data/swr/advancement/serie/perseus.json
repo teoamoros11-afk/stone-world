@@ -1,0 +1,22 @@
+{
+  "parent": "swr:serie/stone-wars",
+  "display": {
+    "icon": {
+      "id": "minecraft:oak_boat"
+    },
+    "title": {
+      "text": "¡Zarpa, Perseus!"
+    },
+    "description": {
+      "text": "Era 4 abierta. Capítulos 101-140: Ryusui cobra en propiedades futuras, el platino paga el barco y el barco es un proyecto, no un objeto."
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "criteria": {
+    "hecho": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

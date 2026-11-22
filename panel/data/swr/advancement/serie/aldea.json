@@ -1,0 +1,22 @@
+{
+  "parent": "swr:serie/fluido",
+  "display": {
+    "icon": {
+      "id": "minecraft:bell"
+    },
+    "title": {
+      "text": "La aldea de las cien historias"
+    },
+    "description": {
+      "text": "Era 2 cerrada. Capítulos 16-60: la cura de Ruri es el pago por la aldea entera, y los aldeanos descienden de la tripulación que estaba en órbita."
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "criteria": {
+    "hecho": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

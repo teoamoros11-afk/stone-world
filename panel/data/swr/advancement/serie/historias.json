@@ -1,0 +1,22 @@
+{
+  "parent": "swr:serie/aldea",
+  "display": {
+    "icon": {
+      "id": "minecraft:written_book"
+    },
+    "title": {
+      "text": "Las cien historias"
+    },
+    "description": {
+      "text": "Ruri recita la memoria del mundo anterior. En la serie, la cultura oral es una tecnología de almacenamiento: sin ella, la aldea no sabría que hubo un mundo antes."
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "criteria": {
+    "hecho": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

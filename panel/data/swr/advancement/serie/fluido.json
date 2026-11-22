@@ -1,0 +1,22 @@
+{
+  "parent": "swr:serie/despertar",
+  "display": {
+    "icon": {
+      "id": "minecraft:glass_bottle"
+    },
+    "title": {
+      "text": "El fluido milagroso"
+    },
+    "description": {
+      "text": "Ácido nítrico y alcohol. Solo deshace la piedra de un cuerpo intacto: las estatuas rotas no vuelven, y eso hace que cada revivido cuente."
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "criteria": {
+    "hecho": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

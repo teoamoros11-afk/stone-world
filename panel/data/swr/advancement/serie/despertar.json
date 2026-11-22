@@ -1,0 +1,22 @@
+{
+  "parent": "swr:serie/raiz",
+  "display": {
+    "icon": {
+      "id": "minecraft:campfire"
+    },
+    "title": {
+      "text": "3.700 años contando"
+    },
+    "description": {
+      "text": "Era 1 cerrada. En la serie son los capítulos 1-15: Senku sale de la piedra y lo primero que construye es un taladro de arco, no un arma."
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "criteria": {
+    "hecho": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

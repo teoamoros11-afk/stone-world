@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "pattern": [ "CIC", "ISI", "III" ],
+  "key": {
+    "C": { "item": "minecraft:copper_ingot" },
+    "I": { "item": "minecraft:iron_ingot" },
+    "S": { "item": "minecraft:stone" }
+  },
+  "result": { "id": "stoneindustry:crank_dynamo", "count": 1 }
+}

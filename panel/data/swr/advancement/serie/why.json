@@ -1,0 +1,22 @@
+{
+  "parent": "swr:serie/medusa",
+  "display": {
+    "icon": {
+      "id": "minecraft:ender_eye"
+    },
+    "title": {
+      "text": "why"
+    },
+    "description": {
+      "text": "Era 5 cerrada. Una sola palabra repetida por radio, capítulos 141-232: la respuesta solo se puede buscar fuera del planeta, y para eso hace falta una civilización entera."
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "criteria": {
+    "hecho": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

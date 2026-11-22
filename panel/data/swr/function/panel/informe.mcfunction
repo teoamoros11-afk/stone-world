@@ -1,0 +1,6 @@
+tellraw @a [{"text":"=== REINO DE LA CIENCIA ===","color":"gold","bold":true}]
+tellraw @a [{"text":"Era: ","color":"gray"},{"score":{"name":"ERA","objective":"swr"},"color":"white"},{"text":" / 6","color":"dark_gray"}]
+tellraw @a [{"text":"Ciudadanos MineColonies: ","color":"gray"},{"score":{"name":"CIUDADANOS","objective":"swr"},"color":"white"}]
+tellraw @a [{"text":"Aldeanos contados: ","color":"gray"},{"score":{"name":"ALDEANOS","objective":"swr"},"color":"white"}]
+tellraw @a [{"text":"Aldeas registradas: ","color":"gray"},{"score":{"name":"ALDEA","objective":"swr"},"color":"white"}]
+tellraw @a [{"text":"Registrar aldea: /scoreboard players set <Nombre> aldeas <poblacion>","color":"dark_gray"}]

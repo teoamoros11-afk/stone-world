@@ -1,0 +1,347 @@
+
+Aquí tienes un brief exhaustivo para entregárselo a un agente de programación. Debe ejecutarse, verificarlo y documentarlo; no debe limitarse a reorganizar archivos.
+
+AGENT_INSTRUCTIONS.md
+v1
+# Conversión integral de stone-world en un repositorio profesional
+
+## Objetivo
+
+Transformar `teoamoros11-afk/stone-world` en un proyecto open source profesional, estable y fácil de usar, mantener y contribuir.
+
+Adaptar la estructura solo si el código ya existente impide hacerlo de forma segura. Todos los movimientos deben documentarse.
+
+Fase 3 — Gestión de Java y NeoForge
+Crear o corregir el mod para Minecraft 1.21.1 con NeoForge.
+
+Debe incluir:
+
+Gradle Wrapper.
+Versión de Minecraft fijada.
+Versión de NeoForge fijada.
+Versión de Java fijada y documentada.
+Registro de bloques, objetos, partículas, efectos y entidades.
+Configuración de cliente y servidor.
+Separación entre cliente y servidor.
+Identificadores en un namespace propio.
+Manejo seguro de excepciones.
+Logging estructurado.
+Compatibilidad con el comando de datapack.
+Opción para desactivar características si faltan dependencias.
+Archivos de idioma español e inglés.
+Política clara sobre datos cliente/servidor.
+Recomendaciones técnicas:
+
+No cargar recursos exclusivamente del cliente desde código compartido.
+No bloquear el hilo principal.
+No mantener referencias estáticas innecesarias a entidades o mundos.
+Sincronizar únicamente los datos que necesita el cliente.
+Evitar comentarios o métodos sin uso.
+Añadir JavaDoc a APIs públicas.
+Validar todos los valores externos y configuraciones.
+No inventar mecánicas. Implementar únicamente las descritas por el repositorio o documentadas por el propietario.
+
+Fase 4 — Datapack
+Crear o reparar datapack/.
+
+Debe contener:
+
+pack.mcmeta válido.
+Funciones, loot tables, predicates y etiquetas utilizadas.
+Nombres únicos y con namespace propio.
+Archivos JSON válidos.
+Sistema de carga e inicialización.
+Reinicio seguro con /reload.
+Desinstalación documentada.
+Compatibilidad con versiones exactas de Minecraft.
+Sin comandos destructivos inesperados.
+Compatibilidad con permisos y Gamers Rules.
+Mensajes visibles solo cuando sea necesario.
+Documentación de todas las puntuaciones y etiquetas.
+Crear scripts para validar:
+
+JSON.
+Sintaxis básica de mcfunction.
+Referencias a IDs.
+Rutas duplicadas.
+Objetivos inexistentes.
+Estructura del namespace.
+No incluir comandos que eliminen mundos, archivos o mundos compartidos sin confirmación explícita.
+
+Fase 5 — Mecánica óptica
+Si el proyecto incluye óptica, prismas o instrumentos relacionados:
+
+Separar recursos visuales, lógica óptica y datos configurables.
+Definir claramente qué es visual y qué afecta al juego.
+Proporcionar opciones de calidad y rendimiento.
+Permitir desactivar efectos avanzados.
+Evitar shaders o modificaciones que sean peligrosas o difíciles de distribuir.
+Documentar GPU, versiones y limitaciones conocidas.
+Añadir una opción de seguridad si los efectos pueden producir aturdimiento o parpadeos.
+No presentar un concepto como terminado si solamente existe una maqueta.
+
+Fase 6 — Herramientas Python
+Las herramientas Python deben cumplir:
+
+Compatibilidad con Python 3.11 o superior.
+Gestión de entorno en pyproject.toml.
+Dependencias bloqueadas o reproducibles.
+Sin archivos temporales en el repositorio.
+CLI clara y documentada.
+Tareas implementadas de forma modular.
+Tests con pytest.
+Tipado progresivo.
+Mensajes de error accionables.
+Confirmación antes de modificar archivos.
+Modo seco o --dry-run.
+Manejo seguro de rutas.
+Ausencia de red salvo si se solicita.
+Tareas posibles:
+
+Validar el datapack.
+Validar archivos JSON.
+Generar recursos.
+Empaquetar el mod.
+Preparar archivos de Release.
+Comprobar tamaños.
+Descargar dependencias solo de forma explícita.
+Generar documentación o índices.
+Fase 7 — JavaScript
+Si JavaScript sirve como aplicación auxiliar o sitio web:
+
+Usar una herramienta moderna y estable.
+Definir Node.js y gestor de paquetes en un archivo de configuración.
+Bloquear dependencias.
+Añadir ESLint y Prettier.
+Añadir pruebas.
+Evitar telemetría.
+No exponer tokens.
+Permitir ejecutar localmente.
+Añadir construcción de producción.
+Implementar una interfaz accesible.
+Evitar dependencias innecesarias.
+Si no existe una aplicación real:
+
+No debe aparecer como contenido prioritario en el README.
+Debe eliminarse o justificarse.
+Fase 8 — Instalador o lanzador opcional
+Si se crea una aplicación auxiliar:
+
+Permitir seleccionar directorio de Minecraft.
+Detectar perfiles y versiones.
+Crear copias de seguridad.
+Validar hashes.
+Instalar datapack, resourcepack y mod por separado.
+Permitir desinstalación.
+Mostrar cambios antes de aplicarlos.
+No reemplazar archivos sin confirmación.
+Detectar incompatibilidades.
+Respetar rutas personalizadas.
+Añadir modo consola y modo gráfico.
+Registrar operaciones.
+No eliminar el mundo del jugador ni sobrescribir un mapa existente sin permiso.
+
+Fase 9 — Gestión del mapa
+Si se incluye el mapa de la isla:
+
+Añadirlo mediante Git LFS o enlaces de Release.
+Comprimirlo para distribuirlo.
+Verificar integridad.
+Añadir instrucciones de restauración.
+Documentar versión de Minecraft usada.
+Indicar si es single-player, LAN o servidor.
+No incluir puntuaciones, coordenadas, cuentas o datos privados.
+Añadir una versión reducida si el mapa completo es excesivo.
+Fase 10 — Calidad y pruebas
+No marcar una tarea como terminada sin realizar:
+
+Construcción limpia.
+Validación del datapack.
+Validación JSON.
+Pruebas unitarias.
+Pruebas de integración.
+Pruebas manuales en mundo nuevo.
+Pruebas manuales en mundo existente.
+Prueba de /reload.
+Prueba de desinstalación.
+Prueba de compatibilidad con solo datapack.
+Prueba con servidor dedicado.
+Prueba con y sin la resourcepack.
+Prueba de cliente y servidor separados.
+Prueba de entradas inválidas.
+Prueba de rutas no compatibles.
+Análisis de memoria, rendimiento y logs.
+No usar datos reales personales en fixtures.
+
+Fase 11 — CI/CD
+Configurar GitHub Actions para:
+
+Ejecutar pruebas Python.
+Ejecutar validación JavaScript.
+Ejecutar compilación Gradle.
+Validar el datapack.
+Ejecutar linters.
+Comprobar enlaces rotos.
+Comprobar archivos demasiado grandes.
+Escanear secretos conocidos.
+Construir paquetes.
+Crear artefactos para pruebas.
+Crear Releases solo mediante tags autorizados.
+Evitar publicar credenciales.
+Configuración mínima de CI:
+
+Ubuntu.
+JDK apropiado.
+Python fijado.
+Node fijado.
+Caché de dependencias.
+Timeouts.
+Permisos mínimos.
+Fase 12 — Documentación
+Redactar un README profesional en español e incluir:
+
+Nombre y propósito.
+Captura o vídeo.
+Estado y advertencias.
+Características implementadas.
+Características planificadas.
+Requisitos.
+Compatibilidad exacta.
+Instalación.
+Actualización.
+Desinstalación.
+Configuración.
+Comandos disponibles.
+FAQ.
+Problemas conocidos.
+Contribución.
+Seguridad.
+Licencia.
+Créditos.
+Mapa de ruta.
+Captura de errores y logs.
+Ejemplo de estructura:
+
+Markdown
+# Stone World
+
+## Qué es
+Descripción breve.
+
+## Estado
+Versiones compatibles y características actualmente probadas.
+
+## Componentes
+- Mod NeoForge
+- Datapack
+- Resourcepack
+- Herramientas
+- Mapa opcional
+
+## Instalación
+Pasos exactos.
+
+## Compilación
+Comandos exactos.
+
+## Desarrollo
+Cómo contribuir.
+
+## Capturas
+Imágenes o vídeo.
+
+## Problemas conocidos
+Lista verificable.
+
+## Seguridad
+Cómo reportar vulnerabilidades.
+
+## Licencia
+Información exacta.
+Fase 13 — Licencias y propiedad intelectual
+Revisar:
+
+Uso del nombre Dr. Stone.
+Uso de personajes o imágenes.
+Uso de texturas ajenas.
+Licencia de código externo.
+Licencia de audio externo.
+Licencia del mapa.
+Licencia de dependencias.
+Añadir:
+
+LICENSE.
+NOTICE.md.
+docs/ATTRIBUTION.md.
+Antes de publicar, el propietario debe aprobar si el proyecto puede usar nombres y elementos de una obra protegida.
+
+Fase 14 — Reglas de contribución
+Añadir:
+
+Plantilla de issue.
+Plantilla de PR.
+Plantilla de reporte de vulnerabilidad.
+Código de conducta.
+Guía de commits.
+Guía de estilo.
+Política de revisión.
+Política de soporte.
+Usar mensajes de commit claros, por ejemplo:
+
+feat(mod): añade bloque óptico
+fix(datapack): corrige carga inicial
+docs: mejora instalación
+test(python): valida archivos JSON
+ci: añade compilación del mod
+Fase 15 — Preparación de Release
+Preparar el flujo para publicar una versión:
+
+Bump de versiones.
+Changelog.
+Validación completa.
+Hashes SHA-256.
+Artefactos separados.
+Capturas.
+Lista de cambios incompatibles.
+Pasos de migración.
+Restauración de copia de seguridad.
+Etiqueta Git.
+GitHub Release.
+Formato sugerido de cada Release:
+
+Text
+stone-world-mod-1.21.1-<versión>.jar
+stone-world-datapack-1.21.1-<versión>.zip
+stone-world-resourcepack-1.21.1-<versión>.zip
+stone-world-map-<versión>.zip
+SHA256SUMS
+No publicar un paquete si falla alguna validación.
+
+Entrega final obligatoria
+El agente debe finalizar con:
+
+Resumen breve de los cambios.
+Lista de archivos creados o modificados.
+Lista de funcionalidades implementadas.
+Funcionalidades no implementadas y por qué.
+Problemas conocidos.
+Compatibilidad probada.
+Comandos utilizados.
+Resultados de tests.
+Capturas o logs relevantes.
+Recomendación sobre si se puede publicar.
+No debe afirmar que existe una función cuando no se haya probado.
+
+Criterio de aceptación
+El repositorio será aceptado solo si:
+
+Compila o se ejecuta siguiendo el README.
+El datapack pasa todas las validaciones.
+Las instrucciones pueden repetirse en una máquina limpia.
+No contiene secretos.
+No sobrescribe datos del usuario sin permiso.
+Todos los componentes tienen licencia o atribución.
+Los cambios están organizados y documentados.
+Existe una versión Release reproducible.
+Los problemas conocidos están documentados.
+El README permite comprender y usar el proyecto sin acceso directo al autor.

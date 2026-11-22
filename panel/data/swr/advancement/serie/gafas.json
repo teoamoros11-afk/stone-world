@@ -1,0 +1,29 @@
+{
+  "parent": "swr:serie/aldea",
+  "display": {
+    "icon": {
+      "id": "minecraft:glass_pane"
+    },
+    "title": {
+      "text": "Las gafas de Kinro"
+    },
+    "description": {
+      "text": "El guardia miope ve por primera vez. La serie explica la óptica en una escena, sin discursos: sin lentes no hay instrumentos, y sin instrumentos no hay ciencia fina."
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "criteria": {
+    "vidrio_en_mano": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:glass_pane"
+          }
+        ]
+      }
+    }
+  }
+}

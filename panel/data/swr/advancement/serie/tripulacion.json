@@ -1,0 +1,22 @@
+{
+  "parent": "swr:serie/perseus",
+  "display": {
+    "icon": {
+      "id": "minecraft:emerald"
+    },
+    "title": {
+      "text": "La tripulacion del Perseus"
+    },
+    "description": {
+      "text": "Ryusui al rumbo, Sai a las cuentas y Francois a la cocina. Sin los tres no se zarpa: la serie lo deja claro y el pack lo comprueba."
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "criteria": {
+    "hecho": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

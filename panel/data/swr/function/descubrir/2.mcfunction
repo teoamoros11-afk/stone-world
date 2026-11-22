@@ -1,0 +1,22 @@
+# Anota las formulas de la era 2 en el cuaderno (no borra lo ya anotado).
+# Cada ficha es un marcador f_<id>: el progreso es UNO solo para los dos jugadores.
+scoreboard players set f_vidrio swr 1
+scoreboard players set f_lentes swr 1
+scoreboard players set f_dinamo swr 1
+scoreboard players set f_bombilla swr 1
+scoreboard players set f_sulfa swr 1
+scoreboard players set f_pueblo swr 1
+scoreboard players set f_casas swr 1
+scoreboard players set f_horario swr 1
+scoreboard players set f_oficios swr 1
+function swr:libro/contar
+tellraw @a [{"text": "[Cuaderno] ", "color": "gold", "bold": true}, {"text": "Anotadas las 9 fichas de la era 2 - Ganarse la aldea.", "color": "green"}]
+tellraw @a [{"text": "  + Vidrio", "color": "aqua", "extra": [{"text": "", "hoverEvent": {"action": "show_text", "value": {"text": "", "extra": [{"text": "SiO2 + Na2CO3 + CaCO3 -> silicato fundido + CO2. El Na2O baja el punto de fusion.", "color": "white"}, {"text": " "}, {"text": "Copia nueva: /function swr:libro/cuaderno", "color": "gray"}]}}}]}]
+tellraw @a [{"text": "  + Lentes y microscopio", "color": "aqua", "extra": [{"text": "", "hoverEvent": {"action": "show_text", "value": {"text": "", "extra": [{"text": "Lente delgada: 1/f = 1/s + 1/s prima. Microscopio: M = (L/f_obj)*(D/f_oc).", "color": "white"}, {"text": " "}, {"text": "Copia nueva: /function swr:libro/cuaderno", "color": "gray"}]}}}]}]
+tellraw @a [{"text": "  + Dinamo de manivela", "color": "aqua", "extra": [{"text": "", "hoverEvent": {"action": "show_text", "value": {"text": "", "extra": [{"text": "Faraday: e = -N*dPhi/dt. Potencia P = V*I. Una manivela da para una bombilla, no para una aldea.", "color": "white"}, {"text": " "}, {"text": "Copia nueva: /function swr:libro/cuaderno", "color": "gray"}]}}}]}]
+tellraw @a [{"text": "  + Bombilla", "color": "aqua", "extra": [{"text": "", "hoverEvent": {"action": "show_text", "value": {"text": "", "extra": [{"text": "P = V cuadrado / R. El filamento se pone incandescente y el vacio evita que se queme.", "color": "white"}, {"text": " "}, {"text": "Copia nueva: /function swr:libro/cuaderno", "color": "gray"}]}}}]}]
+tellraw @a [{"text": "  + Sulfamidas", "color": "aqua", "extra": [{"text": "", "hoverEvent": {"action": "show_text", "value": {"text": "", "extra": [{"text": "Sulfanilamida C6H8N2O2S: el grupo -SO2NH2 corta la sintesis de acido folico de la bacteria y la deja sin multiplicarse.", "color": "white"}, {"text": " "}, {"text": "Copia nueva: /function swr:libro/cuaderno", "color": "gray"}]}}}]}]
+tellraw @a [{"text": "  + El pueblo de los agradecidos", "color": "aqua", "extra": [{"text": "", "hoverEvent": {"action": "show_text", "value": {"text": "", "extra": [{"text": "3 vecinos -> plaza de 9x9 con campana; 1 casa de 5x5 por vecino en 16 solares; obra general: 45 s y 6 etapas.", "color": "white"}, {"text": " "}, {"text": "Copia nueva: /function swr:libro/cuaderno", "color": "gray"}]}}}]}]
+tellraw @a [{"text": "  + Cada vecino, su casa", "color": "aqua", "extra": [{"text": "", "hoverEvent": {"action": "show_text", "value": {"text": "", "extra": [{"text": "Suelo de piedra, tres capas de muro, techo con vuelo, cama, cofre y puerta mirando a la plaza; 30 s por casa, una tanda a la vez y cola de espera.", "color": "white"}, {"text": " "}, {"text": "Copia nueva: /function swr:libro/cuaderno", "color": "gray"}]}}}]}]
+tellraw @a [{"text": "  + El dia del pueblo", "color": "aqua", "extra": [{"text": "", "hoverEvent": {"action": "show_text", "value": {"text": "", "extra": [{"text": "Amanecer en la plaza, manana y tarde de trabajo en el puesto de su oficio (cortapiedras, compostador, telar, barril, mesa de flechas o atril, cada uno con su mesa y su sonido), comida a mediodia, reunion al atardecer y noche en casa. /function swr:pueblo/horario/iniciar", "color": "white"}, {"text": " "}, {"text": "Copia nueva: /function swr:libro/cuaderno", "color": "gray"}]}}}]}]
+tellraw @a [{"text": "  + Los oficios y sus puestos", "color": "aqua", "extra": [{"text": "", "hoverEvent": {"action": "show_text", "value": {"text": "", "extra": [{"text": "Cantero (cortapiedras): ladrillos; granjero (compostador): pan; pastor (telar): lana; pescador (barril): bacalao; flechero (mesa de flechas): flechas; bibliotecario (atril): libros. Cada minuto de trabajo el puesto deja su parte en el cofre de al lado.", "color": "white"}, {"text": " "}, {"text": "Copia nueva: /function swr:libro/cuaderno", "color": "gray"}]}}}]}]

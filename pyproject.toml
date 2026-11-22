@@ -1,0 +1,23 @@
+[project]
+name = "stone-world-validador"
+version = "1.0.0"
+description = "Comprueba los datapacks y resourcepacks de Stone World antes de empaquetarlos"
+requires-python = ">=3.11"
+dependencies = []
+
+[project.optional-dependencies]
+pruebas = ["pytest>=8"]
+
+[project.scripts]
+sw-validar = "validador.cli:main"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["validador"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"

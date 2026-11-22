@@ -1,0 +1,110 @@
+{
+	id: "1400000000000000"
+	filename: "era4"
+	group: ""
+	order_index: 3
+	title: "Era 4 - New World"
+	icon: "minecraft:compass"
+	quest_links: [ ]
+	quests: [
+		{
+			id: "2400000000000000"
+			x: 0.0d
+			y: 0.0d
+			title: "Brujula"
+			subtitle: "Cartografia la isla"
+			icon: "minecraft:compass"
+			tasks: [ { id: "3400000000000000", type: "checkmark", title: "Brujula" } ]
+			rewards: [ { id: "4400000000000000", type: "xp", xp: 20 } ]
+			dependencies: [ "2300000000000004" ]
+		}
+		{
+			id: "2400000000000001"
+			x: 2.0d
+			y: 0.0d
+			title: "Barco de vapor"
+			subtitle: "Astillero en el puerto (zona 5): casco y cubierta"
+			icon: "minecraft:oak_boat"
+			tasks: [ { id: "3400000000000001", type: "checkmark", title: "Barco de vapor" } ]
+			rewards: [ { id: "4400000000000001", type: "xp", xp: 30 } ]
+			dependencies: [ "2400000000000000" ]
+		}
+		{
+			id: "2400000000000002"
+			x: 4.0d
+			y: 0.0d
+			title: "Botadura"
+			subtitle: "Pon el casco en el agua: /function swr:tripulacion/botadura"
+			icon: "minecraft:water_bucket"
+			tasks: [ { id: "3400000000000002", type: "checkmark", title: "Botadura" } ]
+			rewards: [ { id: "4400000000000002", type: "xp", xp: 25 } ]
+			dependencies: [ "2400000000000001" ]
+		}
+		{
+			id: "2400000000000003"
+			x: 6.0d
+			y: 0.0d
+			title: "Tripulacion indispensable"
+			subtitle: "Navegante, contable y cocinero: /function swr:tripulacion/lista"
+			icon: "minecraft:emerald"
+			tasks: [ { id: "3400000000000003", type: "checkmark", title: "Tripulacion indispensable" } ]
+			rewards: [ { id: "4400000000000003", type: "xp", xp: 35 } ]
+			dependencies: [ "2400000000000002" ]
+		}
+		{
+			id: "2400000000000004"
+			x: 8.0d
+			y: 0.0d
+			title: "Zarpe del Perseus"
+			subtitle: "Se niega sin los tres a bordo: /function swr:tripulacion/zarpar"
+			icon: "minecraft:written_book"
+			tasks: [ { id: "3400000000000004", type: "checkmark", title: "Zarpe del Perseus" } ]
+			rewards: [ { id: "4400000000000004", type: "xp", xp: 35 } ]
+			dependencies: [ "2400000000000003" ]
+		}
+		{
+			id: "2400000000000005"
+			x: 10.0d
+			y: 0.0d
+			title: "Globo y taladro"
+			subtitle: "Create contraptions"
+			icon: "minecraft:white_banner"
+			tasks: [ { id: "3400000000000005", type: "checkmark", title: "Globo y taladro" } ]
+			rewards: [ { id: "4400000000000005", type: "xp", xp: 25 } ]
+			dependencies: [ "2400000000000004" ]
+		}
+		{
+			id: "2400000000000006"
+			x: 12.0d
+			y: 0.0d
+			title: "Isla del tesoro"
+			subtitle: "3.000 al este, en bote: platino y la medusa"
+			icon: "minecraft:diamond"
+			tasks: [ { id: "3400000000000006", type: "checkmark", title: "Isla del tesoro" } ]
+			rewards: [ { id: "4400000000000006", type: "xp", xp: 40 } ]
+			dependencies: [ "2400000000000005" ]
+		}
+		{
+			id: "2400000000000007"
+			x: 14.0d
+			y: 0.0d
+			title: "Dron y radar"
+			subtitle: "Vigila la costa"
+			icon: "minecraft:spyglass"
+			tasks: [ { id: "3400000000000007", type: "checkmark", title: "Dron y radar" } ]
+			rewards: [ { id: "4400000000000007", type: "xp", xp: 30 } ]
+			dependencies: [ "2400000000000006" ]
+		}
+		{
+			id: "2400000000000008"
+			x: 16.0d
+			y: 0.0d
+			title: "La medusa"
+			subtitle: "Encuentra el dispositivo: /function swr:serie/medusa"
+			icon: "minecraft:heart_of_the_sea"
+			tasks: [ { id: "3400000000000008", type: "checkmark", title: "La medusa" } ]
+			rewards: [ { id: "4400000000000008", type: "xp", xp: 40 } ]
+			dependencies: [ "2400000000000007" ]
+		}
+	]
+}

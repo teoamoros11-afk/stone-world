@@ -1,0 +1,10 @@
+{
+	version: 1
+	title: "Reino de la Ciencia"
+	default_quest_shape: "circle"
+	default_consume_items: false
+	default_autoclaim_rewards: false
+	disable_gui: false
+	drop_book_on_death: false
+	grid_scale: 0.5
+}

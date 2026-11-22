@@ -1,0 +1,6 @@
+{
+  "item.stonepharmacy.sulfamida": "Sulfonamide",
+  "item.stonepharmacy.jeringa": "Syringe of sulfonamide",
+  "item.stonepharmacy.jeringa.curado": "Infection stopped. The wound is clean.",
+  "item.stonepharmacy.jeringa.sano": "Not needed: there was no infection."
+}
