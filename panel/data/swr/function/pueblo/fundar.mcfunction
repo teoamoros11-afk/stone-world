@@ -6,6 +6,7 @@ scoreboard players set PUEBLO swr 1
 summon minecraft:marker ~ ~ ~ {Tags:["swr_plaza"]}
 execute at @e[tag=swr_plaza,limit=1] run function swr:pueblo/plaza
 execute at @e[tag=swr_plaza,limit=1] run function swr:pueblo/puestos
+function swr:pueblo/caminos
 tellraw @a [{"text":"[Pueblo] ","color":"gold","bold":true},{"text":"Tres despetrificados y ya no esperan orden: plantan una plaza con campana. El pueblo existe.","color":"green"}]
 tellraw @a [{"text":"[Pueblo] ","color":"gray"},{"text":"Cuando querais, la obra: /function swr:pueblo/obra/iniciar (echa a andar a todos los vecinos con materiales)","color":"white"}]
 playsound minecraft:block.bell.use master @a ~ ~ ~ 1 1
