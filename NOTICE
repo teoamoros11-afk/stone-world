@@ -1,0 +1,45 @@
+# Aviso legal
+
+## Proyecto fan, sin ánimo de lucro
+
+*Stone World Reborn* es un proyecto de un aficionado, hecho por diversión y
+para jugar en casa. **No está afiliado, patrocinado ni aprobado** por los
+autores de *Dr. Stone*, por Shueisha, por Mojang Studios ni por Microsoft.
+
+- *Dr. Stone* y sus personajes son obra de **Riichiro Inagaki** (guion) y
+  **Boichi** (dibujo), publicada por **Shueisha**. Todos los derechos son suyos.
+  Los nombres de personajes y lugares se usan como referencia cultural.
+- **Minecraft** es una marca de **Mojang Studios** / Microsoft. Este repositorio
+  no incluye código, texturas ni sonidos del juego: los datapacks, el pack de
+  recursos y los mods se cargan encima de una copia legítima tuya.
+- **No hay material oficial de la serie** en este repositorio: ni imágenes, ni
+  páginas de manga, ni audio del anime. El arte que hay (`mapa-isla.png`,
+  `PERSEUS_PERFIL.svg`, los cuadros de `pack-inmersion/`) está dibujado o
+  generado por el autor del proyecto.
+
+## Mods de terceros
+
+Los mods que lista `DESCARGAS.md` son de sus autores y **no se redistribuyen
+aquí**: el instalador (`herramientas/instalar.mjs`) los descarga desde Modrinth
+o CurseForge, cada uno bajo su propia licencia, y algunos son "todos los
+derechos reservados". Si quieres reutilizarlos, la licencia que cuenta es la
+suya, no la de este repositorio.
+
+Los tres mods propios (`optics-mod`, `crank-dynamo`, `pharmacy-mod`) sí están
+aquí, con su código y bajo la licencia MIT.
+
+## Licencias de este repositorio
+
+| Qué | Licencia |
+|---|---|
+| Código (mods Java, `validador/`, `tests/`, `herramientas/`, scripts) | [MIT](LICENSE) |
+| Textos, planos y arte propios, datapacks y pack de recursos | [CC BY 4.0](LICENSE-CONTENIDO.md) |
+
+La atribución pedida por CC BY 4.0: **"Stone World Reborn, de Teo
+(teoamoros11-afk)"**, con el enlace a este repositorio.
+
+## Si algo no debería estar aquí
+
+Si eres titular de derechos de algo que aparece en este repositorio y crees que
+no debería, abre un *issue* o escribe al autor desde GitHub y se retira. Es un
+proyecto pequeño y no hay ningún interés en pisar el trabajo de nadie.

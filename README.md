@@ -47,7 +47,7 @@ isla.json            las mismas coordenadas en formato maquina
 mapa-isla.png        plano cenital generado desde isla.json
 mods.txt             lista de mods, fuente y version
 panel/               datapack: eras, ciudadanos, aldeas, viajes y el libro de la serie
-panel-del-reino.zip  el datapack listo para copiar a saves/<mundo>/datapacks/
+panel-del-reino.zip  el datapack listo para saves/<mundo>/datapacks/ (lo genera `./comprobar_todo.sh`)
 herramientas/        instalar.mjs (instala y comprueba) + generador del plano
 optics-mod/          mod de optica (lentes y telescopio) para NeoForge 1.21.1
 ```
@@ -89,3 +89,9 @@ Petrificar → revivir aldeanos → cada uno da un oficio → la colonia crece s
 ## Creditos y legal
 
 Dr. Stone es de Riichiro Inagaki, Boichi y Shueisha. Este proyecto es un homenaje sin animo de lucro, no afiliado a los autores ni a Mojang. Los mods pertenecen a sus autores. TerraFirmaCraft se queda fuera del pack compartido a proposito: ver `LEEME.md` §3.
+
+En corto: el codigo va bajo **MIT** ([`LICENSE`](LICENSE)), y los textos, planos, datapacks y el pack de recursos bajo **CC BY 4.0** ([`LICENSE-CONTENIDO.md`](LICENSE-CONTENIDO.md)). El detalle de que cubre cada una y que queda fuera esta en [`NOTICE`](NOTICE). Para reutilizar algo, acredita como "Stone World Reborn, de Teo (teoamoros11-afk)".
+
+## Si vas a tocar el datapack
+
+El pack se comprueba solo: `python3 -m pytest` (61 casos) y `python3 -m validador` (estructura, JSON, mcfunctions, referencias y objetivos). En un paso: `./comprobar_todo.sh`, que ademas regenera el zip. Un error sale con codigo 1; los avisos (comandos de mods como `drstonekos`) no rompen nada.
