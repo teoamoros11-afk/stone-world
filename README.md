@@ -1,8 +1,12 @@
 # Stone World Reborn
 
+**A Dr. Stone survival world for Minecraft 1.21.1 + NeoForge.** Petrifiy people, revive them, and let the villages grow on their own while you are away. *(Docs are in Spanish: the project started as a two-player world in Spain.)*
+
 Un mundo de **Dr. Stone** para Minecraft **1.21.1 + NeoForge**, pensado para jugar de dos en dos: petrificas, revives gente, y los pueblos crecen solos mientras tu estas fuera. Con eras cerradas, aldeas rivales, un mapa de isla diseñado a mano y un panel para llevar las cuentas del reino.
 
-> Este repo **no contiene los mods**. Son de sus autores y varios son ARR. Aqui esta el trabajo propio: documentacion, coordenadas, datapack, herramientas y un mod de optica. Los mods se enlazan, no se redistribuyen.
+![El pueblo en marcha: el marcador del reino arriba a la derecha y el parte de oficios en el chat](docs/capturas/pueblo.jpg)
+
+> De los mods, aqui solo esta el codigo de los **tres propios** (`optics-mod`, `crank-dynamo`, `pharmacy-mod`). Los ~35 de terceros son de sus autores y varios son ARR: se **enlazan, no se redistribuyen**, y el instalador solo baja los que estan en Modrinth.
 
 ## Empezar
 
@@ -11,18 +15,20 @@ Tres caminos, elige uno:
 | Si eres… | Camino |
 |---|---|
 | **Pereza maxima** y tienes un agente de terminal | [`IA.md`](IA.md): pega un prompt y el agente instala y comprueba |
-| **Segundo jugador** con TLauncher | [`GUIA_TLAUNCHER.md`](GUIA_TLAUNCHER.md), paso a paso desde cero |
+| **Segundo jugador** | [`GUIA_TLAUNCHER.md`](GUIA_TLAUNCHER.md), paso a paso desde cero (leo antes el aviso sobre TLauncher) |
 | **Anfitrion** o quieres montarlo tu | [`LEEME.md`](LEEME.md) + [`DESCARGAS.md`](DESCARGAS.md) |
 
 A que se juega y como se completa, paso a paso: [`REGLAS.md`](REGLAS.md).
+
+> **Sobre los launchers.** La via recomendada es el launcher oficial de Minecraft con una instalacion aparte de NeoForge, o **Prism / MultiMC**, que permiten un perfil por juego sin tocar el `.minecraft` de siempre. `GUIA_TLAUNCHER.md` existe porque mucha gente ya tiene TLauncher instalado y el pack se probo ahi, pero ese programa se asocia a cuentas no premium y a instaladores con adware: no es lo que este proyecto recomienda. Ver el aviso al principio de esa guia.
 
 Arranque en corto:
 
 ```bash
 # 1. Java 21 y NeoForge 21.1.262 sobre Minecraft 1.21.1 (perfil aparte del de siempre)
-# 2. mods en la carpeta DEL PERFIL, no en la global:
-#    ~/.minecraft/versions/<perfil>/mods  (TLauncher);  .minecraft/mods en el launcher oficial
-node herramientas/instalar.mjs --download --mc-dir "RUTA_AL_PERFIL"   # baja los 34
+# 2. mods en la carpeta del perfil, no en la global:
+#    ~/.minecraft/versions/<perfil>/mods  (launchers con perfiles);  .minecraft/mods en el oficial
+node herramientas/instalar.mjs --download --mc-dir "RUTA_AL_PERFIL"   # baja los de Modrinth, lista los de CurseForge
 node herramientas/instalar.mjs --check    --mc-dir "RUTA_AL_PERFIL"   # debe decir 0 faltan
 # 3. panel-del-reino.zip a saves/<mundo>/datapacks/
 # 4. dentro del juego: /function swr:panel/informe   y el libro: /function swr:panel/libro
@@ -34,13 +40,15 @@ node herramientas/instalar.mjs --check    --mc-dir "RUTA_AL_PERFIL"   # debe dec
 LEEME.md             el pack: decisiones, por que estos mods, como se juega
 REGLAS.md            reglas, el bucle y el recorrido completo, era por era
 IA.md                instalacion delegada a un agente + prompt para pegar
-GUIA_TLAUNCHER.md    segundo jugador con TLauncher, desde cero
+GUIA_TLAUNCHER.md    segundo jugador y launcher, desde cero (con aviso: TLauncher no es la via recomendada)
 SEGUNDO_JUGADOR.md   segundo jugador con CurseForge App
-DESCARGAS.md         mods con enlace y version
+DESCARGAS.md         mods con enlace y version (los de CurseForge, a mano)
 ERAS.md              la serie era por era y su traduccion a Minecraft
 SERIE.md             estudio de la serie: arcos, personajes y ciencia, de arriba abajo
 GUIA_INMERSION.md    paso a paso para jugar dentro de la serie (equipo, ajustes, eras)
-pack-inmersion/      pack de recursos: 8 cuadros dibujados y textos del menu
+pack-inmersion/      pack de recursos: 11 texturas de cuadro (8 redibujadas que sustituyen a las
+                     vanilla, mas Perseus, medusa y destello), textos del menu y
+                     ReinoDeLaCiencia.zip, el pack empaquetado, listo para resourcepacks/
 quests/              arbol de misiones FTB Quests: 5 eras, 34 misiones
 ISLA.md              diseño de la isla: 8 zonas y orden de construccion
 isla.json            las mismas coordenadas en formato maquina
@@ -48,8 +56,18 @@ mapa-isla.png        plano cenital generado desde isla.json
 mods.txt             lista de mods, fuente y version
 panel/               datapack: eras, ciudadanos, aldeas, viajes y el libro de la serie
 panel-del-reino.zip  el datapack listo para saves/<mundo>/datapacks/ (lo genera `./comprobar_todo.sh`)
-herramientas/        instalar.mjs (instala y comprueba) + generador del plano
-optics-mod/          mod de optica (lentes y telescopio) para NeoForge 1.21.1
+herramientas/        instalar.mjs (instala y comprueba) + generadores del plano y del pack
+optics-mod/          mod de optica: lentes, telescopio, banco de pulido, gafas de Kinro
+crank-dynamo/        mod de energia: dinamo de manivela, 8 FE/tick
+pharmacy-mod/        mod de farmacia: sulfamida y jeringa
+validador/           comprobador del datapack (estructura, JSON, mcfunctions, referencias)
+tests/               61 pruebas del validador (pytest)
+comprobar_todo.sh    pytest + validador + regenerar el zip, de una vez
+pyproject.toml       metadatos del validador y config de pytest
+LICENSE              MIT para el codigo; LICENSE-CONTENIDO.md, CC BY 4.0 para textos y arte
+NOTICE               proyecto fan: que es de quien y que no se distribuye
+CONTRIBUTING.md      como comprobar, que se acepta y bajo que licencia entra tu aportacion
+docs/capturas/       capturas del juego
 ```
 
 ## El bucle
@@ -59,8 +77,9 @@ Petrificar → revivir aldeanos → cada uno da un oficio → la colonia crece s
 ## Estado, sin adornos
 
 - Datapack, plano y coordenadas **verificados**: JSON valido, zip correcto, 8/8 zonas, 20 funciones, distancias minimas de MineColonies respetadas.
-- `herramientas/instalar.mjs` **probado de verdad**: resuelve versiones contra la API de Modrinth, descarga, y devuelve codigo de salida 0/1 segun falten mods o no.
-- Los **tres mods propios** estan compilados en local con Gradle 8.10 y JDK 21 contra NeoForge 21.1.262: `optics-mod` (`dist/stoneoptics-0.2.0.jar`), `crank-dynamo` (`dist/stoneindustry-0.1.0.jar`) y `pharmacy-mod` (`build/libs/stonepharmacy-0.1.0.jar`). No se bajan de ninguna web.
+- `herramientas/instalar.mjs` **probado de verdad**: resuelve versiones contra la API de Modrinth, descarga, comprueba la carpeta y devuelve codigo 0/1 segun falten mods o no. **Solo baja los 20 que estan en Modrinth**; de los 18 que solo viven en CurseForge saca la lista con su enlace, porque sus licencias no permiten bajarlos por detras.
+- Los **tres mods propios** se compilan aqui con JDK 21 contra NeoForge 21.1.262: `./gradlew build` dentro de cada carpeta (el wrapper va incluido, no hay que instalar Gradle). Los `.jar` salen en `dist/` o `build/libs/` y **no se versionan**: se compilan.
+- Los numeros de las pruebas de abajo son de su fecha. La lista del instalador ha ido creciendo (hoy **38 entradas: 20 automaticas y 18 a mano**), asi que los "34 mods" de noviembre y los "41 jars" del servidor no hay que cuadrarlos con lo que diga hoy el script.
 - **Pack arrancado de verdad** (13/11/2026): servidor NeoForge 21.1.262 dedicado, Java 21, 34 jars bajados de cero por el propio instalador. `Done (2.1s)`, sin dependencias rotas, el datapack lo detecto solo (`file/panel-del-reino.zip (world)`) y `/function swr:panel/informe` se ejecuto sin error. Quedan 4 recetas de compatibilidad de Thirst que el autor no actualizo (`Parsing error ... thirst:compat/...`): no rompen el arranque, solo no cargan esas recetas.
 - Lo que esos arranques destaparon, ya corregido: faltaban **6 dependencias** (BlockUI, FTB Library, FTB Teams, Architectury API, GlitchCore y MineColonyTax), faltaba **Patchouli** para el libro de War 'N Taxes, y **CC: Tweaked 1.121.0 pide NeoForge 21.1.265+**, asi que se fija la 1.120.2.
 - **Cliente arrancado de verdad** (13/11/2026): vanilla 1.21.1 + NeoForge 21.1.262, 34 mods, `Setting user: Teo`, `Sound engine started` y menu principal sin ningun error propio del pack (el menu cuenta **40 mods** porque suma los integrados de NeoForge).
@@ -85,6 +104,7 @@ Petrificar → revivir aldeanos → cada uno da un oficio → la colonia crece s
 - Los dos jugadores necesitan **las mismas versiones**. Si no, Minecraft corta la conexion con "mod mismatch", y eso no es un bug.
 - `online-mode=false` **solo** tiene sentido en un servidor privado con whitelist. Publico y sin whitelist es regalar el mundo.
 - El datapack **se comprueba solo**: `./comprobar_todo.sh` (tests, estructura, JSON, mcfunctions e ids) y el zip se regenera al final. Ver `LEEME.md` §9.
+- Si vas a tocar algo, empieza por [`CONTRIBUTING.md`](CONTRIBUTING.md): dice como comprobar y que no se acepta (sobre todo, nada de bajar mods de CurseForge por detras).
 
 ## Creditos y legal
 

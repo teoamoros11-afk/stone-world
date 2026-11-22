@@ -19,7 +19,9 @@ Base: **Minecraft 1.21.1 + NeoForge** (única combinación donde conviven la pet
 
 **Sí.** Los mods que hacen la gracia (Dr. Stone KoS, MineColonies, Millénaire, Create) son **cliente + servidor**: añaden bloques y pantallas, y un cliente vanilla no puede conectarse. Lo que no tiene que hacer es *montarlo*: importa el `.zip` del perfil y la app le baja las versiones exactas. Los pasos están en `SEGUNDO_JUGADOR.md`; si prefieres no hacerlos a mano, `IA.md` deja que los haga un agente.
 
-Ojo: **la mitad de estos mods no están en Modrinth** (Millénaire, MineColonies, FTB Quests, Immersive Engineering, Serene Seasons y las dependencias de MineColonies dan 404; comprobado hoy). Todos están en CurseForge, así que ese es el gestor del pack.
+Ojo: **la mitad de estos mods no están en Modrinth** (Millénaire, MineColonies, FTB Quests, Immersive Engineering, Serene Seasons y las dependencias de MineColonies dan 404; comprobado). Todos están en CurseForge, así que ese es el gestor del pack.
+
+Y ojo con lo que baja el instalador: `--download` **solo trae los de Modrinth** (20). Los 18 que solo viven en CurseForge los imprime con su página y se cogen a mano, porque son obra de sus autores y varios son ARR; bajar sus archivos por el CDN sin pasar por su web no es algo que este proyecto haga por ti.
 
 | Método | Quién hace qué |
 |---|---|

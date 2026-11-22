@@ -1,0 +1,17 @@
+* text=auto eol=lf
+
+# Los scripts tienen que llegar con LF a Linux/macOS aunque se clonen en Windows.
+*.sh   text eol=lf
+*.mjs  text eol=lf
+*.py   text eol=lf
+gradlew text eol=lf
+*.bat  text eol=crlf
+
+# Lo que no es texto: nada de conversiones.
+*.png  binary
+*.jpg  binary
+*.ogg  binary
+*.zip  binary
+*.jar  binary
+*.nbt  binary
+*.svg  text eol=lf

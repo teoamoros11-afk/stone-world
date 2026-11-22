@@ -29,17 +29,18 @@ optics-mod/
         └── data/stoneoptics/recipe/     las tres recetas (formato 1.21: "id", no "item")
 ```
 
-## Compilar (probado el 17/11/2026)
+## Compilar
 
-Hace falta **Gradle 8.10 y un JDK 21 que tenga `javac`**. Ojo: en este equipo el `java` del sistema es un JRE 21 (`/usr/lib64/jvm/java-21-openjdk-21/bin` solo trae `java`, `jfr`, `keytool`, `rmiregistry`), y Gradle falla con «Cannot find a Java installation matching languageVersion=21» hasta apuntarle un JDK completo.
+Solo hace falta **un JDK 21 que tenga `javac`**: Gradle va dentro del repo, en el wrapper.
 
 ```bash
-cd minecraft/stone-world/optics-mod
-export JAVA_HOME=/ruta/al/jdk-21            # Temurin 21.0.13 aquí
-gradle --no-daemon -Porg.gradle.java.installations.paths=$JAVA_HOME build
+cd optics-mod
+./gradlew build          # Windows: gradlew.bat build
 ```
 
-Resultado medido: **BUILD SUCCESSFUL in 5m 37s** y `build/libs/stoneoptics-0.1.0.jar` de **10018 B**. La primera compilación descarga NeoForge y descompila Minecraft (unos 1,5 GB de caché); tarda y pide RAM, no es un error.
+El jar sale en `build/libs/stoneoptics-0.2.0.jar` (unos 18 KB). La primera compilación descarga NeoForge y descompila Minecraft (1,5 GB de caché en `~/.gradle`); tarda y pide RAM, no es un error.
+
+Si `java -version` dice 21 pero Gradle se queja de que no encuentra un JDK, es que tienes un **JRE** y no un JDK: apunta a uno completo con `export JAVA_HOME=/ruta/al/jdk-21` (Temurin, por ejemplo) antes de lanzar el wrapper.
 
 ## Qué está verificado y qué no
 

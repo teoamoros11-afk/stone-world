@@ -2,7 +2,9 @@
 
 Todo para **Minecraft 1.21.1 + NeoForge 21.1.x**. Ningún enlace de esta lista es una descarga directa: son páginas de los autores, porque los mods no se redistribuyen.
 
-> **Esta lista es el respaldo, no el camino normal.** `node herramientas/instalar.mjs --download` baja los 34 solo y `--check` confirma con un número. Si acabas aquí, es porque algo falló: entonces sí, abre la página y elige el archivo que diga **1.21.1** y **NeoForge**. Si solo hay "Forge", no sirve.
+> **La lista está dividida en dos.** Los que están en **Modrinth** los baja el instalador solo (`--download`); los que solo viven en **CurseForge** hay que cogerlos a mano desde su página, porque son obra de sus autores y varios son "todos los derechos reservados": este proyecto enlaza, no redistribuye ni se salta su web.
+>
+> En cualquier caso, elige siempre el archivo que diga **1.21.1** y **NeoForge**. Si solo hay "Forge", no sirve.
 
 ## Núcleo de Dr. Stone
 

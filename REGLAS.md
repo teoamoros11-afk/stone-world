@@ -64,7 +64,7 @@ El pack trae **FTB Quests** con arbol real: **5 capitulos y 34 misiones** encade
 
 ## 4. Preparacion (30-45 min, antes de jugar en serio)
 
-1. Instalar el pack (34 mods, NeoForge 21.1.262): [`IA.md`](IA.md) o [`GUIA_TLAUNCHER.md`](GUIA_TLAUNCHER.md).
+1. Instalar el pack (NeoForge 21.1.262): [`IA.md`](IA.md) o [`GUIA_TLAUNCHER.md`](GUIA_TLAUNCHER.md).
 2. RAM 6144 MB y los ajustes de rendimiento de `GUIA_TLAUNCHER.md` seccion 2.5.
 3. Crear el mundo en Hard y aplicar las reglas de la seccion 2.
 4. Copiar `panel-del-reino.zip` a `saves/<mundo>/datapacks/` y entrar.

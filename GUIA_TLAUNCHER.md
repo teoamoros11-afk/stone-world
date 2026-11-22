@@ -3,6 +3,20 @@
 Para el segundo jugador, con TLauncher ya instalado y el `.zip` descargado.
 Sigue el orden. No saltes al paso 6 sin haber pasado el 5.
 
+> ## Aviso: esta no es la vía que el proyecto recomienda
+>
+> La guía existe porque el pack **se probó de verdad** con TLauncher y mucha gente
+ya lo tiene instalado, así que funciona. Pero TLauncher es un launcher cerrado que
+> se asocia a cuentas no premium y a instaladores con adware, y no queremos que eso
+> sea lo primero que aprende quien llega aquí.
+>
+> **Lo recomendado:** el launcher oficial de Minecraft, creando una instalación de
+> NeoForge 21.1.262 aparte, o **Prism Launcher / MultiMC**, que hacen lo mismo con
+> un perfil por juego, sin tocar el `.minecraft` de siempre y sin historias. Los
+> pasos 3 y 4 son los únicos que cambian: en Prism se crea una instancia
+> `1.21.1 + NeoForge 21.1.262` y los mods van en `.minecraft/mods` de **esa**
+> instancia.
+
 > ¿Prefieres que lo monte un agente de terminal por ti? → [`IA.md`](IA.md).
 
 ---
@@ -164,7 +178,7 @@ Esto es lo que más se equivoca: **el datapack es del mundo, no del jugador.**
 | Crashea al añadir un mod | Autonomous Colonies o versión cruzada | quita ese mod y arranca |
 | "Mod mismatch" al conectar | versión distinta de un mod o de NeoForge | compara tu carpeta `mods` con la del anfitrión |
 | Arranca vanilla | lanzaste la versión sin NeoForge | selecciona el perfil NeoForge |
-| Arranca sin mods aunque haya 34 jars | los jars estan en otra carpeta que la del `--gameDir` | mira `--gameDir` en `logs/latest.log` y pon los mods ahi |
+| Arranca sin mods aunque los jars esten | los jars estan en otra carpeta que la del `--gameDir` | mira `--gameDir` en `logs/latest.log` y pon los mods ahi |
 | No hay aldeas de Millénaire | config del mod | activa `villages` en su config |
 | `/function` no existe | datapack no cargado o no eres OP | lo pone el anfitrión; `/reload` y `/datapack list` |
 | Crashea con `ResolutionException: Modules minecraft and _1._21_1 export package net.minecraft.client` | el lanzador metió el `.jar` vanilla en el classpath junto a NeoForge | selecciona y arranca el perfil `neoforge-21.1.262` tal cual, sin jar suelto de 1.21.1 |
@@ -172,6 +186,8 @@ Esto es lo que más se equivoca: **el datapack es del mundo, no del jugador.**
 
 ## Aviso
 
-Probado con el juego abierto hasta el menú principal: el instalador baja los 34 desde cero, un servidor NeoForge 21.1.262 arranca con ellos en 2,1 s con el datapack detectado (`file/panel-del-reino.zip (world)`) y el cliente carga los 34 mods sin errores propios del pack.
+Probado con el juego abierto hasta el menú principal: un servidor NeoForge 21.1.262 arranca en 2,1 s con el datapack detectado (`file/panel-del-reino.zip (world)`) y el cliente carga los mods sin errores propios del pack.
 
-También **dentro de un mundo** (17/11/2026): mundo copiado a un gameDir aparte, los 34 mods y fps leídos con el overlay F3 del propio juego. Con los ajustes de §2.5 a 1280x720: **mediana 59,5 fps quieto y 63 andando**, mínimos de 28-36 en los picos de carga de chunks y de colonias. Si algo no coincide, manda el `latest.log` y se corrige.
+> Ojo con el recuento: en esa prueba (13/11/2026) el instalador bajaba **34 mods** de Modrinth y CurseForge. Ahora baja solo los **20 de Modrinth** y los 18 de CurseForge se cogen a mano, así que el total de jars que verás es el mismo, pero el `--download` no los pone todos.
+
+También **dentro de un mundo** (17/11/2026): mundo copiado a un gameDir aparte, los mods de entonces y fps leídos con el overlay F3 del propio juego. Con los ajustes de §2.5 a 1280x720: **mediana 59,5 fps quieto y 63 andando**, mínimos de 28-36 en los picos de carga de chunks y de colonias. Si algo no coincide, manda el `latest.log` y se corrige.

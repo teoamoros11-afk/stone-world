@@ -17,15 +17,14 @@ No cura la petrificación: eso es el fluido milagroso de Dr. Stone KoS. Esta jer
 
 ## Compilar
 
-Igual que `optics-mod` y `crank-dynamo`: hace falta **Gradle 8.10 y un JDK 21 con `javac`** (el `java` del sistema en este equipo es un JRE y Gradle falla con «Cannot find a Java installation matching languageVersion=21»).
+Igual que `optics-mod` y `crank-dynamo`: hace falta **un JDK 21 con `javac`**, nada más (Gradle va en el wrapper).
 
 ```bash
-export JAVA_HOME=/var/tmp/build-env/jdk21
-/var/tmp/build-env/gradle-8.10/bin/gradle --no-daemon \
-  -Porg.gradle.java.installations.paths=$JAVA_HOME build
+cd pharmacy-mod
+./gradlew build          # Windows: gradlew.bat build
 ```
 
-El jar sale en `build/libs/stonepharmacy-0.1.0.jar` (8,7 KB) y se copia a `mods/`.
+El jar sale en `build/libs/stonepharmacy-0.1.0.jar` (8,7 KB) y se copia a `mods/`. Si Gradle se queja de que no encuentra el JDK, tienes un JRE y no un JDK: `export JAVA_HOME=/ruta/al/jdk-21`.
 
 ## Estado verificado
 
