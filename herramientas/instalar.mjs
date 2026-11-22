@@ -7,7 +7,7 @@
  * Uso:
  *   node herramientas/instalar.mjs                  dice que hay que hacer, no toca nada
  *   node herramientas/instalar.mjs --check          revisa la carpeta mods y dice que falta
- *   node herramientas/instalar.mjs --download       baja los 34 mods (Modrinth y CurseForge)
+ *   node herramientas/instalar.mjs --download       baja los de Modrinth y lista los de CurseForge
  *   node herramientas/instalar.mjs --mc-dir "RUTA"  usa otra carpeta de Minecraft
  *   node herramientas/instalar.mjs --download --forzar  baja aunque haya mods de otra instancia
  *
@@ -50,30 +50,31 @@ const MODRINTH = [
   { slug: 'common-storage-lib',    nombre: 'Common Storage Lib',  clave: /common.?storage/i,           version: null },
 ];
 
-// Solo en CurseForge. La API oficial pide clave, pero cfwidget expone el listado de
-// archivos y el CDN de Forge no pide nada: se pueden bajar solos.
-// cf = slug de la pagina; cfId = id de proyecto (cuando el slug no resuelve en cfwidget).
+// Solo en CurseForge: NO se descargan solos, a proposito. La mayoria son "todos los
+// derechos reservados" y bajar sus archivos por el CDN saltandose su pagina no es
+// algo que este proyecto deba hacer por ti. Aqui solo viven el nombre, el patron con
+// el que se reconocen en la carpeta mods/ y la pagina donde se cogen a mano.
 const MANUAL = [
-  { nombre: 'MineColonies',              version: '1.1.1403', clave: /minecolonies/i,          cf: 'minecolonies',        url: 'https://www.curseforge.com/minecraft/mc-mods/minecolonies' },
-  { nombre: 'Structurize',               version: '',         clave: /structurize/i,           cf: 'structurize',         url: 'https://www.curseforge.com/minecraft/mc-mods/structurize' },
-  { nombre: 'Domum Ornamentum',          version: '',         clave: /domum.?ornamentum/i,     cf: 'domum-ornamentum',    url: 'https://www.curseforge.com/minecraft/mc-mods/domum-ornamentum' },
-  { nombre: 'BlockUI',                   version: '',         clave: /blockui/i,               cfId: 522992,              url: 'https://www.curseforge.com/minecraft/mc-mods/blockui' },
-  { nombre: 'Multi-Piston',              version: '',         clave: /multi.?piston/i,         cf: 'multi-piston',        url: 'https://www.curseforge.com/minecraft/mc-mods/multi-piston' },
-  { nombre: 'Dr. Stone: Kingdom of Science', version: '2.0.4', clave: /dr.?stone/i,          cf: 'dr-stone-kingdom-of-science', url: 'https://www.curseforge.com/minecraft/mc-mods/dr-stone-kingdom-of-science' },
-  { nombre: "Kleider's Custom Renderer", version: '',         clave: /kleider/i,               cfId: 682065,              url: 'https://www.curseforge.com/minecraft/mc-mods/kleiders-custom-renderer' },
-  { nombre: 'Millenaire',                version: '9.1.0',    clave: /mill[eé]naire/i,         cf: 'millenaire',          url: 'https://www.curseforge.com/minecraft/mc-mods/millenaire' },
-  { nombre: 'Colony Autopilot',          version: '1.3.4',    clave: /colony.?autopilot/i,     cf: 'colonyautopilot',     url: 'https://www.curseforge.com/minecraft/mc-mods/colonyautopilot' },
-  { nombre: 'Autonomous Colonies',       version: '0.4.3',    clave: /autonomous.?colonies/i,  cf: 'autonomous-colonies', url: 'https://www.curseforge.com/minecraft/mc-mods/autonomous-colonies' },
+  { nombre: 'MineColonies',              version: '1.1.1403', clave: /minecolonies/i,        url: 'https://www.curseforge.com/minecraft/mc-mods/minecolonies' },
+  { nombre: 'Structurize',               version: '',         clave: /structurize/i,         url: 'https://www.curseforge.com/minecraft/mc-mods/structurize' },
+  { nombre: 'Domum Ornamentum',          version: '',         clave: /domum.?ornamentum/i,    url: 'https://www.curseforge.com/minecraft/mc-mods/domum-ornamentum' },
+  { nombre: 'BlockUI',                   version: '',         clave: /blockui/i,              url: 'https://www.curseforge.com/minecraft/mc-mods/blockui' },
+  { nombre: 'Multi-Piston',              version: '',         clave: /multi.?piston/i,        url: 'https://www.curseforge.com/minecraft/mc-mods/multi-piston' },
+  { nombre: 'Dr. Stone: Kingdom of Science', version: '2.0.4', clave: /dr.?stone/i, url: 'https://www.curseforge.com/minecraft/mc-mods/dr-stone-kingdom-of-science' },
+  { nombre: "Kleider's Custom Renderer", version: '',         clave: /kleider/i,              url: 'https://www.curseforge.com/minecraft/mc-mods/kleiders-custom-renderer' },
+  { nombre: 'Millenaire',                version: '9.1.0',    clave: /mill[eé]naire/i,          url: 'https://www.curseforge.com/minecraft/mc-mods/millenaire' },
+  { nombre: 'Colony Autopilot',          version: '1.3.4',    clave: /colony.?autopilot/i,     url: 'https://www.curseforge.com/minecraft/mc-mods/colonyautopilot' },
+  { nombre: 'Autonomous Colonies',       version: '0.4.3',    clave: /autonomous.?colonies/i, url: 'https://www.curseforge.com/minecraft/mc-mods/autonomous-colonies' },
   // War 'N Taxes: sin este, Autonomous Colonies impide arrancar el servidor
-  { nombre: "MineColonies: War 'N Taxes", version: '5.1.1',    clave: /warntaxes|minecolonytax/i, cf: 'minecolonies-war-n-taxes', url: 'https://www.curseforge.com/minecraft/mc-mods/minecolonies-war-n-taxes' },
-  { nombre: 'Colony Dashboard',          version: '0.2.0',    clave: /colony.?dashboard/i,     cf: 'colony-dashboard',    url: 'https://www.curseforge.com/minecraft/mc-mods/colony-dashboard' },
+  { nombre: "MineColonies: War 'N Taxes", version: '5.1.1',    clave: /warntaxes|minecolonytax/i, url: 'https://www.curseforge.com/minecraft/mc-mods/minecolonies-war-n-taxes' },
+  { nombre: 'Colony Dashboard',          version: '0.2.0',    clave: /colony.?dashboard/i,    url: 'https://www.curseforge.com/minecraft/mc-mods/colony-dashboard' },
   // el jar se llama createaddition-*, sin "craft"
-  { nombre: 'Create: Crafts & Additions', version: '',        clave: /craft.*additions|createaddition/i, cfId: 439890,  url: 'https://www.curseforge.com/minecraft/mc-mods/create-crafts-additions' },
-  { nombre: 'Immersive Engineering',     version: '',         clave: /immersive.?engineering/i, cf: 'immersive-engineering', url: 'https://www.curseforge.com/minecraft/mc-mods/immersive-engineering' },
-  { nombre: 'FTB Quests',                version: '',         clave: /ftb.?quests/i,           cfId: 289412,              url: 'https://www.curseforge.com/minecraft/mc-mods/ftb-quests-forge' },
-  { nombre: 'FTB Library (NeoForge)',    version: '2101.1.39', clave: /ftb.?library/i,         cfId: 404465,              url: 'https://www.curseforge.com/minecraft/mc-mods/ftb-library-forge' },
-  { nombre: 'FTB Teams (NeoForge)',      version: '2101.1.12', clave: /ftb.?teams/i,           cfId: 404468,              url: 'https://www.curseforge.com/minecraft/mc-mods/ftb-teams-forge' },
-  { nombre: 'Serene Seasons',            version: '',         clave: /serene.?seasons/i,       cf: 'serene-seasons',      url: 'https://www.curseforge.com/minecraft/mc-mods/serene-seasons' },
+  { nombre: 'Create: Crafts & Additions', version: '',        clave: /craft.*additions|createaddition/i,  url: 'https://www.curseforge.com/minecraft/mc-mods/create-crafts-additions' },
+  { nombre: 'Immersive Engineering',     version: '',         clave: /immersive.?engineering/i, url: 'https://www.curseforge.com/minecraft/mc-mods/immersive-engineering' },
+  { nombre: 'FTB Quests',                version: '',         clave: /ftb.?quests/i,              url: 'https://www.curseforge.com/minecraft/mc-mods/ftb-quests-forge' },
+  { nombre: 'FTB Library (NeoForge)',    version: '2101.1.39', clave: /ftb.?library/i,              url: 'https://www.curseforge.com/minecraft/mc-mods/ftb-library-forge' },
+  { nombre: 'FTB Teams (NeoForge)',      version: '2101.1.12', clave: /ftb.?teams/i,              url: 'https://www.curseforge.com/minecraft/mc-mods/ftb-teams-forge' },
+  { nombre: 'Serene Seasons',            version: '',         clave: /serene.?seasons/i,      url: 'https://www.curseforge.com/minecraft/mc-mods/serene-seasons' },
 ];
 
 // ---------------------------------------------------------------- utilidades
@@ -118,32 +119,6 @@ async function resolver(mod) {
   const f = v.files.find((x) => x.primary) ||
     v.files.find((x) => !/(sources|javadoc|dev|api)\.jar$/i.test(x.filename)) || v.files[0];
   return { version: v.version_number, file: f };
-}
-
-// CurseForge: sin clave de API. cfwidget da el listado con versiones y el CDN
-// edge.forgecdn.net sirve el archivo directamente.
-const CFW = 'https://api.cfwidget.com';
-
-async function resolverCurseForge(mod) {
-  const base = mod.cfId ? String(mod.cfId) : `minecraft/mc-mods/${mod.cf}`;
-  let datos = null;
-  for (let intento = 0; intento < 3; intento++) {
-    const r = await fetch(`${CFW}/${base}`, { headers: { 'User-Agent': UA } });
-    if (r.ok) { datos = await r.json(); break; }
-    if (intento === 2) throw new Error(`cfwidget HTTP ${r.status}`);
-    await new Promise((ok) => setTimeout(ok, 1500));
-  }
-  const todos = Array.isArray(datos.files) ? datos.files : [];
-  let candidatos = todos.filter((f) => Array.isArray(f.versions) && f.versions.includes(GAME)
-    && (f.versions.includes('NeoForge') || f.versions.includes('Forge')));
-  if (!candidatos.length) candidatos = todos.filter((f) => Array.isArray(f.versions) && f.versions.includes(GAME));
-  if (!candidatos.length) throw new Error('sin build 1.21.1');
-  candidatos.sort((a, b) => new Date(b.uploaded_at) - new Date(a.uploaded_at));
-  const fijado = mod.version && candidatos.find((f) => f.name.toLowerCase().includes(mod.version.toLowerCase()));
-  const f = fijado || candidatos.find((x) => x.type === 'release') || candidatos[0];
-  const id = f.id;
-  const url = `https://edge.forgecdn.net/files/${Math.floor(id / 1000)}/${id % 1000}/${encodeURIComponent(f.name)}`;
-  return { version: f.name.replace(/\.jar$/i, ''), file: { filename: f.name, url } };
 }
 
 async function bajar(url, destino) {
@@ -247,33 +222,34 @@ async function descargar() {
   console.log(`Descargando en ${MODS}\n`);
   const fallos = [];
 
-  const bajarLista = async (lista, resolver, donde) => {
-    for (const mod of lista) {
-      try {
-        const { version, file } = await resolver(mod);
-        const destino = path.join(MODS, file.filename);
-        if (fs.existsSync(destino)) {
-          console.log(`ya esta      ${file.filename}`);
-          continue;
-        }
-        process.stdout.write(`bajando      ${file.filename} (${version})\n`);
-        await bajar(file.url, destino);
-        console.log('             ok');
-      } catch (e) {
-        fallos.push({ mod, donde, error: e.message });
-        console.log(`no se pudo   ${mod.nombre} -> ${e.message}`);
+  for (const mod of MODRINTH) {
+    try {
+      const { version, file } = await resolver(mod);
+      const destino = path.join(MODS, file.filename);
+      if (fs.existsSync(destino)) {
+        console.log(`ya esta      ${file.filename}`);
+        continue;
       }
+      process.stdout.write(`bajando      ${file.filename} (${version})\n`);
+      await bajar(file.url, destino);
+      console.log('             ok');
+    } catch (e) {
+      fallos.push({ mod, error: e.message });
+      console.log(`no se pudo   ${mod.nombre} -> ${e.message}`);
     }
-  };
+  }
 
-  await bajarLista(MODRINTH, resolver, 'Modrinth');
-  await bajarLista(MANUAL, resolverCurseForge, 'CurseForge');
+  console.log(`\n-- a mano: ${MANUAL.length} mods solo estan en CurseForge --`);
+  console.log('No se bajan solos porque sus licencias no lo permiten. Entra, pulsa Download');
+  console.log(`y elige la version para ${GAME} + ${LOADER}:`);
+  for (const mod of MANUAL) {
+    console.log(`  ${mod.nombre}${mod.version ? ' ' + mod.version : ''}\n    ${mod.url}`);
+  }
 
   if (fallos.length) {
-    console.log('\nEstos hay que bajarlos a mano:');
+    console.log('\nDe Modrinth no se pudo bajar:');
     for (const f of fallos) {
-      console.log(`  ${f.mod.nombre} (${f.donde}): ${f.error}`);
-      if (f.mod.url) console.log(`    ${f.mod.url}`);
+      console.log(`  ${f.mod.nombre}: ${f.error}\n    https://modrinth.com/mod/${f.mod.slug}`);
     }
   }
 }
@@ -298,9 +274,9 @@ async function principal() {
 
   if (!flag('--check')) {
     console.log('\nQue hacer ahora:');
-    console.log('  node herramientas/instalar.mjs --download   baja los 34 mods');
+    console.log('  node herramientas/instalar.mjs --download   baja los de Modrinth y lista los de CurseForge');
     console.log('  node herramientas/instalar.mjs --check      vuelve a mirar que falta');
-    console.log('\nSi alguno falla, aqui estan sus paginas:');
+    console.log('\nLos que hay que bajar a mano, con su pagina:');
     for (const m2 of MANUAL) console.log(`  ${m2.nombre}${m2.version ? ' ' + m2.version : ''}\n    ${m2.url}`);
   }
 

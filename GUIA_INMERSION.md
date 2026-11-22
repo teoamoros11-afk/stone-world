@@ -30,7 +30,7 @@ Estos son los números reales de la máquina (sacados del sistema, no de la caja
 
 **Objetivo realista:** 55-70 fps a 1280x720 con distancia de render 8, y mínimos por encima de 40 al pasar cerca de una colonia. Si consigues eso, el juego se siente fluido y no hay que tocar nada más.
 
-**Lo que da de verdad este equipo** (medido el 17/11/2026 con los 34 mods, en un gameDir aparte con una copia del mundo, para no tocar partidas): 1280x720, render 8, simulación 8, Gráficos Fabulosos, sin vsync, partículas mínimas, Embeddium y `-Xms3G -Xmx4G`.
+**Lo que da de verdad este equipo** (medido el 17/11/2026 con los mods del pack, en un gameDir aparte con una copia del mundo, para no tocar partidas): 1280x720, render 8, simulación 8, Gráficos Fabulosos, sin vsync, partículas mínimas, Embeddium y `-Xms3G -Xmx4G`.
 
 | Situación | Muestras (fps) | Mediana | Mínimo |
 |---|---|---|---|
@@ -43,7 +43,7 @@ Cómo leerlo: la mediana es lo que vas a sentir de verdad; los mínimos no son l
 
 ## 1. Paso 1 — Hacer sitio en el disco
 
-Con 6,1 GB libres vas justo: los 34 mods ocupan ~1 GB (medido: 161 MB de jars más librerías), el mundo crece rápido y Minecraft necesita espacio temporal al arrancar.
+Con 6,1 GB libres vas justo: los mods ocupan ~1 GB (medido: 161 MB de jars más librerías), el mundo crece rápido y Minecraft necesita espacio temporal al arrancar.
 
 ```bash
 # qué está ocupando (tarda unos segundos)
@@ -59,12 +59,13 @@ Antes de borrar nada: **mira la lista**. Lo seguro de quitar son zips ya descomp
 
 ---
 
-## 2. Paso 2 — Instalar el pack (34 mods)
+## 2. Paso 2 — Instalar el pack
 
 ```bash
 cd ~/stone-world          # o donde tengas el repo clonado
 node herramientas/instalar.mjs --check     # dice qué falta, no descarga nada
-node herramientas/instalar.mjs --download  # baja los 34
+node herramientas/instalar.mjs --download  # baja los de Modrinth y lista los de CurseForge
+# los de CurseForge, a mano desde la página que imprime (1.21.1 + NeoForge)
 node herramientas/instalar.mjs --check     # ahora debe salir en verde
 
 # con TLauncher los mods no van en ~/.minecraft/mods sino en la carpeta DEL perfil:
@@ -91,7 +92,7 @@ python3 herramientas/generar_mapa.py
 - **Nuevo en esta versión: Embeddium 1.0.15** (`embeddium-1.0.15+mc1.21.1.jar`). Es un mod de render: reescribe cómo se dibujan los chunks y en gráficas integradas suele **duplicar los fps**. Si algún día ves pantalla negra al entrar a un mundo con Create, quita Embeddium antes que Create.
 - Arranca **una vez** y cierra: así se generan las carpetas `config/` que luego se ajustan.
 
-**Comprobación de que está bien:** el menú principal debe decir **NeoForge 21.1.262** abajo a la izquierda y la lista de mods (Mods, en el menú) debe tener los 34 sin ningún nombre en rojo.
+**Comprobación de que está bien:** el menú principal debe decir **NeoForge 21.1.262** abajo a la izquierda y la lista de mods (Mods, en el menú) debe tener todos los del pack y ningún nombre en rojo.
 
 ---
 

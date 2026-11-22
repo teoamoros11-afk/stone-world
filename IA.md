@@ -2,22 +2,19 @@
 
 Esta pagina es para quien quiera que un agente de terminal (Freebuff, Claude Code, Codex, OpenCode…) le monte el pack **sin ir abriendo 25 pestanas a mano**.
 
-La idea: el agente baja **los 34 mods solo**, sin abrir una sola pagina, y comprueba el resultado con un script que devuelve un numero. Nada de "ya esta instalado, confia en mi".
+La idea: el agente baja solo **los mods que estan en Modrinth**, te deja la lista de los que hay que coger a mano en CurseForge con su enlace, y comprueba el resultado con un script que devuelve un numero. Nada de "ya esta instalado, confia en mi".
 
 ---
 
-## 1. Instala Freebuff (una vez)
+## 1. Ten un agente de terminal (una vez)
 
-Requiere **Node.js 18 o superior** (`node --version`). Si no lo tienes: nodejs.org, version LTS.
+Vale cualquiera que sepa ejecutar comandos: **Freebuff**, Claude Code, Codex, OpenCode… Los ejemplos de abajo usan Freebuff porque se instala con npm y no pide cuenta.
+
+Necesitas **Node.js 18 o superior** (`node --version`), aunque solo sea para el instalador. Si no lo tienes: nodejs.org, version LTS.
 
 ```bash
 npm install -g freebuff
-```
-
-Comprueba que responde:
-
-```bash
-freebuff --version
+freebuff --version   # debe responder algo
 ```
 
 ## 2. Prepara una carpeta y entra
@@ -49,11 +46,13 @@ Sigue estos pasos en orden sin pedirme permiso entre uno y otro:
 4. Ejecuta: node herramientas/instalar.mjs --check
    y ensename el resumen (cuantos mods faltan).
 5. Ejecuta: node herramientas/instalar.mjs --download
-   Baja los 34: Modrinth por su API y CurseForge por cfwidget + edge.forgecdn.net (ninguno
-   de los dos pide clave). Tarda unos minutos y ocupa ~200 MB. Si alguno falla, no lo
-   inventes: apuntalo y sigue; el script te dara su pagina.
-6. Vuelve a ejecutar node herramientas/instalar.mjs --check. Tiene que decir "0 faltan".
-   Si queda alguno, abre su pagina, pulsamelo y avisame del archivo exacto (1.21.1 + NeoForge).
+   Baja solo los que estan en Modrinth, por su API publica; tarda unos minutos y ocupa
+   ~100 MB. Al final imprime la lista de los que solo existen en CurseForge con su pagina:
+   esos NO se bajan solos porque sus licencias no lo permiten. Si alguno de Modrinth falla,
+   no lo inventes: apuntalo y sigue; el script te dara su enlace.
+6. Abreme las paginas de los mods de CurseForge que falten y dime que pulse Download en cada
+   una (1.21.1 + NeoForge). Cuando los tenga todos, vuelve a ejecutar
+   node herramientas/instalar.mjs --check: tiene que decir "0 faltan".
 7. Si usa TLauncher, averigua la carpeta real de juego: arranca el perfil una vez y busca
    --gameDir en logs/latest.log. Esa ruta es la que manda. Si dice ...\.minecraft, los mods
    van en .minecraft\mods; si dice ...\.minecraft\versions\<perfil>, van en la subcarpeta
@@ -79,8 +78,9 @@ Reglas:
 
 | Cosa | Por que | Quien la hace |
 |---|---|---|
-| Redistribuir los .jar | Las licencias de los mods no lo permiten: se enlazan, no se copian | Nadie: el script los baja del origen |
-| Crear el perfil en TLauncher | Es un programa cerrado, sin linea de comandos | Tu: TL MODS → NeoForge → 1.21.1 |
+| Redistribuir los .jar | Las licencias de los mods no lo permiten: se enlazan, no se copian | Nadie: Modrinth los sirve con su API; los de CurseForge los bajas tu |
+| Bajar los de CurseForge solo | Son ARR y su CDN no es una API publica: saltarselo no es plan | Tu: Download en su pagina |
+| Crear el perfil en un launcher cerrado | No siempre hay linea de comandos | Tu: el perfil NeoForge 1.21.1 (o usa Prism/MultiMC) |
 | Subir la RAM | Ajuste del launcher | Tu: Configuracion → 6144 MB |
 | Probar que el juego arranca | Hace falta abrir Minecraft | Tu: menu **Mods** |
 
@@ -100,4 +100,4 @@ Y para revisar que el datapack esta donde toca: el propio `--check` mira `saves/
 
 ## 6. Aviso honesto
 
-El script y el pack estan probados con el juego abierto: instalacion desde cero (34 jars), servidor NeoForge 21.1.262 con el datapack cargado y cliente hasta el menu principal con los 34 mods. Tambien **dentro de un mundo** (17/11/2026): mundo copiado a un gameDir aparte, 34 mods cargados y fps medidos con el overlay F3 del propio juego: mediana 59,5 fps quieto y 63 andando a 1280x720, minimos 28-36 en los picos de chunks y colonias. Si el agente se atasca, el log util es `logs/latest.log` de la instancia, y lo que hay que mirar es el primer `Caused by` de arriba abajo.
+El script y el pack estan probados con el juego abierto: instalacion desde cero, servidor NeoForge 21.1.262 con el datapack cargado y cliente hasta el menu principal con todos los mods. En aquella prueba (13/11/2026) el instalador bajaba tambien los de CurseForge; hoy esos 18 van a mano, con su pagina, y por eso el `--download` no termina en "0 faltan" hasta que los tengas. Tambien **dentro de un mundo** (17/11/2026): mundo copiado a un gameDir aparte, 34 mods cargados y fps medidos con el overlay F3 del propio juego: mediana 59,5 fps quieto y 63 andando a 1280x720, minimos 28-36 en los picos de chunks y colonias. Si el agente se atasca, el log util es `logs/latest.log` de la instancia, y lo que hay que mirar es el primer `Caused by` de arriba abajo.
