@@ -14,18 +14,16 @@ manivela**, no con una central.
 
 Guarda su estado en NBT (`TicksGirando`, `Energia`), así que no se pierde al recargar el chunk.
 
-## Compilar (probado el 17/11/2026)
+## Compilar
 
-Igual que `optics-mod`: hace falta **Gradle 8.10 y un JDK 21 con `javac`**.
+Igual que `optics-mod`: hace falta **un JDK 21 con `javac`**, nada más (Gradle va en el wrapper).
 
 ```bash
-cd minecraft/stone-world/crank-dynamo
-export JAVA_HOME=/ruta/al/jdk-21
-gradle --no-daemon -Porg.gradle.java.installations.paths=$JAVA_HOME build
+cd crank-dynamo
+./gradlew build          # Windows: gradlew.bat build
 ```
 
-Resultado medido: **BUILD SUCCESSFUL in 11s** y `build/libs/stoneindustry-0.1.0.jar` de
-**13357 B**. La copia lista está en `dist/`.
+El jar sale en `build/libs/stoneindustry-0.1.0.jar` (unos 13 KB). Si Gradle no encuentra el JDK, apunta a uno completo con `export JAVA_HOME=/ruta/al/jdk-21`.
 
 ## Verificado
 
