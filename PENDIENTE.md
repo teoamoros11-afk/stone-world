@@ -87,3 +87,8 @@ captura del pueblo nuevo, ni del recorrido, ni un vídeo. Hacen falta un cliente
 - **Un aldeano con la IA encendida vuelve solo a la campana o a su mesa**, así que cualquier
   puesta en escena que dure tiene que congelarlo (`NoAI:1b`). Es la razón de que quien monta
   guardia se quede quieto.
+
+## 11. Avances de las eras (resuelto en esta tanda)
+
+- [x] **Avances inalcanzables** — resuelto: `serie/raiz` se concede en el primer tick (con tag `swr_raiz`, para que la pestaña Dr. Stone aparezca) y `serie/fluido` se concede al gastar una dosis en `reino/revivir` y `pueblo/despetrificar`. `tests/test_eras.py` vigila que ningún avance `impossible` quede huérfano.
+

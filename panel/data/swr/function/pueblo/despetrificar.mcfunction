@@ -5,4 +5,6 @@ execute unless entity @e[tag=swr_estatua,distance=..6,sort=nearest,limit=1] run 
 execute unless score CUPO swr matches 1.. run tellraw @a [{"text":"[Pueblo] ","color":"gold","bold":true},{"text":"No queda fluido milagroso. Las estatuas rotas no vuelven: el campo no es infinito.","color":"red"}]
 execute unless score CUPO swr matches 1.. run return fail
 scoreboard players remove CUPO swr 1
+# el fluido milagroso, por fin: se concede al gastar una dosis de verdad
+advancement grant @s only swr:serie/fluido
 execute as @e[tag=swr_estatua,distance=..6,sort=nearest,limit=1] run function swr:pueblo/despetrificar_uno

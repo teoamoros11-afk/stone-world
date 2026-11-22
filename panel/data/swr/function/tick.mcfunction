@@ -11,3 +11,8 @@ execute as @a[tag=swr_panel_mano,tag=!swr_panel_abierto] run function swr:panel/
 # Contador de ticks: refresca los recuentos cada 5 segundos (100 ticks).
 scoreboard players add TICK swr 1
 execute if score TICK swr matches 100.. run function swr:panel/refrescar
+
+# La pestaña "Dr. Stone" necesita su raiz ganada: sin ella el arbol entero se queda
+# invisible aunque las eras concedan sus avances. Se da una vez por jugador (tag).
+execute as @a[tag=!swr_raiz] run advancement grant @s only swr:serie/raiz
+execute as @a[tag=!swr_raiz] run tag @s add swr_raiz

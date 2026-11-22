@@ -14,6 +14,8 @@ Fuente del listado de inventos: Dr. Stone Wiki (ES "Descubrimientos e Invencione
 **En Minecraft:** Dr. Stone KoS da el evento de petrificación, la cueva del milagro y el fluido. El resto es arranque a mano.
 **Falta:** nada importante. La cerámica y la destilación ya están en el mod.
 
+**Avances de la era:** `despertar` (se concede al abrirla) y `fluido` (al gastar la primera dosis de fluido, con `reino/revivir` o `pueblo/despetrificar`).
+
 ---
 
 ## ERA 2 — LA ALDEA ISHIGAMI (Arco del Reino de la Ciencia)
@@ -31,6 +33,8 @@ Fuente del listado de inventos: Dr. Stone Wiki (ES "Descubrimientos e Invencione
 
 Lo que sigue siendo teatro en esta era: las cantidades. Una aldea entera no se compra con un frasco, y en la serie la cura de Ruri tarda semanas.
 
+**Avances de la era:** `aldea` (al abrirla), `gafas` (al tener un cristal en la mano: es el único criterio real del juego, sin comando), `pueblo` (al fundar la plaza o al cerrar la obra general) y `historias` (al abrir el libro de las cien historias de Ruri).
+
 ---
 
 ## ERA 3 — STONE WARS (Arcos de Hyoga y de la Comunicación)
@@ -41,6 +45,8 @@ Lo que sigue siendo teatro en esta era: las cantidades. Una aldea entera no se c
 
 **En Minecraft:** Create (energía mecánica) + Immersive Engineering (electricidad) + CC:Tweaked (el móvil como computadora/radio). La pólvora existe.
 **Falta:** el **teléfono portátil** como objeto. No hay mod de telefonía; CC:Tweaked con módems inalámbricos es lo más cerca que se puede estar.
+
+**Avances de la era:** `stone-wars` (al abrirla). Es la era con un solo avance a propósito: su arco es una sola cosa, ganar una guerra con logística, y el avance lo dice. El teléfono, la central y las baterías son las piezas que lo justifican, no hitos aparte.
 
 ---
 
@@ -53,6 +59,8 @@ Lo que sigue siendo teatro en esta era: las cantidades. Una aldea entera no se c
 **En Minecraft:** Create (contraptions: barco, taladro, globo), Create Radars para el radar, Mekanism para el platino/química. La tripulación del Perseus es del pack: NPC con nombre y oficio y un zarpe con candado (`/function swr:tripulacion/lista`).
 **Falta:** **submarino** funcional. Se aproxima con un barco de Create, pero no bucea. La medusa ya la cubre KoS como evento.
 
+**Avances de la era:** `perseus` (al abrirla), `tripulacion` (al reclutar a Ryusui, Sai y Francois), `zarpe` (al zarpar con los tres a bordo) y `medusa` (con `/function swr:serie/medusa`, que además da el trofeo).
+
 ---
 
 ## ERA 5 — SCIENCE FUTURE / NEW AMERICA
@@ -63,6 +71,8 @@ Lo que sigue siendo teatro en esta era: las cantidades. Una aldea entera no se c
 
 **En Minecraft:** CC:Tweaked para computación y **Ad Astra 1.16.26** para el espacio (verificado en servidor 1.21.1 NeoForge: registra Luna, Marte, Venus, Mercurio, Glacio y sus cinco órbitas).
 **Falta:** el detalle fino —turbobombas, guiado, tolerancias— sigue siendo de industria, no de taller. Pero cohete, satélite y base lunar ya se pueden jugar.
+
+**Avances de la era:** `why` (al abrirla) y, después del final, `terraforming` en el epílogo. La era 5 es la última del manga: su avance no es un objeto, es la pregunta.
 
 ---
 
@@ -101,6 +111,23 @@ propio y la barca, la caña y el pararrayos son los que dice el archivo. Las par
 **Lo que no se pudo comprobar aquí:** los identificadores de sonido (`playsound` solo afecta a
 jugadores y en este entorno no hay cliente), los títulos en pantalla (igual) y el avance, porque
 `advancement grant` necesita un jugador de verdad. Está apuntado en [`PENDIENTE.md`](PENDIENTE.md).
+
+---
+
+## Los avances, era por era
+
+Cada era concede los suyos. Ninguno es decorativo: o se concede al abrir la era, o sale de una
+acción de verdad (gastar fluido, fundar la plaza, reclutar, zarpar). Todos cuelgan de la raíz
+`swr:serie/raiz`, que se da sola en el primer tick para que la pestaña «Dr. Stone» aparezca.
+
+| Era | Avances | Cuándo |
+|---|---|---|
+| 1 | `despertar`, `fluido` | Al abrirla; al gastar la primera dosis de fluido. |
+| 2 | `aldea`, `gafas`, `pueblo`, `historias` | Al abrirla; al tener un cristal en la mano; al fundar la plaza o cerrar la obra; al abrir el libro de Ruri. |
+| 3 | `stone-wars` | Al abrirla. La era entera es una sola idea. |
+| 4 | `perseus`, `tripulacion`, `zarpe`, `medusa` | Al abrirla; al reclutar a los tres; al zarpar; con `/function swr:serie/medusa`. |
+| 5 | `why` | Al abrirla. |
+| Epílogo | `terraforming` | Al terminar la escena del silicio. |
 
 ---
 
