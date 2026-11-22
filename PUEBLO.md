@@ -8,7 +8,7 @@ mod Dr. Stone KoS que ya trae el pack: no hay que compilar nada.
 
 | Comando | Que hace |
 |---|---|
-| `/function swr:pueblo/estatua` | Coloca una persona petrificada donde estas, con nombre de la aldea de Ishigami (Kohaku, Chrome, Ruri, Kaseki, Suika, Ginro, Kinro, Magma, Kokuyo, Jasper, Turquoise, Sapphire). |
+| `/function swr:pueblo/estatua` | Coloca una persona petrificada donde estas. Sale el personaje que toca por el indice (Kohaku, Chrome, Ruri, Kaseki, Suika, Ginro, Kinro, Magma, Kokuyo, Jasper, Turquoise, Sapphire) con su aspecto y oficio fijos: ver [`PERSONAJES.md`](PERSONAJES.md). |
 | `/function swr:pueblo/despetrificar` | Gasta una dosis de fluido milagroso y devuelve la vida a la estatua mas cercana (hasta 6 bloques). |
 | `/function swr:pueblo/estado` | Vecinos, pueblo, estatuas, casas en obra, fluido y obra general. |
 | `/function swr:pueblo/obra/iniciar` | Arranca el temporizador de 45 s: todos los vecinos van a por materiales y levantan el taller. `/function swr:pueblo/obra/cancelar` lo corta. |
@@ -19,23 +19,37 @@ Las casas **no** se piden: cada despetrificado empieza la suya solo.
 ## El bucle, paso a paso
 
 1. **Estatuas.** `swr:pueblo/estatua` invoca un aldeano con `NoAI`, `Silent`, `Invulnerable` y
-   `PersistenceRequired`, le pone nombre y le aplica la petrificacion **de verdad** con
-   `drstonekos petrify`: el efecto `drstonekos:petrified` (duracion infinita) es el que hace que
-   el mod lo dibuje como piedra. No es un armor stand ni un bloque disfrazado.
+   `PersistenceRequired`, le pone **ficha de personaje** y le aplica la petrificacion **de
+   verdad** con `drstonekos petrify`: el efecto `drstonekos:petrified` (duracion infinita) es el
+   que hace que el mod lo dibuje como piedra. No es un armor stand ni un bloque disfrazado.
+   La ficha (`swr:personajes/`) es fija, no aleatoria: cada estatua recibe el personaje que
+   toca por el indice (Kohaku, Chrome, Ruri…), con su aldea de Minecraft, su oficio, su nivel y
+   su objeto en la mano. Esta en [`PERSONAJES.md`](PERSONAJES.md) y no cambia al revivir.
 2. **Despetrificar.** `swr:pueblo/despetrificar` comprueba que hay una estatua a menos de 6
    bloques y que queda fluido (`CUPO`, 60 dosis por partida), gasta una y llama a
-   `drstonekos depetrify`. El aldeano vuelve a moverse, recibe oficio rotando entre albanil,
-   granjero, pastor, pescador, flechero y bibliotecario, y entra en el censo `VECINOS`.
+   `drstonekos depetrify`. El aldeano vuelve a moverse y entra en el censo `VECINOS`. El
+   oficio tambien es fijo: los personajes con ficha (`swr_canon`) conservan el suyo y el
+   reparto de oficios no los toca; el resto va al oficio que falta en el pueblo (albanil,
+   granjero, pastor, pescador, flechero o bibliotecario), que se reequilibra al amanecer.
 3. **El pueblo nace solo.** Al tercer despetrificado, `swr:pueblo/fundar` levanta una plaza de
-   piedra de 9x9 con campana y cuatro faroles **donde estaba el tercero** (no donde el jugador
-   quiera): la gratitud no pide permiso. Marca `PUEBLO 1` y concede el avance
-   `swr:serie/pueblo`.
+   piedra de 13x13 (el anillo de fuera es para los puestos), con campana y cuatro faroles
+   **donde estaba el tercero** (no donde el jugador quiera): la gratitud no pide permiso.
+   Debajo lleva zapata de piedra, asi que la plaza no queda colgada si cae en una ladera.
+   Marca `PUEBLO 1` y concede el avance `swr:serie/pueblo`.
 4. **Cada vecino, su casa.** En cuanto hay plaza, cada despetrificado se pone a levantar su casa
-   en un solar alrededor de ella. Son **16 solares**: cuatro rumbos (este, sur, oeste, norte) en
-   cuatro anillos de 10, 20, 30 y 40 bloques. La casa es de 5x5, con el suelo de piedra, tres
-   capas de muro (piedra, cristal, madera), techo de tablon oscuro con vuelo, cofre dentro y dos
-   faroles encima; la puerta mira siempre a la plaza. Encima flota su nombre y una barra de
+   en un solar. Son **16 solares en cuadricula**, cuatro por brazo: dos filas de dos a cada lado
+   de la calle, en los brazos norte y sur a 9 bloques de la calle y 14/22 del centro, y lo mismo
+   en los brazos este y oeste. No es un reparto a ojo: `tests/test_pueblo_geometria.py` comprueba
+   que no hay dos casas que se pisen, que ninguna invade la plaza y que cada puerta tiene su
+   camino (si alguien mueve un solar, el test falla).
+   La casa es de 5x5, con suelo de piedra, tres capas de muro (piedra, cristal, madera), techo de
+   tablon oscuro con vuelo, cofre dentro y dos faroles encima. La puerta mira siempre a la calle
+   que lleva a la plaza, y debajo del suelo lleva una zapata de piedra que rellena el hueco: ni
+   flota en una ladera ni queda cortada contra el terreno. Encima flota su nombre y una barra de
    avance, y la obra dura **30 segundos**.
+   `swr:pueblo/caminos` traza ademas las cuatro calles de 3 de ancho (del borde de la plaza al
+   final de cada brazo, con farola), el camino de tierra de cada puerta a su calle y el cimiento
+   de las calles. Sin eso el pueblo eran casas sueltas en cruz.
 5. **Una tanda a la vez.** Si llegan mas vecinos mientras se construye, esperan turno: al acabar
    la tanda empieza otra con los que faltaban, sin que tengas que hacer nada. Cada vecino levanta
    **una sola casa** (queda marcado con `swr_casa_hecha`) y entre tandas el reloj vuelve a 0; no

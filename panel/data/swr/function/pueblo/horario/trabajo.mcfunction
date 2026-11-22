@@ -12,12 +12,12 @@ execute at @e[tag=swr_puesto_3,limit=1] run spreadplayers ~ ~ 1 2 false @e[tag=s
 execute at @e[tag=swr_puesto_4,limit=1] run spreadplayers ~ ~ 1 2 false @e[tag=swr_vecino,tag=swr_oficio_4,tag=swr_casa_hecha]
 execute at @e[tag=swr_puesto_5,limit=1] run spreadplayers ~ ~ 1 2 false @e[tag=swr_vecino,tag=swr_oficio_5,tag=swr_casa_hecha]
 # la herramienta de cada oficio, en la mano
-execute as @e[tag=swr_vecino,tag=swr_oficio_0,tag=swr_casa_hecha] run item replace entity @s weapon.mainhand with minecraft:bricks 4
-execute as @e[tag=swr_vecino,tag=swr_oficio_1,tag=swr_casa_hecha] run item replace entity @s weapon.mainhand with minecraft:wheat 4
-execute as @e[tag=swr_vecino,tag=swr_oficio_2,tag=swr_casa_hecha] run item replace entity @s weapon.mainhand with minecraft:white_wool 4
-execute as @e[tag=swr_vecino,tag=swr_oficio_3,tag=swr_casa_hecha] run item replace entity @s weapon.mainhand with minecraft:cod 4
-execute as @e[tag=swr_vecino,tag=swr_oficio_4,tag=swr_casa_hecha] run item replace entity @s weapon.mainhand with minecraft:arrow 4
-execute as @e[tag=swr_vecino,tag=swr_oficio_5,tag=swr_casa_hecha] run item replace entity @s weapon.mainhand with minecraft:book 4
+execute as @e[tag=swr_vecino,tag=swr_oficio_0,tag=swr_casa_hecha,tag=!swr_canon] run item replace entity @s weapon.mainhand with minecraft:bricks 4
+execute as @e[tag=swr_vecino,tag=swr_oficio_1,tag=swr_casa_hecha,tag=!swr_canon] run item replace entity @s weapon.mainhand with minecraft:wheat 4
+execute as @e[tag=swr_vecino,tag=swr_oficio_2,tag=swr_casa_hecha,tag=!swr_canon] run item replace entity @s weapon.mainhand with minecraft:white_wool 4
+execute as @e[tag=swr_vecino,tag=swr_oficio_3,tag=swr_casa_hecha,tag=!swr_canon] run item replace entity @s weapon.mainhand with minecraft:cod 4
+execute as @e[tag=swr_vecino,tag=swr_oficio_4,tag=swr_casa_hecha,tag=!swr_canon] run item replace entity @s weapon.mainhand with minecraft:arrow 4
+execute as @e[tag=swr_vecino,tag=swr_oficio_5,tag=swr_casa_hecha,tag=!swr_canon] run item replace entity @s weapon.mainhand with minecraft:book 4
 # el sonido propio de cada oficio, en su puesto
 execute if entity @e[tag=swr_vecino,tag=swr_oficio_0,tag=swr_casa_hecha] at @e[tag=swr_puesto_0,limit=1] run playsound minecraft:entity.villager.work_mason master @a ~ ~ ~ 1 1
 execute if entity @e[tag=swr_vecino,tag=swr_oficio_1,tag=swr_casa_hecha] at @e[tag=swr_puesto_1,limit=1] run playsound minecraft:entity.villager.work_farmer master @a ~ ~ ~ 1 1

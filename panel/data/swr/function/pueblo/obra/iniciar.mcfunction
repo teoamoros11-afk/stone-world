@@ -7,6 +7,9 @@ execute if score OBRA swr matches 1.. run tellraw @a [{"text":"[Pueblo] ","color
 execute if score OBRA swr matches 1.. run return fail
 execute if score CASA_T swr matches 1.. run tellraw @a [{"text":"[Pueblo] ","color":"gold","bold":true},{"text":"Hay vecinos levantando su casa: dejad que terminen (30 s) y volved a intentarlo.","color":"yellow"}]
 execute if score CASA_T swr matches 1.. run return fail
+# el taller es 8x3: si hay una casa a menos de 10 bloques se la comeria al limpiar el solar
+execute if entity @e[tag=swr_casa_lista,distance=..10,limit=1] run tellraw @a [{"text":"[Pueblo] ","color":"gold","bold":true},{"text":"Aqui no: hay una casa a menos de 10 bloques y el taller la taparia. Busca un hueco.","color":"red"}]
+execute if entity @e[tag=swr_casa_lista,distance=..10,limit=1] run return fail
 scoreboard players set PRESENTES swr 0
 execute store result score PRESENTES swr run execute if entity @e[tag=swr_vecino]
 execute if score PRESENTES swr matches ..2 run tellraw @a [{"text":"[Pueblo] ","color":"gold","bold":true},{"text":"Hacen falta al menos 3 vecinos despetrificados para arrancar la obra.","color":"red"}]
