@@ -57,8 +57,8 @@ Dos cosas que se aprendieron probandolo en el servidor y estan en el archivo:
 - **Poner a Suika al lado de Kohaku no sirve**: la cazadora sigue andando hasta su mesa y la deja
   atras. Se la pone en la mesa de flechas, que es donde Kohaku acaba.
 
-Los otros cinco (Kaseki, Ginro, Jasper, Magma, Turquoise) siguen el horario comun: su oficio ya
-tiene puesto y no hay nada que contar de ellos que el pueblo no haga ya. Cada ficha lleva su tag
+Los otros seis (Kaseki, Ginro, Jasper, Magma, Turquoise, Sapphire) siguen el horario comun: su
+oficio ya tiene puesto y no hay nada que contar de ellos que el pueblo no haga ya. Cada ficha lleva su tag
 `swr_es_<nombre>`, que es lo que usan las rutinas para encontrarlos.
 
 ## Como esta hecho
