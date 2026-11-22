@@ -2,4 +2,5 @@
 # las cuentas y los linderos), nivel 4, con un mapa en la mano.
 data merge entity @s {CustomName:'{"text":"Kokuyo","color":"white"}',VillagerData:{type:"minecraft:taiga",profession:"minecraft:cartographer",level:4}}
 tag @s add swr_canon
+tag @s add swr_es_kokuyo
 item replace entity @s weapon.mainhand with minecraft:map

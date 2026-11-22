@@ -79,7 +79,10 @@ mira la hora del mundo cada 5 segundos y cambia de turno solo:
 | 6 Noche | 12000–23999 | Cada uno se recoge **en su casa** (por su tag `swr_solar_N`) y se queda dentro. |
 
 Los turnos se anuncian en el chat. Cada casa lleva una **cama** desde la fase de detalles, asi que
-al recogerse tienen donde dormir.
+al recogerse tienen donde dormir. Encima del turno comun, cada personaje con ficha tiene su rutina
+propia (`swr:pueblo/horario/rutinas`): Kinro vigila la entrada, Kohaku caza con arco por la manana,
+Suika no se separa de ella, a Chrome se le olvida comer y Kokuyo habla al lado de la campana. La
+tabla esta en [`PERSONAJES.md`](PERSONAJES.md#rutinas-propias).
 
 ## Los puestos de oficio
 
@@ -197,8 +200,12 @@ sustituir por mano de obra de verdad.
 - **16 casas como maximo**, y un pueblo por partida (`PUEBLO` se queda en 1). Para mas gente no
   hay solares: el aviso sale en el chat.
 - **Sitio despejado.** Cada casa despeja 7x7 y la obra general 10x6 alrededor de donde te pones
-  (fachada en tus pies, casa hacia un lado, puestos a 3 bloques al otro). En cuesta o sobre agua
-  queda torcida, y los cimientos borran lo que hubiera ahi.
+  (fachada en tus pies, casa hacia un lado, puestos a 3 bloques al otro), y borra lo que hubiera
+  ahi: no pongas el pueblo encima de tu almacen.
+- **La zapata rellena 9 bloques hacia abajo**, no mas. En una cuesta normal basta (probado con la
+  casa colgando sobre un hoyo de 5); en un acantilado de mas de 9 bloques la casa seguiria
+  asomada. Y por debajo de **y=-54** el relleno se sale del mundo (el fondo esta en -64) y
+  Minecraft cancela el comando, asi que ahi no hay zapata.
 - **Ocho puestos** en la obra general: con mas de ocho vecinos, los demas miran desde detras.
 - **Seis puestos de oficio** y dieciseis vecinos: los oficios se repiten (el reparto es
   `VECINOS % 6`), asi que varios comparten puesto. En los turnos de trabajo se reparten a dos
@@ -208,6 +215,24 @@ sustituir por mano de obra de verdad.
   es `despetrificar`.
 - **Sin mod no hay piedra:** si quitas Dr. Stone KoS, `drstonekos petrify` falla, la estatua se
   queda de pie como un aldeano normal y `depetrify` no tiene nada que deshacer.
+
+## Verificado en servidor (22/11/2026)
+
+Misma maquina y mismas 41 jars, mundo plano nuevo con **plataforma a y=64** (el suelo del mundo
+plano esta en -61 y por debajo de -63 el relleno se sale del mundo, asi que se prueba a una altura
+de verdad) y un **hoyo de 7x7x5 bajo el solar 1** para reproducir lo peor de una ladera: la casa
+sin nada debajo.
+
+- **Zapata:** con la casa colgando sobre el hoyo, quedaron en `stone_bricks` el suelo (`9 63 -16`),
+  las dos esquinas de la zapata (`7 62 -14`, `11 62 -18`) y el fondo a cinco bloques (`9 59 -16`),
+  sin un solo hueco de aire debajo (`9 61 -16`). La zapata de la plaza (`0 55 0`) y la calle
+  (`0 63 -20`) tambien. Antes de esto el pueblo colgaba: los cimientos solo limpiaban aire hacia
+  arriba.
+- **Rutinas:** con la hora forzada, en manana Kinro queda en la boca de la calle norte
+  (`1 64 -23`) con la espada, Kohaku con `bow` y 8 `arrow` en la otra mano, y Suika en la mesa de
+  flechas (`-1 64 -3`) con su `melon_slice`; en la comida Chrome sigue en el atril
+  (`3.5 63.9 -4.5`) con el `glass_bottle` y Kinro no se mueve de la entrada; en la reunion Kokuyo
+  esta junto a la campana. Todo leido con `data get entity ... Pos` / `HandItems`.
 
 ## Verificado en servidor (19/11/2026)
 

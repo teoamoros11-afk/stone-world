@@ -6,3 +6,5 @@ execute if score TURNO swr matches 3 run function swr:pueblo/horario/comida
 execute if score TURNO swr matches 4 run function swr:pueblo/horario/trabajo
 execute if score TURNO swr matches 5 run function swr:pueblo/horario/reunion
 execute if score TURNO swr matches 6 run function swr:pueblo/horario/noche
+# lo propio de cada personaje, encima del turno comun (swr:pueblo/horario/rutinas)
+function swr:pueblo/horario/rutinas

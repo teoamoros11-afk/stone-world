@@ -3,7 +3,7 @@
 # en cada brazo (dos filas de dos), con la puerta mirando a la calle que lleva a la plaza.
 # Cuadricula (relativa a la plaza): brazos norte y sur con las casas a x = +-9 y z = +-16/+-24;
 # brazos este y oeste con las casas a z = +-9 y x = +-16/+-24. Las filas van a 16 y 24 (y no a
-# 14 y 22) porque cada solar limpia 7x7 y en la esquina los de dos brazos se comian un trozo de
+# 16 y 24) porque cada solar limpia 7x7 y en la esquina los de dos brazos se comian un trozo de
 # tejado: con 16/24 quedan justo al lado, sin pisarse. Entre casa y casa hay 3 bloques de calle
 # y los caminos van de la puerta a la calle (swr:pueblo/caminos).
 # Uso: automatico desde swr:pueblo/despetrificar_uno, swr:pueblo/fundar y swr:pueblo/casa/fin
@@ -24,7 +24,7 @@ scoreboard players operation DIR swr = SOLAR swr
 scoreboard players remove DIR swr 1
 scoreboard players operation DIR swr %= CUATRO swr
 tag @s add swr_dueno_tmp
-# brazo norte: dos filas (z = -14 y -22) a los dos lados de la calle (x = +-9)
+# brazo norte: dos filas (z = -16 y -24) a los dos lados de la calle (x = +-9)
 execute if score SOLAR swr matches 1 at @e[tag=swr_plaza,limit=1] run summon minecraft:marker ~9 ~ ~-16 {Tags:["swr_casa","swr_casa_nueva","swr_dir_0","swr_solar_1"]}
 execute if score SOLAR swr matches 2 at @e[tag=swr_plaza,limit=1] run summon minecraft:marker ~-9 ~ ~-16 {Tags:["swr_casa","swr_casa_nueva","swr_dir_2","swr_solar_2"]}
 execute if score SOLAR swr matches 3 at @e[tag=swr_plaza,limit=1] run summon minecraft:marker ~9 ~ ~-24 {Tags:["swr_casa","swr_casa_nueva","swr_dir_0","swr_solar_3"]}

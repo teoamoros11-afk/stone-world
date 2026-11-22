@@ -33,6 +33,34 @@ a su puesto en el horario. Los que tienen oficio sin puesto (clerigo, armero, ca
 cartografo, peletera) se quedan en la plaza o en su casa: su oficio existe, pero el pueblo no
 tiene mesa para el.
 
+## Rutinas propias
+
+El horario comun pone a todo el mundo en su sitio; `swr:pueblo/horario/rutinas` (lo ultimo que
+corre `.../cambiar`, para mandar sobre el reparto general) da a cada uno lo suyo dentro de ese
+turno:
+
+| Personaje | Turno | Que hace |
+|---|---|---|
+| Ruri | Amanecer | Abre el dia al lado de la campana, que es la que toca ella. |
+| Kohaku | Manana | Sale a cazar: arco en la mano y 8 flechas en la otra. |
+| Kohaku | Tarde | Vuelve a su hacha de piedra, la de tallar lanzas en la mesa de flechas. |
+| Suika | Manana a tarde | Se pone en la mesa de flechas, al lado de Kohaku, con su sandia. |
+| Kinro | Manana a tarde | Monta guardia en la boca de la calle norte; come alli, sin dejar la entrada. |
+| Chrome | Comida | No come: se queda en el atril con el frasco en la mano. |
+| Kokuyo | Reunion | Se pone junto a la campana, no entre los demas. |
+
+Dos cosas que se aprendieron probandolo en el servidor y estan en el archivo:
+
+- **Un aldeano con la IA encendida se vuelve solo a la campana de la plaza** (o a su mesa de
+  trabajo), asi que la rutina duraba dos segundos. Quien tiene que quedarse quieto en su sitio
+  lleva `NoAI:1b` hasta el amanecer, y al amanecer se le devuelve el movimiento.
+- **Poner a Suika al lado de Kohaku no sirve**: la cazadora sigue andando hasta su mesa y la deja
+  atras. Se la pone en la mesa de flechas, que es donde Kohaku acaba.
+
+Los otros cinco (Kaseki, Ginro, Jasper, Magma, Turquoise) siguen el horario comun: su oficio ya
+tiene puesto y no hay nada que contar de ellos que el pueblo no haga ya. Cada ficha lleva su tag
+`swr_es_<nombre>`, que es lo que usan las rutinas para encontrarlos.
+
 ## Como esta hecho
 
 - `swr:personajes/asignar` calcula `SUERTE = ESTATUAS mod 12` y llama a la ficha que toca.
