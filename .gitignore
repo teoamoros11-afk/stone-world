@@ -13,8 +13,9 @@
 build/
 
 # El zip del datapack lo reescribe herramientas/generar_mapa.py a partir de
-# panel/; el del pack de inmersión, herramientas/generar_pack_inmersion.py.
-panel-del-reino.zip
+# panel/, y el del pack de inmersión herramientas/generar_pack_inmersion.py.
+# panel-del-reino.zip sí se versiona a propósito: es lo que se descarga quien
+# solo quiere jugar, sin clonar ni compilar nada.
 
 # Python: cachés, entorno y resultados de las pruebas.
 __pycache__/
