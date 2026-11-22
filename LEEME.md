@@ -87,6 +87,8 @@ Lo que faltaba era **una vista por encima de todas las aldeas y de la era actual
 /function swr:era/cerrar        cerrar la era actual y desbloquear la siguiente
 /function swr:serie/destello    el 1 de abril: título, trueno y partículas verdes
 /function swr:serie/cancion     el disco de Lilian (pieza original del resource pack)
+/function swr:serie/terraforming/iniciar   epilogo TERRAFORMING (pide la era 5 cerrada); sigue con
+                                naufragio, balsa, nitrico y silicio, y estado para saber por donde vas
 /function swr:reino/estado      era, revividos y fluido que queda
 /function swr:reino/revivir     gasta una dosis de fluido y suma un revivido (cupo 60)
 /function swr:pueblo/estatua    coloca una persona petrificada (aldeano con el efecto del mod)

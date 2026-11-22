@@ -12,6 +12,8 @@ scoreboard players add CERRADA2 swr 0
 scoreboard players add CERRADA3 swr 0
 scoreboard players add CERRADA4 swr 0
 scoreboard players add CERRADA5 swr 0
+# epilogo TERRAFORMING: en que escena vas (0 = sin empezar)
+scoreboard players add TERRAFORM swr 0
 # cupo de revividos: el campo de estatuas no es infinito (se inicializa una sola vez)
 execute unless score INICIADO swr matches 1 run scoreboard players set CUPO swr 60
 execute unless score INICIADO swr matches 1 run scoreboard players set REVIDOS swr 0
@@ -78,7 +80,7 @@ execute if score OBRA swr matches 1.. run schedule function swr:pueblo/obra/tick
 execute as @a unless items entity @s container.* minecraft:recovery_compass run function swr:panel/dar
 scoreboard objectives setdisplay sidebar swr
 tellraw @a [{"text":"[Stone World] ","color":"gold","bold":true},{"text":"Panel activo. Parte: /function swr:panel/informe | Viajes: /function swr:viaje/aldea (cueva, estatuas, cascada, puerto, bambu, rival, spawn)","color":"gray"}]
-tellraw @a [{"text":"[Stone World] ","color":"gold","bold":true},{"text":"Serie: /function swr:serie/historias (libro de Ruri) | /function swr:serie/cuaderno (cadena tecnologica) | /function swr:serie/medusa (era 4) | /function swr:serie/destello (el 1 de abril)","color":"gray"}]
+tellraw @a [{"text":"[Stone World] ","color":"gold","bold":true},{"text":"Serie: /function swr:serie/historias (libro de Ruri) | /function swr:serie/cuaderno (cadena tecnologica) | /function swr:serie/medusa (era 4) | /function swr:serie/destello (el 1 de abril) | /function swr:serie/terraforming/iniciar (epilogo, tras cerrar la era 5)","color":"gray"}]
 tellraw @a [{"text":"[Stone World] ","color":"gold","bold":true},{"text":"Eras con candado: cierra la actual con /function swr:era/cerrar. Reino: /function swr:reino/estado | revivir (gasta fluido). Reglas: /function swr:reglas/duras","color":"gray"}]
 tellraw @a [{"text":"[Stone World] ","color":"gold","bold":true},{"text":"Cuaderno de campo: /function swr:libro/indice (mapa por eras, con detalle al pasar el raton)","color":"gray"}]
 tellraw @a [{"text":"[Stone World] ","color":"gold","bold":true},{"text":"Progreso compartido: era y fichas son de los dos.  /function swr:reino/juntos avisa si falta alguien; /function swr:reino/modo alterna solo/equipo.","color":"gray"}]

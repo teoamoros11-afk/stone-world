@@ -23,10 +23,13 @@ Fuente del listado de inventos: Dr. Stone Wiki (ES "Descubrimientos e Invencione
 **Inventos:** jabón y burbujas, electricidad estática, lanza de oro, báscula, fuelle, harina de mijo, alambre de cobre, pararrayos, filamento de bambú, vela, vidrio, pulidor de lentes, lentes cóncavas, aislamiento de piedra pómez, dinamo de doble manivela, horno de vidrio, laboratorio químico, imanes, bombilla, sulfamidas.
 
 **En Minecraft:** es la era más flaca del pack actual. Create cubre molinos y engranajes; el resto (vidrio, lentes, química fina) no tiene equivalente directo.
-**Falta (real):**
-- **Óptica**: resuelta por el mod propio del pack, `optics-mod/` («Stone Optics»): lente sin pulir → lente pulida → telescopio con zoom. Compila con Gradle contra NeoForge 21.1.262 (probado el 17/11/2026) y se copia a `mods/`; no está publicado en Modrinth ni CurseForge.
-- **Dinamo de manivela**: los generadores de Create/IE son a vapor o combustible, no a brazo. Es un hueco narrativo (que dos personas generen electricidad juntas es el momento clave del arco).
-- **Sulfamidas**: no hay mod de farmacología. Se puede fingir con un ítem de FTB Quests como "recompensa de misión", pero no es un proceso químico.
+**Los tres huecos del arco, y cómo se taparon** (los tres con mods propios del pack, compilados contra NeoForge 21.1.262):
+
+- **Óptica** — `optics-mod/` («Stone Optics»): lente sin pulir → lente pulida → telescopio con zoom, más el banco de pulido y las gafas de Kinro. Cubre el arco entero de los lentes.
+- **Dinamo de manivela** — `crank-dynamo/`: generador a brazo (8 FE/tick mientras giras). Los generadores de Create e Immersive Engineering son a vapor o combustible, así que sin esto no existía el momento de dos personas dándole a la manivela.
+- **Sulfamidas** — `pharmacy-mod/` («Stone Pharmacy»): sulfamida y jeringa. Es una simplificación a propósito: la síntesis real (del benceno al sulfanilamida) son seis pasos y no cabe en un crafteo, así que el pack da el resultado, no el proceso.
+
+Lo que sigue siendo teatro en esta era: las cantidades. Una aldea entera no se compra con un frasco, y en la serie la cura de Ruri tarda semanas.
 
 ---
 
@@ -63,6 +66,44 @@ Fuente del listado de inventos: Dr. Stone Wiki (ES "Descubrimientos e Invencione
 
 ---
 
+---
+
+## EPÍLOGO — TERRAFORMING (después del final)
+
+**Serie:** no es una era más y no va numerada a propósito. Es el *one-shot* «TERRAFORMING», publicado en la *Weekly Shōnen Jump* del 3 de julio de 2022 (tomo 27, 51 páginas) y situado **después del capítulo 232**. En el evento *Stone Fes. 2026* (10/10/2026) se anunció su adaptación como nueva animación, con la serie de televisión ya terminada el 25/06/2026.
+
+**Qué pasa:** la avioneta que volvía de la luna de miel de Taiju y Yuzuriha, en Noruega, cae en el **Mar de los Sargazos**. En la caída los petrifican a todos con el arma para que lleguen vivos al agua. Senku despierta porque se le rompe encima una botella de fluido, con el cuerpo untado de aceite (aislante térmico) y un auricular de cristal hecho a mano. La baliza del chaleco de Kohaku lo guía hasta ella; luego aparecen Suika y Chrome. Pescan de sobra —comida, **aceite de pescado** y agua dulce—, fermentan azúcar de coco para sacar alcohol y, cuando falta **ácido nítrico**, montan un pararrayos de fortuna con una palmera y la lanza de Ginro para aprovechar la tormenta. Con eso reviven a Ukyo, Tsukasa, Ryusui, Gen, Taiju, Yuzuriha, Kinro, Ginro y el resto, cosen velas con piel de pescado y salen de la corriente; el avión de Stanley los guía a tierra. El botín del viaje es **silicio de cuarzo de altísima pureza**, la materia prima de los semiconductores, y con él Senku suelta el plan final: **terraformar mundos ajenos** para seguir creciendo con materiales que en la Tierra no hay.
+
+**En Minecraft:** cuatro escenas encadenadas, con su título, su sonido y un objeto de recuerdo cada una. Se abren solas al cerrar la era 5 (la última del manga) y no hay que instalar nada.
+
+| Paso | Comando | Qué pasa |
+|---|---|---|
+| 0 | `/function swr:serie/terraforming/iniciar` | Abre el epílogo (exige la era 5 cerrada) y lanza la escena 1. |
+| 1 | `/function swr:serie/terraforming/naufragio` | El océano, el aceite y la botella de fluido. Da el frasco. |
+| 2 | `/function swr:serie/terraforming/balsa` | Mar de los Sargazos: balsa, pesca y aceite de pescado. Da barca y caña. |
+| 3 | `/function swr:serie/terraforming/nitrico` | El pararrayos y el ácido nítrico. Da el pararrayos. |
+| 4 | `/function swr:serie/terraforming/silicio` | El silicio de cuarzo y el plan de terraformar. Da el avance `swr:serie/terraforming`. |
+| — | `/function swr:serie/terraforming/estado` | Por dónde vas y qué comando toca. |
+
+**Lo que dice la ciencia de las dos piezas clave:**
+
+- **Ácido nítrico con electricidad:** el proceso existe y se llama **Birkeland–Eyde**. Pero necesita un arco eléctrico de varios miles de grados para romper el nitrógeno del aire; el resplandor de una tormenta (fuego de San Telmo) no llega. La serie lo usa como teatro, y el pack lo cuenta así en la escena 3.
+- **Silicio de altísima pureza:** el silicio elemental no aparece puro en la naturaleza (se oxida) y el de grado semiconductor se refina hasta una parte entre mil millones o más. Noruega produce sobre todo **ferrosilicio**, no silicio de electrónica. El uso que le da la serie es correcto; el origen, simplificado.
+
+**Verificado en servidor (22/11/2026, NeoForge 21.1.262, mundo aparte):** la cadena no se puede
+saltar. Sin la era 5 cerrada, `iniciar` deja `TERRAFORM` en 0; al cerrarla, `iniciar` lo deja en 2
+y las escenas van 2 → 3 → 4 → 5. Repetir `silicio` o `iniciar` con el epílogo acabado no mueve
+nada, y lanzar `silicio` con `TERRAFORM 2` tampoco. Los cuatro objetos de recuerdo se comprobaron
+metiendo el mismo ítem en un cofre con `item replace`: el frasco y el cuarzo salen con su nombre
+propio y la barca, la caña y el pararrayos son los que dice el archivo. Las partículas
+(`bubble`, `splash`, `firework`, `end_rod`, `crit`) se ejecutan sin error.
+
+**Lo que no se pudo comprobar aquí:** los identificadores de sonido (`playsound` solo afecta a
+jugadores y en este entorno no hay cliente), los títulos en pantalla (igual) y el avance, porque
+`advancement grant` necesita un jugador de verdad. Está apuntado en [`PENDIENTE.md`](PENDIENTE.md).
+
+---
+
 ## Resumen: qué existe, qué se aproxima y qué no existe
 
 | Pieza | Estado |
@@ -77,5 +118,8 @@ Fuente del listado de inventos: Dr. Stone Wiki (ES "Descubrimientos e Invencione
 | Sulfamidas / farmacia | **Existe** — mod propio `pharmacy-mod` (sulfamida y jeringa) |
 | Submarino | **No existe** — solo aproximación |
 | Cohete, satélite, base lunar | **Existe** — Ad Astra 1.16.26 (5 planetas y sus órbitas) |
+| Epílogo TERRAFORMING | **Existe** — cadena de cuatro escenas propias (`swr:serie/terraforming/*`) |
+
+El epílogo no es una sexta era: las cinco eras son las cinco sagas del manga, y TERRAFORMING es lo que pasa después del último capítulo. Por eso se abre al **cerrar** la era 5 y no tiene candado propio.
 
 De los tres huecos que pide la serie, **los tres están cubiertos**: `optics-mod` (lentes, telescopio, banco de pulido, gafas de Kinro), `crank-dynamo` (dinamo de manivela con energía NeoForge) y `pharmacy-mod` (sulfamida y jeringa). El espacio lo pone Ad Astra. El panel, las eras, los avances y las quests van como datapack porque son datos.

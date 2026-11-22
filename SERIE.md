@@ -41,6 +41,7 @@
 | E | Cómo usar la serie para aprender o enseñar |
 | F | Fichas rápidas de secundarios |
 | G | Preguntas de trama, con respuesta |
+| 16 | Epílogo: *TERRAFORMING* (2022), después del final |
 
 ---
 
@@ -995,6 +996,39 @@ Si vas a usar este documento para dar clase, escribir o discutir, tres comprobac
 3. **Nivel escala:** ¿cuánto tiempo y cuánta gente haría falta? Ahí es donde la serie comprime siempre, sin excepción.
 
 **Método corto:** busca el invento en [`ERAS.md`](ERAS.md), comprueba la era, y contrasta el proceso con una enciclopedia técnica. Si los tres coinciden, el dato es sólido.
+
+---
+
+## 16. EPÍLOGO — *TERRAFORMING* (one-shot, 2022)
+
+**Qué es:** un capítulo especial de 51 páginas publicado en la *Weekly Shōnen Jump* del 3 de julio de 2022 (número 31) y recogido en el tomo 27, «Future Science». Va **después del capítulo 232** y cuenta lo que pasa cuando la historia ya está cerrada. El 10 de octubre de 2026, en el evento *Stone Fes. 2026*, TMS y TOHO anunciaron su adaptación como nueva animación («Dr. STONE TERRAFORMING»), pocos meses después de que la serie de televisión terminara el 25 de junio de 2026.
+
+**Qué pasa, en orden:**
+
+1. **El mar.** Senku despierta solo, sin tierra ni barco a la vista, y sin recordar cómo llegó. Se había cubierto el cuerpo de **aceite**, que es aislante térmico: le compra tiempo antes de la hipotermia. Lleva encima fluido de resurrección y un **auricular de cristal** de fabricación propia, como la radio de cristal de la isla del tesoro.
+2. **La baliza.** Sigue un zumbido y encuentra a **Kohaku** hecha una bola, petrificada, con el sonido saliendo de la baliza de su chaleco. Eso le devuelve la memoria: la avioneta que volvía de la **luna de miel de Taiju y Yuzuriha en Noruega** se cayó; en la caída Taiju los petrificó a todos con el arma para que llegaran vivos al agua. A Senku lo revivió una botella de fluido que se le rompió encima, y de propina le cayó un coco en la cabeza.
+3. **Los primeros cuatro.** Revive a Kohaku y entre los dos empiezan a juntar restos. Están en el **Mar de los Sargazos** —el triángulo de las Bermudas—, y por eso flota allí tanta basura del mundo. Aparecen **Suika** y **Chrome**.
+4. **La despensa.** Pescan tan bien que sacan comida, **aceite de pescado** y, con él, agua dulce; fermentan **azúcar de coco** para hacer alcohol y más fluido. **Ukyo** está localizado pero no puede volver: falta **ácido nítrico**.
+5. **El rayo.** Suika recuerda que hay un método eléctrico para hacer nítrico y Chrome vio un fuego azul antes de la caída: montan un **pararrayos** con una palmera y la lanza de Ginro para aprovechar la tormenta. Juntan tarros de vidrio del fondo y una lata de corned beef del propio accidente, que convertida en máquina de algodón de azúcar sirve para hacer **lana de vidrio**.
+6. **La tripulación.** Con el nítrico vuelven Ukyo, **Tsukasa**, Chelsea, **Sai**, **Ryusui**, **Gen**, Taiju, Yuzuriha, **Kinro** y **Ginro**. Cosas de la vida: la lancha se hace con **velas de piel de pescado** y salen de la corriente; el avión de **Stanley** los encuentra y los guía a la costa.
+7. **El botín y el plan.** En tierra los reciben Luna y Xeno y Senku entrega lo que habían ido a buscar: **silicio de cuarzo de altísima pureza**, la materia prima de los semiconductores. Y suelta el plan que da título al capítulo: **terraformar** mundos que no son la Tierra para seguir creciendo con materiales que aquí no hay.
+
+**Lo que dice la ciencia:**
+
+| Pieza | Veredicto |
+|---|---|
+| Aceite como aislante térmico | **Correcto.** La grasa reduce la pérdida de calor por el agua, que conduce 20-25 veces más que el aire. No salva de una noche en el Atlántico, pero alarga. |
+| Ácido nítrico por vía eléctrica | **Proceso real, ejecución imposible.** Es el **Birkeland–Eyde**: el arco eléctrico a varios miles de grados rompe el N₂ del aire. El fuego de San Telmo de una tormenta no tiene esa temperatura; la wiki de la serie lo señala como error y el pack lo repite en la escena 3. |
+| Silicio de pureza de semiconductor | **Idea correcta, origen simplificado.** El silicio elemental no existe libre (se oxida) y el grado electrónico llega a una parte entre 10⁹ y 10¹⁰. Noruega produce sobre todo **ferrosilicio**, no silicio de electrónica. |
+| Terraformar otros mundos | **Especulación con base.** Cambiar atmósfera y temperatura de un planeta es ciencia seria de siglo XXI, pero a escalas de siglos y con energía de nivel planetario. La serie la plantea como próximo proyecto, no como logro. |
+
+**Detalles que se suelen preguntar:**
+
+- **¿Es canon?** Es un capítulo especial del autor y el dibujante, situado después del final, y el propio anime lo adapta. No cambia el desenlace: lo prolonga.
+- **¿Y «4D Science»?** Es la miniserie que acompaña al one-shot en el tomo 27 (tres capítulos sobre un mensaje del futuro y una máquina del tiempo). El anuncio de 2026 habla solo de *TERRAFORMING*, no de adaptar todo el tomo.
+- **¿Sale todo el mundo?** No: Francois estaba en el avión y el capítulo nunca enseña su rescate. Es una de esas cosas que el one-shot deja colgando.
+
+**En el pack:** `swr:serie/terraforming/*` reproduce las cuatro escenas clave (naufragio, balsa, rayo y silicio) con título, sonido y un objeto de recuerdo, y el avance `swr:serie/terraforming`. La traducción a comandos está en [`ERAS.md`](ERAS.md#epílogo--terraforming-después-del-final).
 
 ---
 

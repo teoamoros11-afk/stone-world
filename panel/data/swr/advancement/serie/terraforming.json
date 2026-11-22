@@ -1,0 +1,22 @@
+{
+  "parent": "swr:serie/why",
+  "display": {
+    "icon": {
+      "id": "minecraft:quartz"
+    },
+    "title": {
+      "text": "TERRAFORMING"
+    },
+    "description": {
+      "text": "El epílogo, después del final: un avión que cae en el Mar de los Sargazos, el ácido nítrico sacado del rayo y el silicio de Noruega. Con eso la ciencia deja de reconstruir la Tierra y empieza a pensar en mundos ajenos."
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "criteria": {
+    "hecho": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}
