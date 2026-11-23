@@ -154,3 +154,66 @@ def test_las_eras_documentan_sus_avances(numero):
     for avance in PROPIOS[numero]:
         assert f"`{avance}`" in texto, f"ERAS.md no menciona el avance {avance}"
     assert f"| {numero} |" in texto, f"la tabla de avances no tiene la fila de la era {numero}"
+
+
+# --- el cuaderno de campo: cada era anota sus fichas y el libro las cuenta bien -------------
+
+def fichas_de_la_era(numero: int) -> list[str]:
+    return re.findall(
+        r"scoreboard players set (f_\w+) swr 1",
+        (FUNCIONES / "descubrir" / f"{numero}.mcfunction").read_text(encoding="utf-8"),
+    )
+
+
+@pytest.mark.parametrize("numero", sorted(PROPIOS))
+def test_cada_era_anota_sus_fichas_y_las_cuenta(numero):
+    cuerpo = (FUNCIONES / "descubrir" / f"{numero}.mcfunction").read_text(encoding="utf-8")
+    fichas = fichas_de_la_era(numero)
+    assert fichas, f"la era {numero} no anota ninguna ficha"
+    anuncio = re.search(r"Anotadas las (\d+) fichas de la era " + str(numero), cuerpo)
+    assert anuncio, f"la era {numero} no anuncia sus fichas"
+    assert int(anuncio.group(1)) == len(fichas), (
+        f"la era {numero} dice {anuncio.group(1)} fichas y anota {len(fichas)}"
+    )
+    assert "function swr:libro/contar" in cuerpo, f"la era {numero} no refresca el recuento"
+
+
+@pytest.mark.parametrize("numero", sorted(PROPIOS))
+def test_las_fichas_de_cada_era_estan_en_el_contador(numero):
+    contar = (FUNCIONES / "libro" / "contar.mcfunction").read_text(encoding="utf-8")
+    for ficha in fichas_de_la_era(numero):
+        assert f"scoreboard players add {ficha} swr 0" in contar, (
+            f"la ficha {ficha} de la era {numero} no entra en el recuento del cuaderno"
+        )
+
+
+@pytest.mark.parametrize("numero", sorted(PROPIOS))
+def test_el_libro_de_cada_era_lleva_el_recuento_acumulado(numero):
+    libro = (FUNCIONES / "libro" / "cuaderno" / f"{numero}.mcfunction").read_text(encoding="utf-8")
+    acumuladas = sum(len(fichas_de_la_era(n)) for n in range(1, numero + 1))
+    total = len(re.findall(r"scoreboard players add f_\w+ swr 0",
+                           (FUNCIONES / "libro" / "contar.mcfunction").read_text(encoding="utf-8")))
+    encontrado = re.search(r"Fichas anotadas: (\d+) de (\d+)", libro)
+    assert encontrado, f"el libro de la era {numero} no lleva recuento"
+    assert (int(encontrado.group(1)), int(encontrado.group(2))) == (acumuladas, total), (
+        f"el libro de la era {numero} dice {encontrado.groups()} y tocan "
+        f"({acumuladas}, {total}): hay que regenerarlo con herramientas/generar_libro.py"
+    )
+
+
+@pytest.mark.parametrize("numero", sorted(PROPIOS))
+def test_cada_era_tiene_su_pagina_de_libro(numero):
+    pagina = FUNCIONES / "libro" / "era" / f"{numero}.mcfunction"
+    assert pagina.is_file(), f"la era {numero} no tiene pagina en el libro"
+    texto = pagina.read_text(encoding="utf-8")
+    assert f"Era {numero}" in texto
+    assert "tellraw @a" in texto, f"la pagina de la era {numero} no dice nada"
+
+
+def test_ninguna_era_cierra_sola_ni_se_abre_dos_veces():
+    for numero in AL_ABRIR:
+        cuerpo = era(numero)
+        assert "scoreboard players set CERRADA" not in cuerpo, (
+            f"la era {numero} se cierra a si misma: el cierre es cosa de era/cerrar"
+        )
+        assert f"scoreboard players set ERA swr {numero}" in cuerpo

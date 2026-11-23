@@ -129,6 +129,8 @@ acción de verdad (gastar fluido, fundar la plaza, reclutar, zarpar). Todos cuel
 | 5 | `why` | Al abrirla. |
 | Epílogo | `terraforming` | Al terminar la escena del silicio. |
 
+Cada era anota además sus fichas en el **cuaderno de campo**: la era 1 deja 4, la 2 nueve (13), la 3 cuatro (17), la 4 cuatro (21) y la 5 cinco (26). `tests/test_eras.py` compara ese recuento con el que llevan los libros generados por `herramientas/generar_libro.py`, así que si una ficha se añade y el libro no, la prueba falla.
+
 ---
 
 ## Resumen: qué existe, qué se aproxima y qué no existe
