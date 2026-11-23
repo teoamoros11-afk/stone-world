@@ -1,6 +1,6 @@
 # Dice que mano es (La banca: ) segun el tipo ya evaluado.
 # Uso: interno, desde poker/resolver
-tellraw @a [{"text":"La banca: ","color":"gray"},{"text":"escalera de color","color":"aqua","bold":true}]
+execute if score TIPO_BANCA poker matches 9 run tellraw @a [{"text":"La banca: ","color":"gray"},{"text":"escalera de color","color":"aqua","bold":true}]
 execute if score TIPO_BANCA poker matches 8 run tellraw @a [{"text":"La banca: ","color":"gray"},{"text":"poker","color":"aqua","bold":true}]
 execute if score TIPO_BANCA poker matches 7 run tellraw @a [{"text":"La banca: ","color":"gray"},{"text":"full","color":"aqua","bold":true}]
 execute if score TIPO_BANCA poker matches 6 run tellraw @a [{"text":"La banca: ","color":"gray"},{"text":"color","color":"aqua","bold":true}]

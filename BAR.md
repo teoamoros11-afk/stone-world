@@ -119,7 +119,7 @@ borra.
 
 ## Pruebas
 
-`tests/test_bar.py` (103 casos) comprueba, sin cliente:
+`tests/test_bar.py` (104 casos) comprueba, sin cliente:
 
 - que el salon tenga barra, dos mesas, Francois quieta detras y no haya comandos destructivos;
 - que la despensa empiece a cero y que el acopio solo traiga pan y pescado (los oficios que de

@@ -365,3 +365,12 @@ def test_el_poker_dice_que_mano_es():
 
 def test_el_marcador_de_bolos_dice_la_ultima_tirada():
     assert "BOLOS_ULTIMA" in leer("bolos/marcador.mcfunction")
+
+
+def test_cada_nombre_de_mano_va_condicionado():
+    for archivo in ("nombre_jugador", "nombre_banca"):
+        for linea in leer(f"poker/{archivo}.mcfunction").splitlines():
+            if linea.startswith("tellraw") and "escalera de color" in linea:
+                raise AssertionError(f"{archivo}: la escalera de color se dice siempre")
+            if "tellraw" in linea and "color\":\"aqua\"" in linea and "matches" not in linea:
+                raise AssertionError(f"{archivo}: hay un nombre sin condicion: {linea[:60]}")
