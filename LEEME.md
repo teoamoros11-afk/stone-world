@@ -179,3 +179,21 @@ El código está en `validador/`, sin dependencias fuera de la biblioteca están
 ## 10. Legal
 
 Dr. Stone KoS, MineColonies y varios de estos mods son **ARR**: servidor privado sí, redistribuir o vender el pack no. Dr. Stone es de Inagaki/Boichi/Shueisha: el mapa se comparte entre vosotros, no se publica. Earth Platform es LGPL-3.0 (se puede usar y modificar).
+
+## Bar del Perseus
+
+En la cubierta del barco hay un salon con barra, dos mesas de poker y una mesa de bolos.
+
+| Comando | Que hace |
+|---|---|
+| `/function swr:bar/montar` | Monta la barra, las dos mesas y coloca a Francois detras. Pide 7x9 libre. |
+| `/function swr:bar/bolos/montar` | Monta la mesa de bolos (5x12) con los diez bolos. |
+| `/function swr:bar/carta` | La carta: pulsa un plato y se cobra de la despensa. |
+| `/function swr:bar/despensa` | Lo que hay: pan, pescado, patata, zanahoria, bayas, leche, miel, huevo, trigo y carne. |
+| `/function swr:bar/entregar` | Deja 8 unidades de un ingrediente (se gastan del inventario). |
+| `/function swr:bar/poker/comprar` | Cambia 1 lingote de oro por 25 fichas. |
+| `/function swr:bar/poker/iniciar` | Una mano de poker contra la banca (10 fichas). |
+| `/function swr:bar/bolos/tirar` | Una tirada de bolos. |
+
+La despensa no inventa nada: la llenan el granjero y el pescador del pueblo una vez al dia y lo
+que entregueis vosotros. Detalle, reglas y lo que esta simplificado en `BAR.md`.

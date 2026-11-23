@@ -78,6 +78,39 @@ execute if entity @e[tag=swr_plaza,limit=1] run function swr:pueblo/puestos
 execute if score OBRA swr matches 1.. run schedule function swr:pueblo/obra/tick 20t replace
 # el Panel del pueblo: se entrega a quien no lo tenga (al entrar o tras un /reload)
 execute as @a unless items entity @s container.* minecraft:recovery_compass run function swr:panel/dar
+
+# --- Bar del Perseus: despensa, fichas, poker y bolos ---
+scoreboard objectives add despensa dummy {"text":"Despensa del bar"}
+scoreboard objectives add fichas dummy {"text":"Fichas de poker"}
+scoreboard objectives add bolos dummy {"text":"Bolos"}
+scoreboard objectives add poker dummy {"text":"Poker"}
+scoreboard objectives add manoA dummy {"text":"Mano del jugador"}
+scoreboard objectives add manoB dummy {"text":"Mano de la banca"}
+scoreboard objectives add cs dummy {"text":"Cartas usadas"}
+scoreboard players set TRECE swr 13
+scoreboard players set CIEN swr 100
+scoreboard players add BOTE fichas 0
+scoreboard players add BOLOS_ACTIVO swr 0
+scoreboard players add BOLOS_PASO swr 0
+scoreboard players add BOLOS_TIRADOS swr 0
+scoreboard players add BOLOS_ULTIMA swr 0
+scoreboard players add MANO_A swr 0
+scoreboard players add MANO_B swr 0
+scoreboard players add INTENTOS swr 0
+scoreboard players add CARTA swr 0
+scoreboard players add RANGO swr 0
+scoreboard players add PALO swr 0
+scoreboard players add PAN despensa 0
+scoreboard players add PESCADO despensa 0
+scoreboard players add PATATA despensa 0
+scoreboard players add ZANAHORIA despensa 0
+scoreboard players add BAYAS despensa 0
+scoreboard players add LECHE despensa 0
+scoreboard players add MIEL despensa 0
+scoreboard players add HUEVO despensa 0
+scoreboard players add TRIGO despensa 0
+scoreboard players add CARNE despensa 0
+function swr:bar/poker/baraja
 scoreboard objectives setdisplay sidebar swr
 tellraw @a [{"text":"[Stone World] ","color":"gold","bold":true},{"text":"Panel activo. Parte: /function swr:panel/informe | Viajes: /function swr:viaje/aldea (cueva, estatuas, cascada, puerto, bambu, rival, spawn)","color":"gray"}]
 tellraw @a [{"text":"[Stone World] ","color":"gold","bold":true},{"text":"Serie: /function swr:serie/historias (libro de Ruri) | /function swr:serie/cuaderno (cadena tecnologica) | /function swr:serie/medusa (era 4) | /function swr:serie/destello (el 1 de abril) | /function swr:serie/terraforming/iniciar (epilogo, tras cerrar la era 5)","color":"gray"}]
@@ -85,6 +118,7 @@ tellraw @a [{"text":"[Stone World] ","color":"gold","bold":true},{"text":"Eras c
 tellraw @a [{"text":"[Stone World] ","color":"gold","bold":true},{"text":"Cuaderno de campo: /function swr:libro/indice (mapa por eras, con detalle al pasar el raton)","color":"gray"}]
 tellraw @a [{"text":"[Stone World] ","color":"gold","bold":true},{"text":"Progreso compartido: era y fichas son de los dos.  /function swr:reino/juntos avisa si falta alguien; /function swr:reino/modo alterna solo/equipo.","color":"gray"}]
 tellraw @a [{"text":"[Stone World] ","color":"gold","bold":true},{"text":"Perseus: /function swr:tripulacion/lista | botadura | reclutar/navegante | zarpar (sin los tres a bordo no se zarpa)","color":"gray"}]
+tellraw @a [{"text":"[Stone World] ","color":"gold","bold":true},{"text":"Bar del Perseus: /function swr:bar/montar (barra, mesas de poker y Francois) | bolos/montar | bar/carta | despensa","color":"gray"}]
 tellraw @a [{"text":"[Stone World] ","color":"gold","bold":true},{"text":"Pueblo: estatua (petrifica a alguien) | despetrificar (gasta fluido) | estado | obra/iniciar | obra/cancelar | horario/iniciar | horario/parar","color":"gray"}]
 tellraw @a [{"text":"[Stone World] ","color":"gold","bold":true},{"text":"Panel del pueblo: pulsa la tecla de su hueco en la barra rapida (1..9), o lleva en la mano el libro de instrucciones, y sale todo lo que hace el pueblo. Si lo pierdes: /function swr:panel/dar","color":"gold"}]
 tellraw @a [{"text":"[Stone World] ","color":"gold","bold":true},{"text":"Vida del pueblo: cada vecino levanta su casa y cumple horario (trabajo, comida, reunion y noche). Detalle en /function swr:libro/era/2.","color":"gray"}]

@@ -92,3 +92,15 @@ captura del pueblo nuevo, ni del recorrido, ni un vídeo. Hacen falta un cliente
 
 - [x] **Avances inalcanzables** — resuelto: `serie/raiz` se concede en el primer tick (con tag `swr_raiz`, para que la pestaña Dr. Stone aparezca) y `serie/fluido` se concede al gastar una dosis en `reino/revivir` y `pueblo/despetrificar`. `tests/test_eras.py` vigila que ningún avance `impossible` quede huérfano.
 
+## 12. El bar del Perseus
+
+El salon (barra, dos mesas de poker, mesa de bolos, Francois y la carta) esta programado y probado
+por estructura, pero **no se ha visto en un cliente ni colocado en la cubierta del barco jugado**.
+Los montajes piden 7x9 y 5x12 libres: si la cubierta real no los tiene, hay que mover el montaje o
+hacerlo modular. Tampoco se ha probado el reparto de cartas con un jugador de verdad (`/random` y
+los marcadores si se pueden probar por consola).
+
+Lo que **no** se ha añadido: el mod *Playing Cards & Chips* (NeoForge 1.21.1, CurseForge), que
+seria la base natural para las cartas. Se decidio no meter otra dependencia; si se añade, las
+mesas y las fichas del datapack siguen valiendo. De bolos no hay nada jugable para 1.21.1
+NeoForge: solo decorado y mapas con resource pack.
