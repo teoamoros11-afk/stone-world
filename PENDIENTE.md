@@ -94,13 +94,32 @@ captura del pueblo nuevo, ni del recorrido, ni un vídeo. Hacen falta un cliente
 
 ## 12. El bar del Perseus
 
-El salon (barra, dos mesas de poker, mesa de bolos, Francois y la carta) esta programado y probado
-por estructura, pero **no se ha visto en un cliente ni colocado en la cubierta del barco jugado**.
-Los montajes piden 7x9 y 5x12 libres: si la cubierta real no los tiene, hay que mover el montaje o
-hacerlo modular. Tampoco se ha probado el reparto de cartas con un jugador de verdad (`/random` y
-los marcadores si se pueden probar por consola).
+El salon esta programado y probado por estructura. La barra, los cinco taburetes, una mesa de poker
+de 3x3 con dos taburetes y el farol **viajan dentro de `perseus.nbt`** (814 bloques solidos), asi que
+al colocar el barco ya estan puestos; la segunda mesa y los carteles los pone `swr:bar/montar`. La
+**mesa de bolos no entra a bordo** (12 bloques de largo para 7 de manga) y se monta aparte.
+
+Sigue sin verse en un cliente: el aspecto, la altura de los taburetes y como queda la barra contra
+la borda no se han mirado en pantalla. Tampoco se ha repartido una mano con un jugador de verdad
+(`/random` y los marcadores si se prueban por consola y en el arnes de servidor).
 
 Lo que **no** se ha añadido: el mod *Playing Cards & Chips* (NeoForge 1.21.1, CurseForge), que
 seria la base natural para las cartas. Se decidio no meter otra dependencia; si se añade, las
 mesas y las fichas del datapack siguen valiendo. De bolos no hay nada jugable para 1.21.1
 NeoForge: solo decorado y mapas con resource pack.
+
+## 13. El arnes de servidor
+
+`herramientas/probar_servidor.py` arranca el mundo de pruebas, espera a RCON (cliente propio en
+`herramientas/rcon.py`, sin dependencias) y comprueba cinco cosas sin jugador: que el datapack carga,
+que `CIEN` vale 100, que un poker de reyes suma 813, que `bolos/montar` deja diez bolos y que
+`swr:bar/estado` responde. Sale con 0 solo si las cinco pasan y apaga lo que encendio.
+
+```
+python3 herramientas/probar_servidor.py --servidor /var/tmp/sw3 --solo-listar   # sin tocar nada
+python3 herramientas/probar_servidor.py --servidor /var/tmp/sw3                # arranca y prueba
+```
+
+Lo que **no** puede comprobar: `/give` de cartas y platos, `playsound`, `title` y `advancement grant`
+necesitan un jugador conectado. Y el arranque tarda 4-5 minutos con 40 mods: si no hay tiempo, queda
+`--solo-listar`, que `comprobar_todo.sh` ya ejecuta.

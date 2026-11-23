@@ -17,6 +17,9 @@ cd "$(dirname "$0")"
 python3 -m pytest -q
 python3 -m validador "$@"
 
+# El arnes de servidor debe saber listarse sin arrancar Minecraft (rapido y offline).
+python3 herramientas/probar_servidor.py --solo-listar >/dev/null
+
 # El zip es lo que se juega: se regenera y se comprueba que el generador no se
 # ha roto (sobrescribe panel-del-reino.zip, que está ignorado en git).
 if [ "${1:-}" != "--solo-errores" ]; then

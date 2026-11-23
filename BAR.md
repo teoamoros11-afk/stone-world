@@ -30,6 +30,15 @@ los bolos son una mesa con diez bolos y una bola que rueda. Si algun dia se aña
 /function swr:bar/entregar        # dejar comida en la despensa
 ```
 
+**El bar ya viene dentro del barco.** El `perseus.nbt` trae la barra de cinco barriles con su losa,
+los cinco taburetes, una mesa de poker de 3x3 con dos taburetes y el farol: con `/place template
+swr:perseus <x> <y> <z>` ya estan puestos, sin ejecutar nada mas. `/function swr:bar/montar` queda
+para la segunda mesa, para remontar el salon en otro sitio o para poner los carteles y a Francois
+detras de la barra.
+
+La **mesa de bolos no cabe a bordo**: pide 12 bloques de largo y la cubierta tiene 7 de manga, asi
+que se monta aparte, en el muelle o en la orilla.
+
 Los dos montajes se hacen **alrededor de quien ejecuta** y miran al sur (+z). En el Perseus hay
 que colocarse en la cubierta con sitio libre delante: el salon pide 7x9 y la mesa de bolos 5x12.
 No se coloca solo por coordenadas porque el barco se pone donde quiera el jugador
@@ -119,7 +128,8 @@ borra.
 
 ## Pruebas
 
-`tests/test_bar.py` (104 casos) comprueba, sin cliente:
+`tests/test_bar.py` (104 casos), `tests/test_barco.py` (4 casos) y `tests/test_servidor.py` (3 casos)
+comprueban, sin cliente:
 
 - que el salon tenga barra, dos mesas, Francois quieta detras y no haya comandos destructivos;
 - que la despensa empiece a cero y que el acopio solo traiga pan y pescado (los oficios que de
@@ -131,14 +141,20 @@ borra.
 - que haya diez bolos, que la bola avance y que el marcador se apunte al que tiro;
 - que el bar este enganchado al tick (bolos) y a la noche (acopio);
 - que remontar no duplique marcadores ni bolos y que avise si no hay cubierta;
-- que la carta ensene el stock al pasar el raton y que el poker diga que mano es.
+- que la carta ensene el stock al pasar el raton y que el poker diga que mano es;
+- que la barra, la mesa de poker y los taburetes esten de verdad en el `.nbt` del barco, que no pisen
+  el invernadero ni los escalones y que el NBT guardado lleve esos bloques;
+- que el arnes de servidor exista, no traiga dependencias y sepa listar sus pruebas sin arrancar nada.
 
 ## Lo que no se ha podido comprobar
 
 - **El aspecto**: no hay cliente en este entorno. La barra, las mesas y los bolos son bloques y
   armor stands; como quedan de bonito no se ha visto.
-- **En la cubierta del Perseus de verdad**: los dos montajes se han programado para un hueco de
-  7x9 y 5x12 y se han probado por estructura, pero no colocados en el barco jugado. Si la cubierta
-  se queda corta, el montaje se sale por la borda: por eso se avisa del espacio que pide.
+- **La mesa de bolos en la cubierta**: no cabe (12 de largo para 7 de manga) y se ha probado por
+  estructura, no colocada. La barra y una mesa de poker si van dentro del `.nbt`, asi que aparecen
+  con el barco; su aspecto sigue sin verse.
+- **El arnes de servidor, en vivo**: arranca Minecraft entero (4-5 minutos con 40 mods) y en este
+  entorno no siempre hay tiempo. Cuando corre, comprueba el datapack de verdad; cuando no, queda
+  `--solo-listar`, que no toca el servidor.
 - **El reparto en cliente**: `/random` y los marcadores se pueden probar por consola; el `give` de
   las cartas y los platos necesita jugador.
