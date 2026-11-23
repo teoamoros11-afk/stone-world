@@ -1,0 +1,26 @@
+modLoader = "javafml"
+loaderVersion = "[4,)"
+license = "MIT"
+
+[[mods]]
+modId = "suikacasco"
+version = "${mod_version}"
+displayName = "Stone Suika"
+description = '''
+El casco de sandia de Suika: una cascara de melon que se lleva en la cabeza.
+Segunda pieza propia del pack Stone World Reborn (Dr. Stone).
+'''
+
+[[dependencies.suikacasco]]
+modId = "neoforge"
+type = "required"
+versionRange = "[21.1.0,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.suikacasco]]
+modId = "minecraft"
+type = "required"
+versionRange = "[1.21.1,1.22)"
+ordering = "NONE"
+side = "BOTH"

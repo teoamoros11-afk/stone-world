@@ -138,10 +138,27 @@ que haria falta y que la bloquea. Lo que ya existe no se repite aqui: `serie/des
 |---|---|---|---|
 | La radio pirata de Gen | SERIE 5.3; B.15 | funcion con titulo, sonido y avance; sin dependencias | no esta |
 | El torneo de la aldea | SERIE 4.5; 9.1 | concurso con marcador y turnos, sin pelea: es lo unico de la lista que el arnes puede comprobar | no esta |
-| El disco de Lilian | SERIE 9.4; B.18 | la cancion existe (`serie/cancion`), el objeto no: `music_disc` y `jukebox_song` en el resource pack | a medias |
+| El disco de Lilian | SERIE 9.4; B.18 | hecho: mod `musica-mod` (`swrmusica:disco_lilian`), `jukebox_song` en el datapack y `serie/disco`; falta oirlo en cliente | hecho |
 | El telefono de Senku | SERIE 5.2 | dos jugadores a la vez; en solitario no se nota | no esta |
-| El casco de sandia de Suika | SERIE 1.4; 9.1 | nada: un aldeano no lleva casco. Queda el trozo de sandia en la mano | imposible sin mod |
+| El casco de sandia de Suika | SERIE 1.4; 9.1 | hecho: mod `suika-mod` (armadura de casco). Un aldeano no puede llevarlo; lo lleva el jugador | hecho |
 
-El torneo es el unico que se puede probar sin cliente (marcador por RCON), asi que es el que
-tiene sentido hacer primero. La radio y el disco suenan en el cliente, y el telefono necesita
-dos personas: se pueden escribir, no verificar.
+El torneo es el unico de los tres que queda y el unico que se puede probar sin cliente
+(marcador por RCON). La radio suena en el cliente y el telefono necesita dos personas: se
+pueden escribir, no verificar.
+
+### Detalles que no son aspecto
+
+Lo que la serie cuenta y no se ve en una ficha: mecanicas de verdad, no ropa. Salen de la
+seccion H de `SERIE.md` (los inventos que la serie no muestra) y del arco del barco.
+
+| Detalle | Donde lo cuenta la serie | Que haria falta |
+|---|---|---|
+| Conservas y salazon | SERIE 6.4 y H | receta de pescado curado y un barril que alargue la duracion: comida que no se estropee en el viaje |
+| Higiene y saneamiento | SERIE H | jabon (ya hay receta), agua limpia y letrinas: menos enfermedad en la colonia |
+| Contabilidad y raciones | SERIE 6.4 y 9.3 | cuenta de raciones por dia y aviso cuando baje de un minimo; es marcador, se prueba por RCON |
+| Cartografia | SERIE H | mapa del barco y del pueblo con marcadores, no solo el mapa de vanilla |
+| Arado y rotacion de cultivos | SERIE H | que el campo pierda rendimiento si se repite el mismo cultivo |
+| Trampas y control de plagas | SERIE H | que el grano almacenado se pierda sin trampas |
+
+De los seis, contabilidad, arado y trampas son los unicos que el arnes puede comprobar sin
+cliente; conservas e higiene son recetas y efectos, y la cartografia necesita mirar el mapa.

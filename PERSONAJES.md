@@ -61,11 +61,13 @@ color del nombre: Kohaku y Ruri (llanura) son cazadora y sacerdotisa, y Jasper y
 (nieve) son pastor y peletera. Jungla y pantano quedan para una sola persona cada uno, que es
 lo mas cerca que se puede estar de un traje distinto sin salirse del juego.
 
-Lo que **no** se puede poner, y conviene saberlo antes de pedirlo: el casco de sandia de Suika,
-las gafas de Kinro en la cara y cualquier ropa dibujada a mano. Las gafas existen como objeto
-(`stoneoptics:kinro_glasses`, del mod de optica), pero se llevan en la mano o en el inventario,
-no encima de un aldeano. Un traje de verdad pide un mod con renderer propio o cabezas de
-jugador con textura, y las cabezas necesitan un PNG alojado; esta apuntado en `PENDIENTE.md`.
+Lo que **no** se puede poner en el aldeano, y conviene saberlo antes de pedirlo: nada de ropa
+encima. Las gafas de Kinro y el casco de sandia de Suika existen como objetos de mod
+(`stoneoptics:kinro_glasses` y `suikacasco:watermelon_helmet`), pero los lleva el jugador, no
+el aldeano: un aldeano no renderiza armadura. El casco ocupa la cabeza entera, que es el
+tamano de la cabeza del jugador; una cascara mas grande pide un renderer propio. Un traje de
+verdad pide un mod con renderer propio o cabezas de jugador con textura, y las cabezas
+necesitan un PNG alojado; esta apuntado en `PENDIENTE.md`.
 
 ## Rutinas propias
 

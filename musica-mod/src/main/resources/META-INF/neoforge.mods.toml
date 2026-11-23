@@ -1,0 +1,26 @@
+modLoader = "javafml"
+loaderVersion = "[4,)"
+license = "MIT"
+
+[[mods]]
+modId = "swrmusica"
+version = "${mod_version}"
+displayName = "Stone Musica"
+description = '''
+El sonido del disco de Lilian, registrado como sound event para que el tocadiscos
+funcione en servidor. Tercera pieza propia del pack Stone World Reborn (Dr. Stone).
+'''
+
+[[dependencies.swrmusica]]
+modId = "neoforge"
+type = "required"
+versionRange = "[21.1.0,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.swrmusica]]
+modId = "minecraft"
+type = "required"
+versionRange = "[1.21.1,1.22)"
+ordering = "NONE"
+side = "BOTH"

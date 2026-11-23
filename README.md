@@ -60,8 +60,10 @@ herramientas/        instalar.mjs, generadores del plano y del pack, arnes de se
 optics-mod/          mod de optica: lentes, telescopio, banco de pulido, gafas de Kinro
 crank-dynamo/        mod de energia: dinamo de manivela, 8 FE/tick
 pharmacy-mod/        mod de farmacia: sulfamida y jeringa
+suika-mod/           mod del casco de sandia de Suika (armadura de casco)
+musica-mod/          sonido de Lilian y su disco, registrados para el tocadiscos
 validador/           comprobador del datapack (estructura, JSON, mcfunctions, referencias)
-tests/               pruebas del validador y del datapack (pytest, 243 casos)
+tests/               pruebas del validador y del datapack (pytest, 253 casos)
 comprobar_todo.sh    pytest + validador + regenerar el zip, de una vez
 pyproject.toml       metadatos del validador y config de pytest
 LICENSE              MIT para el codigo; LICENSE-CONTENIDO.md, CC BY 4.0 para textos y arte
