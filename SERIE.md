@@ -22,6 +22,8 @@
 
 ## ÍNDICE
 
+Episodio por episodio, con su tramo de manga y lo que pasa en cada uno: [`EPISODIOS.md`](EPISODIOS.md).
+
 | Sección | Contenido |
 |---|---|
 | 1 | La serie en una página: premisa, motor dramático, reparto de funciones |
