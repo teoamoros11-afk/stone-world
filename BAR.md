@@ -154,7 +154,7 @@ comprueban, sin cliente:
   estructura, no colocada. La barra y una mesa de poker si van dentro del `.nbt`, asi que aparecen
   con el barco; su aspecto sigue sin verse.
 - **El arnes de servidor**: arranca Minecraft entero (unos 4 minutos con 40 mods) y espera a RCON.
-  El 23/11/2026 paso **5/5** contra el mundo de pruebas: el datapack carga, `CIEN` vale 100, un
+  El 23/11/2026 paso **6/6** contra el mundo de pruebas: el datapack carga, `CIEN` vale 100, un
   poker de reyes suma 813, `bolos/montar` deja diez bolos y `swr:bar/estado` responde. Lo que no
   puede probar es nada que pida jugador conectado.
 - **El reparto en cliente**: `/random` y los marcadores se pueden probar por consola; el `give` de
