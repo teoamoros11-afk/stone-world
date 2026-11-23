@@ -87,7 +87,8 @@ def comprobar(r: Rcon, nombre: str) -> tuple[bool, str]:
         return ("has 813" in salida, salida)
     if nombre.startswith("bolos"):
         r.cmd("function swr:bar/bolos/montar")
-        r.cmd("execute store result score CUENTA swr run execute if entity @e[tag=swr_bolo]")
+        r.cmd("scoreboard players set CUENTA swr 0")
+        r.cmd("execute as @e[tag=swr_bolo] run scoreboard players add CUENTA swr 1")
         salida = r.cmd("scoreboard players get CUENTA swr")
         return ("has 10" in salida, salida)
     if nombre.startswith("bar"):
@@ -144,7 +145,9 @@ def main() -> int:
             fallos += 1
 
     r.cmd("kill @e[tag=swr_bolo]")
+    r.cmd("kill @e[tag=swr_bola]")
     r.cmd("kill @e[tag=swr_bolos_origen]")
+    r.cmd("scoreboard players set CUENTA swr 0")
     if proceso is not None and not args.dejar:
         r.cmd("stop")
         try:

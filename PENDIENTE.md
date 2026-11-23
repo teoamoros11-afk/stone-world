@@ -121,5 +121,5 @@ python3 herramientas/probar_servidor.py --servidor /var/tmp/sw3                #
 ```
 
 Lo que **no** puede comprobar: `/give` de cartas y platos, `playsound`, `title` y `advancement grant`
-necesitan un jugador conectado. Y el arranque tarda 4-5 minutos con 40 mods: si no hay tiempo, queda
-`--solo-listar`, que `comprobar_todo.sh` ya ejecuta.
+necesitan un jugador conectado. Probado en vivo el 23/11/2026 contra `/var/tmp/sw3`: **5/5 en verde** (arrancar tarda unos 4
+minutos con 40 mods). Si no hay tiempo, queda `--solo-listar`, que `comprobar_todo.sh` ya ejecuta.
