@@ -116,7 +116,7 @@ NeoForge: solo decorado y mapas con resource pack.
 `herramientas/probar_servidor.py` arranca el mundo de pruebas, espera a RCON (cliente propio en
 `herramientas/rcon.py`, sin dependencias) y comprueba cinco cosas sin jugador: que el datapack carga,
 que `CIEN` vale 100, que un poker de reyes suma 813, que `bolos/montar` deja diez bolos y que
-`swr:bar/estado` responde. Sale con 0 solo si las cinco pasan y apaga lo que encendio.
+`swr:bar/estado` responde. Sale con 0 solo si las seis pasan y apaga lo que encendio.
 
 ```
 python3 herramientas/probar_servidor.py --servidor /var/tmp/sw3 --solo-listar   # sin tocar nada
@@ -124,7 +124,7 @@ python3 herramientas/probar_servidor.py --servidor /var/tmp/sw3                #
 ```
 
 Lo que **no** puede comprobar: `/give` de cartas y platos, `playsound`, `title` y `advancement grant`
-necesitan un jugador conectado. Probado en vivo el 23/11/2026 contra `/var/tmp/sw3`: **5/5 en verde** (arrancar tarda unos 4
+necesitan un jugador conectado. Probado en vivo el 23/11/2026 contra `/var/tmp/sw3`: **6/6 en verde** (arrancar tarda unos 4
 minutos con 40 mods). Si no hay tiempo, queda `--solo-listar`, que `comprobar_todo.sh` ya ejecuta.
 
 ## 14. Detalles de la serie que aun no estan
@@ -157,8 +157,9 @@ seccion H de `SERIE.md` (los inventos que la serie no muestra) y del arco del ba
 | Higiene y saneamiento | SERIE H | jabon (ya hay receta), agua limpia y letrinas: menos enfermedad en la colonia |
 | Contabilidad y raciones | SERIE 6.4 y 9.3 | cuenta de raciones por dia y aviso cuando baje de un minimo; es marcador, se prueba por RCON |
 | Cartografia | SERIE H | mapa del barco y del pueblo con marcadores, no solo el mapa de vanilla |
-| Arado y rotacion de cultivos | SERIE H | que el campo pierda rendimiento si se repite el mismo cultivo |
+| Arado y rotacion de cultivos | SERIE H | hecho: `swr:campo` (cuatro parcelas, rendimiento 1..3 y la comprobacion 6/6 del arnes); ver `CAMPO.md` | hecho |
 | Trampas y control de plagas | SERIE H | que el grano almacenado se pierda sin trampas |
 
-De los seis, contabilidad, arado y trampas son los unicos que el arnes puede comprobar sin
-cliente; conservas e higiene son recetas y efectos, y la cartografia necesita mirar el mapa.
+Arado ya esta hecho y lo comprueba el arnes. Le quedan contabilidad y trampas, que tambien se
+pueden comprobar sin cliente; conservas e higiene son recetas y efectos, y la cartografia
+necesita mirar el mapa.

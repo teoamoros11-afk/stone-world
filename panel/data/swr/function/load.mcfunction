@@ -79,6 +79,25 @@ execute if score OBRA swr matches 1.. run schedule function swr:pueblo/obra/tick
 # el Panel del pueblo: se entrega a quien no lo tenga (al entrar o tras un /reload)
 execute as @a unless items entity @s container.* minecraft:recovery_compass run function swr:panel/dar
 
+# --- Campo del pueblo: parcelas, rotacion y rendimiento ---
+scoreboard objectives add campo dummy {"text":"Campo del pueblo"}
+scoreboard players add CULTIVO campo 0
+scoreboard players add MADURO campo 0
+scoreboard players add REND campo 0
+scoreboard players add COSECHAS campo 0
+scoreboard players add ULTIMA_COSECHA campo 0
+scoreboard players set DOS swr 2
+scoreboard players set CUATRO swr 4
+execute unless score P1 campo matches 0.. run scoreboard players set P1 campo 0
+execute unless score P2 campo matches 0.. run scoreboard players set P2 campo 0
+execute unless score P3 campo matches 0.. run scoreboard players set P3 campo 0
+execute unless score P4 campo matches 0.. run scoreboard players set P4 campo 0
+execute unless score R1 campo matches 1..3 run scoreboard players set R1 campo 3
+execute unless score R2 campo matches 1..3 run scoreboard players set R2 campo 3
+execute unless score R3 campo matches 1..3 run scoreboard players set R3 campo 3
+execute unless score R4 campo matches 1..3 run scoreboard players set R4 campo 3
+schedule function swr:campo/ciclo 200t replace
+
 # --- Bar del Perseus: despensa, fichas, poker y bolos ---
 scoreboard objectives add despensa dummy {"text":"Despensa del bar"}
 scoreboard objectives add fichas dummy {"text":"Fichas de poker"}

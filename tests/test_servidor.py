@@ -27,7 +27,7 @@ def test_el_arnes_lista_sus_comprobaciones():
         [sys.executable, str(RAIZ / "herramientas" / "probar_servidor.py"), "--solo-listar"],
         capture_output=True, text=True, check=True,
     )
-    for trozo in ("datapack", "CIEN", "poker", "bolos", "bar"):
+    for trozo in ("datapack", "CIEN", "poker", "bolos", "bar", "campo"):
         assert trozo in salida.stdout, f"el arnes no comprueba {trozo}"
 
 

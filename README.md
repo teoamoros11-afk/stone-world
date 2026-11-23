@@ -62,8 +62,9 @@ crank-dynamo/        mod de energia: dinamo de manivela, 8 FE/tick
 pharmacy-mod/        mod de farmacia: sulfamida y jeringa
 suika-mod/           mod del casco de sandia de Suika (armadura de casco)
 musica-mod/          sonido de Lilian y su disco, registrados para el tocadiscos
+CAMPO.md             el campo del pueblo: parcelas, rotacion y rendimiento
 validador/           comprobador del datapack (estructura, JSON, mcfunctions, referencias)
-tests/               pruebas del validador y del datapack (pytest, 253 casos)
+tests/               pruebas del validador y del datapack (pytest, 259 casos)
 comprobar_todo.sh    pytest + validador + regenerar el zip, de una vez
 pyproject.toml       metadatos del validador y config de pytest
 LICENSE              MIT para el codigo; LICENSE-CONTENIDO.md, CC BY 4.0 para textos y arte
@@ -76,7 +77,7 @@ docs/capturas/       capturas del juego
 
 Petrificar → revivir aldeanos → cada uno da un oficio → la colonia crece sola → el crecimiento paga la siguiente era → las aldeas rivales reaccionan.
 
-- **El bar del Perseus** (23/11/2026): en la cubierta del barco se monta un salon con barra, dos mesas de poker y una mesa de bolos, con Francois detras de la barra. La despensa no inventa comida: la llenan el granjero y el pescador del pueblo una vez al dia y lo que entrega el jugador (8 unidades de cada ingrediente, tope 64). La carta se pide por chat y cada plato cobra su stock antes de servir. El bar viaja ya dentro del `perseus.nbt` (814 bloques solidos, barra y una mesa de poker incluidas); la mesa de bolos se monta aparte porque pide 12 bloques de largo para 7 de manga. Y hay un **arnes de servidor** (`herramientas/probar_servidor.py`): arranca el mundo de pruebas, espera a RCON y comprueba sin jugador que el pack carga, que `CIEN` vale 100, que un poker de reyes suma 813, que `bolos/montar` deja diez bolos y que `swr:bar/estado` responde. Lanzado contra el mundo de pruebas el 23/11/2026: 5/5. El poker es una baraja de 52 cartas repartida con `/random`, con los nueve tipos de mano y bote de 10 fichas; los bolos son diez armor stands y una bola que rueda 16 pasos. `tests/test_bar.py` (104 casos) lo vigila. Detalle en `BAR.md`.
+- **El bar del Perseus** (23/11/2026): en la cubierta del barco se monta un salon con barra, dos mesas de poker y una mesa de bolos, con Francois detras de la barra. La despensa no inventa comida: la llenan el granjero y el pescador del pueblo una vez al dia y lo que entrega el jugador (8 unidades de cada ingrediente, tope 64). La carta se pide por chat y cada plato cobra su stock antes de servir. El bar viaja ya dentro del `perseus.nbt` (814 bloques solidos, barra y una mesa de poker incluidas); la mesa de bolos se monta aparte porque pide 12 bloques de largo para 7 de manga. Y hay un **arnes de servidor** (`herramientas/probar_servidor.py`): arranca el mundo de pruebas, espera a RCON y comprueba sin jugador que el pack carga, que `CIEN` vale 100, que un poker de reyes suma 813, que `bolos/montar` deja diez bolos y que `swr:bar/estado` responde. Lanzado contra el mundo de pruebas el 23/11/2026: 6/6. El poker es una baraja de 52 cartas repartida con `/random`, con los nueve tipos de mano y bote de 10 fichas; los bolos son diez armor stands y una bola que rueda 16 pasos. `tests/test_bar.py` (104 casos) lo vigila. Detalle en `BAR.md`.
 
 ## Estado, sin adornos
 

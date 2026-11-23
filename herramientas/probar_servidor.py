@@ -30,6 +30,7 @@ COMPROBACIONES = [
     "poker: poker de reyes suma 813 (evaluar_a sobre la mano puesta a mano)",
     "bolos: montar deja los diez bolos en la mesa",
     "bar: swr:bar/estado existe y responde",
+    "campo: trigo maduro da 3 y repetirlo en la misma parcela baja a 2",
 ]
 
 
@@ -94,6 +95,24 @@ def comprobar(r: Rcon, nombre: str) -> tuple[bool, str]:
     if nombre.startswith("bar"):
         salida = r.cmd("function swr:bar/estado")
         return ("Unknown function" not in salida, salida.splitlines()[0] if salida else "")
+    if nombre.startswith("campo"):
+        # parcela de prueba en el aire, en el chunk del spawn y lejos de cualquier obra
+        r.cmd("kill @e[tag=swr_parcela_1]")
+        r.cmd("setblock 0 100 0 minecraft:farmland[moisture=7]")
+        r.cmd("setblock 0 101 0 minecraft:wheat[age=7]")
+        r.cmd('summon marker 0 101 0 {Tags:["swr_parcela_1"]}')
+        r.cmd("scoreboard players set P1 campo 0")
+        r.cmd("scoreboard players set R1 campo 3")
+        r.cmd("function swr:campo/parcela1")
+        primera = r.cmd("scoreboard players get ULTIMA_COSECHA campo")
+        r.cmd("setblock 0 101 0 minecraft:wheat[age=7]")
+        r.cmd("function swr:campo/parcela1")
+        segunda = r.cmd("scoreboard players get R1 campo")
+        r.cmd("setblock 0 100 0 minecraft:air")
+        r.cmd("setblock 0 101 0 minecraft:air")
+        r.cmd("kill @e[tag=swr_parcela_1]")
+        ok = "has 3" in primera and "has 2" in segunda
+        return (ok, f"primera={primera.strip()} repetida={segunda.strip()}")
     return (False, "comprobacion desconocida")
 
 
@@ -147,6 +166,7 @@ def main() -> int:
     r.cmd("kill @e[tag=swr_bolo]")
     r.cmd("kill @e[tag=swr_bola]")
     r.cmd("kill @e[tag=swr_bolos_origen]")
+    r.cmd("kill @e[tag=swr_parcela]")
     r.cmd("scoreboard players set CUENTA swr 0")
     if proceso is not None and not args.dejar:
         r.cmd("stop")
