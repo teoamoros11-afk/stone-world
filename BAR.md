@@ -25,6 +25,7 @@ los bolos son una mesa con diez bolos y una bola que rueda. Si algun dia se aña
 /function swr:bar/montar          # barra, dos mesas, carteles y Francois
 /function swr:bar/bolos/montar    # la mesa de bolos, aparte (pide 5x12 libre)
 /function swr:bar/despensa        # lo que hay
+/function swr:bar/estado          # montado, Francois, despensa, fichas y ultima tirada
 /function swr:bar/carta           # la carta, con clic en cada plato
 /function swr:bar/entregar        # dejar comida en la despensa
 ```
@@ -118,7 +119,7 @@ borra.
 
 ## Pruebas
 
-`tests/test_bar.py` (94 casos) comprueba, sin cliente:
+`tests/test_bar.py` (103 casos) comprueba, sin cliente:
 
 - que el salon tenga barra, dos mesas, Francois quieta detras y no haya comandos destructivos;
 - que la despensa empiece a cero y que el acopio solo traiga pan y pescado (los oficios que de
@@ -128,7 +129,9 @@ borra.
 - que la baraja tenga 52 cartas distintas y el reparto cinco y cinco sin repetir;
 - que la evaluacion cubra los nueve tipos y que el bote se pague y el empate se devuelva;
 - que haya diez bolos, que la bola avance y que el marcador se apunte al que tiro;
-- que el bar este enganchado al tick (bolos) y a la noche (acopio).
+- que el bar este enganchado al tick (bolos) y a la noche (acopio);
+- que remontar no duplique marcadores ni bolos y que avise si no hay cubierta;
+- que la carta ensene el stock al pasar el raton y que el poker diga que mano es.
 
 ## Lo que no se ha podido comprobar
 

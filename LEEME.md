@@ -190,6 +190,7 @@ En la cubierta del barco hay un salon con barra, dos mesas de poker y una mesa d
 | `/function swr:bar/bolos/montar` | Monta la mesa de bolos (5x12) con los diez bolos. |
 | `/function swr:bar/carta` | La carta: pulsa un plato y se cobra de la despensa. |
 | `/function swr:bar/despensa` | Lo que hay: pan, pescado, patata, zanahoria, bayas, leche, miel, huevo, trigo y carne. |
+| `/function swr:bar/estado` | De un vistazo: si el salon esta montado, si esta Francois, la despensa, tus fichas y la ultima tirada. |
 | `/function swr:bar/entregar` | Deja 8 unidades de un ingrediente (se gastan del inventario). |
 | `/function swr:bar/poker/comprar` | Cambia 1 lingote de oro por 25 fichas. |
 | `/function swr:bar/poker/iniciar` | Una mano de poker contra la banca (10 fichas). |

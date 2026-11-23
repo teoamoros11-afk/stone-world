@@ -316,3 +316,52 @@ def test_rank_y_palo_salen_de_la_carta():
         palo = (carta - 1) // 13 + 1
         assert scores[("RANGO", "swr")] == rango, f"carta {carta}"
         assert scores[("PALO", "swr")] == palo, f"carta {carta}"
+
+
+# ---------------------------------------------------------------- pulido
+
+def test_montar_avisa_si_no_hay_cubierta_y_no_duplica():
+    montar = leer("montar.mcfunction")
+    assert "minecraft:air" in montar and "minecraft:water" in montar, "no avisa de que no hay suelo"
+    assert montar.count("run return 0") >= 2, "monta igual aunque no haya cubierta"
+    assert "kill @e[tag=swr_bar]" in montar, "los marcadores se acumulan al remontar"
+
+
+def test_los_bolos_tampoco_se_duplican():
+    montar = leer("bolos/montar.mcfunction")
+    assert "kill @e[tag=swr_bolo]" in montar
+    assert "kill @e[tag=swr_bolos_origen]" in montar
+
+
+def test_estado_resume_el_bar():
+    estado = leer("estado.mcfunction")
+    for trozo in ["swr_bar", "swr_cocinero", "despensa", "fichas", "BOLOS_ULTIMA"]:
+        assert trozo in estado, f"el estado no dice nada de {trozo}"
+    assert "/function swr:bar/estado" in leer("carta.mcfunction"), "la carta no lleva al estado"
+
+
+def test_la_carta_ensena_el_stock_al_pasar_el_raton():
+    carta = leer("carta.mcfunction")
+    for res in ["PAN", "PESCADO", "HUEVO", "PATATA", "CARNE", "ZANAHORIA",
+                "TRIGO", "MIEL", "BAYAS", "LECHE"]:
+        assert f'"name":"{res}","objective":"despensa"' in carta.replace(" ", ""), (
+            f"la carta no dice cuanto {res} queda"
+        )
+    assert "clickEvent" in carta and "run_command" in carta, "la carta ya no se puede pulsar"
+
+
+def test_el_poker_dice_que_mano_es():
+    for archivo, tipo in (("nombre_jugador", "TIPO_JUGADOR"), ("nombre_banca", "TIPO_BANCA")):
+        cuerpo = leer(f"poker/{archivo}.mcfunction")
+        for nombre in ["escalera de color", "poker", "full", "color", "escalera",
+                       "trio", "doble pareja", "pareja", "carta alta"]:
+            assert nombre in cuerpo, f"{archivo} no nombra {nombre}"
+        assert tipo in cuerpo
+    resolver = leer("poker/resolver.mcfunction")
+    assert "poker/nombre_jugador" in resolver and "poker/nombre_banca" in resolver
+    for lado, tipo in (("a", "TIPO_JUGADOR"), ("b", "TIPO_BANCA")):
+        assert f"operation {tipo} poker = TIPO poker" in leer(f"poker/evaluar_{lado}.mcfunction")
+
+
+def test_el_marcador_de_bolos_dice_la_ultima_tirada():
+    assert "BOLOS_ULTIMA" in leer("bolos/marcador.mcfunction")

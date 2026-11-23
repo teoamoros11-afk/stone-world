@@ -123,4 +123,5 @@ execute if score ESCALERA poker matches 1 if score COLOR poker matches 1 run sco
 scoreboard players operation PUNTOS poker = TIPO poker
 scoreboard players operation PUNTOS poker *= CIEN swr
 scoreboard players operation PUNTOS poker += ALTA poker
+scoreboard players operation TIPO_BANCA poker = TIPO poker
 scoreboard players operation MANO_BANCA poker = PUNTOS poker

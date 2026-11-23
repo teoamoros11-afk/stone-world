@@ -1,6 +1,13 @@
 # Salon del Perseus: la barra, dos mesas de poker y (aparte) la mesa de bolos.
 # Se monta alrededor de quien lo ejecuta y mira al sur (+z): deja 7x9 libre en cubierta.
 # Uso: /function swr:bar/montar   (despues: /function swr:bar/bolos/montar)
+# si no hay suelo bajo los pies, no se monta nada (se saldria por la borda)
+execute if block ~ ~-1 ~ minecraft:air run tellraw @s [{"text":"[Bar] ","color":"gold","bold":true},{"text":"Aqui no hay cubierta bajo tus pies. Ponte en el suelo del barco.","color":"red"}]
+execute if block ~ ~-1 ~ minecraft:air run return 0
+execute if block ~ ~-1 ~ minecraft:water run tellraw @s [{"text":"[Bar] ","color":"gold","bold":true},{"text":"Estas sobre el agua: busca la cubierta.","color":"red"}]
+execute if block ~ ~-1 ~ minecraft:water run return 0
+# un solo salon: se quita el marcador viejo antes de montar el nuevo
+kill @e[tag=swr_bar]
 summon minecraft:marker ~ ~ ~ {Tags:["swr_bar"]}
 # la barra: cinco barriles con tapa de losa y cinco taburetes delante
 fill ~-2 ~ ~ ~2 ~ ~ minecraft:barrel
