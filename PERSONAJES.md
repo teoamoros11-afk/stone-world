@@ -33,6 +33,40 @@ a su puesto en el horario. Los que tienen oficio sin puesto (clerigo, armero, ca
 cartografo, peletera) se quedan en la plaza o en su casa: su oficio existe, pero el pueblo no
 tiene mesa para el.
 
+## Lo que se ve de cada uno
+
+**No hay skins.** Un aldeano de Minecraft no acepta una textura propia: el juego tiene **siete
+ropas**, una por tipo de aldea, y encima el delantal del oficio. Eso, el color del nombre y el
+objeto de la mano es todo lo que se puede cambiar, y un resource pack no lo arregla porque
+cambia a todos los aldeanos a la vez, no a uno. La ficha es, por tanto, una eleccion de ropa
+entre siete, no un traje a medida.
+
+| # | Personaje | Ropa (aldea) | Delantal (oficio) | Nivel | En la mano | Nombre |
+|---|---|---|---|---|---|---|
+| 1 | Kohaku | llanura | flechera | 4 | hacha de piedra | dorado |
+| 2 | Chrome | taiga | bibliotecario | 3 | frasco de vidrio | aguamarina |
+| 3 | Ruri | llanura | clerigo | 3 | amatista | lila |
+| 4 | Kaseki | sabana | cantero | 5 | pico de hierro | gris |
+| 5 | Suika | jungla | ninguno | 1 | trozo de sandia | verde |
+| 6 | Ginro | desierto | pescador | 1 | bacalao | amarillo |
+| 7 | Kinro | pantano | armero | 4 | espada de hierro | azul |
+| 8 | Magma | sabana | carnicero | 2 | hacha de piedra | rojo |
+| 9 | Kokuyo | taiga | cartografo | 4 | mapa | blanco |
+| 10 | Jasper | nieve | pastor | 2 | lana | azul oscuro |
+| 11 | Turquoise | desierto | granjera | 2 | trigo | turquesa |
+| 12 | Sapphire | nieve | peletera | 2 | cuero | azul claro |
+
+Solo dos parejas comparten ropa, y se distinguen sin problema por el delantal, el objeto y el
+color del nombre: Kohaku y Ruri (llanura) son cazadora y sacerdotisa, y Jasper y Sapphire
+(nieve) son pastor y peletera. Jungla y pantano quedan para una sola persona cada uno, que es
+lo mas cerca que se puede estar de un traje distinto sin salirse del juego.
+
+Lo que **no** se puede poner, y conviene saberlo antes de pedirlo: el casco de sandia de Suika,
+las gafas de Kinro en la cara y cualquier ropa dibujada a mano. Las gafas existen como objeto
+(`stoneoptics:kinro_glasses`, del mod de optica), pero se llevan en la mano o en el inventario,
+no encima de un aldeano. Un traje de verdad pide un mod con renderer propio o cabezas de
+jugador con textura, y las cabezas necesitan un PNG alojado; esta apuntado en `PENDIENTE.md`.
+
 ## Rutinas propias
 
 El horario comun pone a todo el mundo en su sitio; `swr:pueblo/horario/rutinas` (lo ultimo que

@@ -40,6 +40,9 @@ los jugadores:
 Los datos están comprobados (`VillagerData`: tipo de aldea, oficio, nivel) y el objeto en la mano
 también, pero **no hay cliente en este entorno**, así que nadie los ha visto con sus ropas puestas.
 Falta una captura de los doce y, si alguno no se reconoce, cambiarle el tipo de aldea.
+Qué lleva puesto cada uno, y por que, esta en `PERSONAJES.md` ("Lo que se ve de cada uno").
+**Tampoco hay skins propias**: un aldeano no acepta textura, y el resource pack cambia a todos
+a la vez; haria falta un mod o cabezas de jugador con textura alojada.
 
 ## 5. La zapata en una ladera de verdad
 
@@ -123,3 +126,22 @@ python3 herramientas/probar_servidor.py --servidor /var/tmp/sw3                #
 Lo que **no** puede comprobar: `/give` de cartas y platos, `playsound`, `title` y `advancement grant`
 necesitan un jugador conectado. Probado en vivo el 23/11/2026 contra `/var/tmp/sw3`: **5/5 en verde** (arrancar tarda unos 4
 minutos con 40 mods). Si no hay tiempo, queda `--solo-listar`, que `comprobar_todo.sh` ya ejecuta.
+
+## 14. Detalles de la serie que aun no estan
+
+Cinco cosas que la serie cuenta y el pack todavia no tiene. No son ideas sueltas: cada una dice
+que haria falta y que la bloquea. Lo que ya existe no se repite aqui: `serie/destello`,
+`serie/cancion`, `serie/cuaderno`, `serie/historias`, `serie/medusa`, las cuatro escenas de
+`serie/terraforming/*`, las gafas de Kinro en el mod de optica y los catorce avances de `serie/`.
+
+| Detalle | Donde lo cuenta la serie | Que haria falta | Estado |
+|---|---|---|---|
+| La radio pirata de Gen | SERIE 5.3; B.15 | funcion con titulo, sonido y avance; sin dependencias | no esta |
+| El torneo de la aldea | SERIE 4.5; 9.1 | concurso con marcador y turnos, sin pelea: es lo unico de la lista que el arnes puede comprobar | no esta |
+| El disco de Lilian | SERIE 9.4; B.18 | la cancion existe (`serie/cancion`), el objeto no: `music_disc` y `jukebox_song` en el resource pack | a medias |
+| El telefono de Senku | SERIE 5.2 | dos jugadores a la vez; en solitario no se nota | no esta |
+| El casco de sandia de Suika | SERIE 1.4; 9.1 | nada: un aldeano no lleva casco. Queda el trozo de sandia en la mano | imposible sin mod |
+
+El torneo es el unico que se puede probar sin cliente (marcador por RCON), asi que es el que
+tiene sentido hacer primero. La radio y el disco suenan en el cliente, y el telefono necesita
+dos personas: se pueden escribir, no verificar.
