@@ -64,6 +64,7 @@ suika-mod/           mod del casco de sandia de Suika (armadura de casco)
 musica-mod/          sonido de Lilian y su disco, registrados para el tocadiscos
 CAMPO.md             el campo del pueblo: parcelas, rotacion y rendimiento
 EPISODIOS.md         que pasa en cada episodio: las cuatro temporadas y los dos especiales
+FALTAN.md            lo que sale en la serie y no esta en el juego, por factibilidad
 validador/           comprobador del datapack (estructura, JSON, mcfunctions, referencias)
 tests/               pruebas del validador y del datapack (pytest, 259 casos)
 comprobar_todo.sh    pytest + validador + regenerar el zip, de una vez

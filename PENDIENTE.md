@@ -3,6 +3,9 @@
 Lista corta y sin adornos de lo que falta en este repositorio, con el motivo real de cada cosa.
 Si algo de aquí se hace, se borra de la lista.
 
+Lo que falta **del lado de la serie** (no del repositorio) está en [`FALTAN.md`](FALTAN.md),
+ordenado de más a menos factible.
+
 ## 1. Integración continua (GitHub Actions)
 
 **No hay** `.github/workflows`. El token de `gh` de esta máquina no tiene el ámbito `workflow`, así
