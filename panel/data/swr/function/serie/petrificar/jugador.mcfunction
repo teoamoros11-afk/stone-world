@@ -8,6 +8,7 @@ effect give @s minecraft:slowness 999999 255 true
 effect give @s minecraft:blindness 999999 0 true
 effect give @s minecraft:mining_fatigue 999999 255 true
 tag @s add swr_petrificado
+drstonekos petrify @s
 title @a title [{"text":"PETRIFICADO","color":"dark_purple","bold":true}]
 title @s subtitle [{"text":"El inventario queda guardado","color":"gray"}]
 particle minecraft:block{block_state:"minecraft:stone"} ~ ~1 ~ 0.5 1 0.5 0.1 80 normal

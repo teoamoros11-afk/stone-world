@@ -4,6 +4,8 @@ execute unless entity @s[tag=swr_petrificado] run return run tellraw @s [{"text"
 effect clear @s minecraft:slowness
 effect clear @s minecraft:blindness
 effect clear @s minecraft:mining_fatigue
+effect clear @s drstonekos:petrified
+drstonekos depetrify @s
 tag @s remove swr_petrificado
 execute if data storage swr:petrificado Inventario run data modify entity @s Inventory set from storage swr:petrificado Inventario
 title @a title [{"text":"DEVUELTO","color":"green","bold":true}]

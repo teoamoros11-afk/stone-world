@@ -221,8 +221,10 @@ def test_el_jugador_petrificado_guarda_y_recupera_su_inventario():
     rev = lee("serie/petrificar/revivir.mcfunction")
     assert "data modify storage swr:petrificado Inventario set from entity @s Inventory" in pet
     assert "clear @s" in pet and "swr_petrificado" in pet
+    assert "drstonekos petrify" in pet
     assert "data modify entity @s Inventory set from storage swr:petrificado Inventario" in rev
     assert "tag @s remove swr_petrificado" in rev
+    assert "drstonekos depetrify" in rev and "effect clear @s drstonekos:petrified" in rev
 
 
 def test_la_frase_se_programa_una_vez_al_dia_sin_depender_de_un_jugador():

@@ -196,7 +196,7 @@ Lo que sigue sin poder afirmarse sin cliente:
 
 - el aspecto de las estatuas, las camas, los carteles y las fotos;
 - si un jugador real ve los títulos, oye la radio y recibe los objetos de cada sistema;
-- la petrificación de un jugador con el mod (aquí solo se probó el guardado del inventario);
+- la petrificación de un jugador real (se probó con un aldeano: el mod aplica y retira el efecto, y la etiqueta desaparece);
 - el Grand Bout, el juicio y la escuela jugados por dos personas de verdad.
 
 Nada de esto se da por bueno por escrito: queda como pendiente de una partida con cliente.
