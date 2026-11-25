@@ -93,3 +93,17 @@ def test_despetrificar_gasta_el_frasco_antes_que_el_cupo():
     assert texto.index("clear @s minecraft:experience_bottle 1") < texto.index(
         "scoreboard players remove CUPO swr 1"
     )
+
+
+def test_el_trofeo_ofrece_los_botones_de_la_medusa():
+    texto = lee("serie/medusa.mcfunction")
+    for funcion in ("iniciar", "estado", "voz", "desactivar"):
+        assert f"swr:serie/medusa/{funcion}" in texto, f"el trofeo no ofrece {funcion}"
+    assert "clickEvent" in texto
+
+
+def test_los_errores_de_despetrificar_son_del_jugador():
+    texto = lee("pueblo/despetrificar.mcfunction")
+    for linea in lineas(texto):
+        if "No hay ninguna estatua" in linea or "No queda fluido milagroso" in linea:
+            assert "tellraw @s" in linea, f"el error se grita a todo el servidor: {linea[:80]}"

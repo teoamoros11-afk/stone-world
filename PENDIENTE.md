@@ -38,11 +38,12 @@ los jugadores:
 - el **avance** `swr:serie/terraforming`, porque `advancement grant` necesita un jugador real
   (el JSON carga: el servidor cuenta 4501 avances sin errores de parseo).
 
-## 4. El aspecto de los doce personajes, visto en pantalla
+## 4. El aspecto de los 38 personajes, visto en pantalla
 
 Los datos están comprobados (`VillagerData`: tipo de aldea, oficio, nivel) y el objeto en la mano
-también, pero **no hay cliente en este entorno**, así que nadie los ha visto con sus ropas puestas.
-Falta una captura de los doce y, si alguno no se reconoce, cambiarle el tipo de aldea.
+también, pero **no hay cliente en este entorno**, así que nadie ha visto con sus ropas puestas ni a
+los doce de Ishigami ni a las 26 fichas nuevas. Falta una captura de los 38 y, si alguno no se
+reconoce, cambiarle el tipo de aldea.
 Qué lleva puesto cada uno, y por que, esta en `PERSONAJES.md` ("Lo que se ve de cada uno").
 **Tampoco hay skins propias**: un aldeano no acepta textura, y el resource pack cambia a todos
 a la vez; haria falta un mod o cabezas de jugador con textura alojada.
@@ -57,7 +58,7 @@ pendiente natural con terreno alrededor (ni agua, ni cuevas debajo). Además:
 - por debajo de **y=-54** el relleno se sale del mundo y Minecraft cancela el comando, así que a
   esa altura no hay zapata.
 
-## 6. Rutinas propias para seis de los doce
+## 6. Rutinas propias para seis de los doce de Ishigami
 
 Tienen rutina Ruri, Kohaku, Suika, Kinro, Chrome y Kokuyo. Los otros seis (Kaseki, Ginro, Jasper,
 Magma, Turquoise, Sapphire) siguen el horario común porque su oficio ya tiene puesto y no había
@@ -117,9 +118,11 @@ NeoForge: solo decorado y mapas con resource pack.
 ## 13. El arnes de servidor
 
 `herramientas/probar_servidor.py` arranca el mundo de pruebas, espera a RCON (cliente propio en
-`herramientas/rcon.py`, sin dependencias) y comprueba cinco cosas sin jugador: que el datapack carga,
-que `CIEN` vale 100, que un poker de reyes suma 813, que `bolos/montar` deja diez bolos y que
-`swr:bar/estado` responde. Sale con 0 solo si las seis pasan y apaga lo que encendio.
+`herramientas/rcon.py`, sin dependencias) y comprueba nueve cosas sin jugador: que el datapack carga,
+que `CIEN` vale 100, que un poker de reyes suma 813, que `bolos/montar` deja diez bolos, que
+`swr:bar/estado` responde, que el trigo del campo da 3 y luego 2, que la medusa arma y desactiva, que
+`reino/fluido` responde y que los cuatro planos se colocan con `place template`. Sale con 0 solo si
+las nueve pasan y apaga lo que encendio.
 
 ```
 python3 herramientas/probar_servidor.py --servidor /var/tmp/sw3 --solo-listar   # sin tocar nada
@@ -127,7 +130,7 @@ python3 herramientas/probar_servidor.py --servidor /var/tmp/sw3                #
 ```
 
 Lo que **no** puede comprobar: `/give` de cartas y platos, `playsound`, `title` y `advancement grant`
-necesitan un jugador conectado. Probado en vivo el 23/11/2026 contra `/var/tmp/sw3`: **6/6 en verde** (arrancar tarda unos 4
+necesitan un jugador conectado. Probado en vivo el 25/11/2026 contra `/var/tmp/sw3`: **9/9 en verde** (arrancar tarda unos 4
 minutos con 40 mods). Si no hay tiempo, queda `--solo-listar`, que `comprobar_todo.sh` ya ejecuta.
 
 ## 14. Detalles de la serie que aun no estan
@@ -166,3 +169,15 @@ seccion H de `SERIE.md` (los inventos que la serie no muestra) y del arco del ba
 Arado ya esta hecho y lo comprueba el arnes. Le quedan contabilidad y trampas, que tambien se
 pueden comprobar sin cliente; conservas e higiene son recetas y efectos, y la cartografia
 necesita mirar el mapa.
+
+## 15. La tanda del 25/11, lo que no se pudo ver
+
+- **Los cuatro planos** se han comprobado como NBT (claves, `DataVersion` 3955 y reproducción byte a
+  byte con `--comprobar`) y el arnés los coloca de verdad con `place template` en el mundo de
+  pruebas. Lo que **no** se ha visto es cómo quedan en un paisaje: si la isla del tesoro encaja en
+  una costa, si Haber-Bosch cabe entre montañas o si Araxá se come una cueva. Hace falta cliente.
+- **La medusa** arma, cuenta y desactiva por RCON, pero `drstonekos petrify` sobre un jugador o un
+  aldeano de verdad no se ha ejecutado: sin cliente ni jugador conectado, el destello no tiene a
+  quién petrificar. El comando del mod ya funcionaba en `pueblo/estatua`, así que el riesgo es bajo.
+- **Las 26 fichas nuevas** no se han visto puestas; lo comprobado es que cada archivo existe, que el
+  índice 0-37 es contiguo y que el validador acepta sus `VillagerData` y sus nombres.
