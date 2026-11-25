@@ -133,3 +133,24 @@ def test_cancelar_casa_se_puede_descubrir():
     carga = (FUNCIONES / "load.mcfunction").read_text(encoding="utf-8")
     assert "pueblo/casa/cancelar" in estado
     assert "casa/cancelar" in carga
+
+
+def test_las_38_fichas_estan_documentadas():
+    """Cada ficha tiene que estar en la tabla y con el slug de su archivo."""
+    fichas = sorted(p for p in (FUNCIONES / "personajes").glob("*.mcfunction")
+                    if p.name != "asignar.mcfunction")
+    assert len(fichas) == 38, f"hay {len(fichas)} fichas, no 38"
+    md = (RAIZ / "PERSONAJES.md").read_text(encoding="utf-8")
+    sin_documentar, sin_nombre = [], []
+    for ficha in fichas:
+        texto = ficha.read_text(encoding="utf-8")
+        nombre = re.search(r'"text":"([^"]+)"', texto)
+        slug = re.search(r"swr_es_([a-z_]+)", texto)
+        if not nombre:
+            sin_nombre.append(ficha.stem)
+            continue
+        assert slug and slug.group(1) == ficha.stem, f"{ficha.stem}: el slug no coincide"
+        if nombre.group(1) not in md:
+            sin_documentar.append(nombre.group(1))
+    assert not sin_nombre, f"fichas sin nombre: {sin_nombre}"
+    assert not sin_documentar, f"fichas sin fila en PERSONAJES.md: {sin_documentar}"
