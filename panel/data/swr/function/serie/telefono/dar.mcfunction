@@ -1,0 +1,6 @@
+# A13 - El telefono movil (T1 ep. 19-20, T2 ep. 31). Llama a distancia y gasta bateria.
+# Uso: /function swr:serie/telefono/dar
+give @s minecraft:echo_shard[minecraft:custom_name='{"text":"Telefono del reino","color":"aqua","italic":false}'] 1
+execute unless score TELEFONO_BATERIA serie matches 1.. run scoreboard players set TELEFONO_BATERIA serie 5
+tellraw @a [{"text":"[Telefono] ","color":"aqua","bold":true},{"text":"Telefono entregado. Alcanza 48 bloques y cada llamada gasta una raya de bateria.","color":"gray"}]
+tellraw @s [{"text":" • ","color":"gray"},{"text":"Llamar","color":"aqua","underlined":true,"clickEvent":{"action":"run_command","value":"/function swr:serie/telefono/llamar"},"hoverEvent":{"action":"show_text","value":"Llama al jugador mas cercano"}},{"text":"   • ","color":"gray"},{"text":"Recargar","color":"gold","underlined":true,"clickEvent":{"action":"run_command","value":"/function swr:serie/telefono/recargar"},"hoverEvent":{"action":"show_text","value":"Gasta un lingote de cobre y llena la bateria"}},{"text":"   • ","color":"gray"},{"text":"Bateria","color":"gray","underlined":true,"clickEvent":{"action":"run_command","value":"/function swr:serie/telefono/estado"},"hoverEvent":{"action":"show_text","value":"Rayas que quedan"}}]

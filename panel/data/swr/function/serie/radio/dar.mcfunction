@@ -1,0 +1,5 @@
+# A12 - La radio del reino (T3-T4, ep. 62-65). Alcance, canal e interferencia.
+# Uso: /function swr:serie/radio/dar
+give @s minecraft:clock[minecraft:custom_name='{"text":"Radio del reino","color":"aqua","italic":false}'] 1
+tellraw @a [{"text":"[Radio] ","color":"aqua","bold":true},{"text":"Radio entregada. Llevala en la mano para hablar; alcanza 64 bloques y tiene tres canales.","color":"gray"}]
+tellraw @s [{"text":" • ","color":"gray"},{"text":"Canal","color":"aqua","underlined":true,"clickEvent":{"action":"run_command","value":"/function swr:serie/radio/canal"},"hoverEvent":{"action":"show_text","value":"Cambia de frecuencia"}},{"text":"   • ","color":"gray"},{"text":"Hablar","color":"gold","underlined":true,"clickEvent":{"action":"run_command","value":"/function swr:serie/radio/decir"},"hoverEvent":{"action":"show_text","value":"Manda un mensaje por el canal actual"}},{"text":"   • ","color":"gray"},{"text":"Estado","color":"gray","underlined":true,"clickEvent":{"action":"run_command","value":"/function swr:serie/radio/estado"},"hoverEvent":{"action":"show_text","value":"Canal y alcance"}}]

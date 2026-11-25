@@ -42,3 +42,38 @@ execute if score TURNO swr matches 3 at @e[tag=swr_puesto_5,limit=1] run particl
 # Kokuyo, el jefe: en la reunion no se sienta con los demas, se pone al lado de la campana
 # a contar lo del dia.
 execute if score TURNO swr matches 5 at @e[tag=swr_plaza,limit=1] run tp @e[tag=swr_es_kokuyo] ~-1.5 ~ ~-1.5 facing ~ ~ ~
+
+# A22 - Los seis que faltaban, con el mismo patron: de dia en su sitio de la plaza, sin IA
+# para que no se vuelvan solos a la campana, y sueltos al amanecer. Kaseki levanta el pueblo,
+# Ginro vigila de lado, Jasper cuida el rebao, Magma corta lena, Turquoise y Sapphire curan
+# el cuero y el campo.
+execute if score TURNO swr matches 1 as @e[tag=swr_es_kaseki] run data merge entity @s {NoAI:0b}
+execute if score TURNO swr matches 1 as @e[tag=swr_es_ginro] run data merge entity @s {NoAI:0b}
+execute if score TURNO swr matches 1 as @e[tag=swr_es_jasper] run data merge entity @s {NoAI:0b}
+execute if score TURNO swr matches 1 as @e[tag=swr_es_magma] run data merge entity @s {NoAI:0b}
+execute if score TURNO swr matches 1 as @e[tag=swr_es_turquoise] run data merge entity @s {NoAI:0b}
+execute if score TURNO swr matches 1 as @e[tag=swr_es_sapphire] run data merge entity @s {NoAI:0b}
+
+execute if score TURNO swr matches 2..4 at @e[tag=swr_plaza,limit=1] run tp @e[tag=swr_es_kaseki] ~-2.5 ~ ~2.5 facing ~ ~ ~
+execute if score TURNO swr matches 2..4 as @e[tag=swr_es_kaseki] run data merge entity @s {NoAI:1b}
+execute if score TURNO swr matches 2..4 as @e[tag=swr_es_kaseki] run item replace entity @s weapon.mainhand with minecraft:iron_pickaxe
+
+execute if score TURNO swr matches 2..4 at @e[tag=swr_plaza,limit=1] run tp @e[tag=swr_es_ginro] ~2.5 ~ ~2.5 facing ~ ~ ~
+execute if score TURNO swr matches 2..4 as @e[tag=swr_es_ginro] run data merge entity @s {NoAI:1b}
+execute if score TURNO swr matches 2..4 as @e[tag=swr_es_ginro] run item replace entity @s weapon.mainhand with minecraft:cod
+
+execute if score TURNO swr matches 2..4 at @e[tag=swr_plaza,limit=1] run tp @e[tag=swr_es_jasper] ~-2.5 ~ ~-2.5 facing ~ ~ ~
+execute if score TURNO swr matches 2..4 as @e[tag=swr_es_jasper] run data merge entity @s {NoAI:1b}
+execute if score TURNO swr matches 2..4 as @e[tag=swr_es_jasper] run item replace entity @s weapon.mainhand with minecraft:white_wool
+
+execute if score TURNO swr matches 2..4 at @e[tag=swr_plaza,limit=1] run tp @e[tag=swr_es_magma] ~2.5 ~ ~-2.5 facing ~ ~ ~
+execute if score TURNO swr matches 2..4 as @e[tag=swr_es_magma] run data merge entity @s {NoAI:1b}
+execute if score TURNO swr matches 2..4 as @e[tag=swr_es_magma] run item replace entity @s weapon.mainhand with minecraft:stone_axe
+
+execute if score TURNO swr matches 2..4 at @e[tag=swr_plaza,limit=1] run tp @e[tag=swr_es_turquoise] ~ ~ ~3.5 facing ~ ~ ~
+execute if score TURNO swr matches 2..4 as @e[tag=swr_es_turquoise] run data merge entity @s {NoAI:1b}
+execute if score TURNO swr matches 2..4 as @e[tag=swr_es_turquoise] run item replace entity @s weapon.mainhand with minecraft:wheat
+
+execute if score TURNO swr matches 2..4 at @e[tag=swr_plaza,limit=1] run tp @e[tag=swr_es_sapphire] ~3.5 ~ ~ facing ~ ~ ~
+execute if score TURNO swr matches 2..4 as @e[tag=swr_es_sapphire] run data merge entity @s {NoAI:1b}
+execute if score TURNO swr matches 2..4 as @e[tag=swr_es_sapphire] run item replace entity @s weapon.mainhand with minecraft:leather

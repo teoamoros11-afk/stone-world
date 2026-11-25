@@ -141,6 +141,53 @@ scoreboard players add HUEVO despensa 0
 scoreboard players add TRIGO despensa 0
 scoreboard players add CARNE despensa 0
 function swr:bar/poker/baraja
+# --- Tramo A: los sistemas de la serie que solo necesitan datapack ---
+scoreboard objectives add serie dummy {"text":"Serie"}
+scoreboard objectives add moneda dummy {"text":"Denarios"}
+scoreboard objectives add bout dummy {"text":"Grand Bout"}
+scoreboard players add DIAS serie 0
+scoreboard players add ARRANQUE serie 0
+scoreboard players add CUEVA_ACTIVA serie 0
+scoreboard players add REVIDOS_TOTAL serie 0
+scoreboard players add BOUT_RONDA serie 0
+scoreboard players add BOUT_ACTIVO serie 0
+scoreboard players add JUICIO_SI serie 0
+scoreboard players add JUICIO_NO serie 0
+scoreboard players add VOTOS_RURI serie 0
+scoreboard players add VOTOS_KOKUYO serie 0
+scoreboard players add GOBIERNO serie 0
+scoreboard players add DECRETO serie 0
+scoreboard players add CONSEJO_ORDEN serie 0
+scoreboard players add CONSEJO_T serie 0
+scoreboard players add RADIO_CANAL serie 0
+scoreboard players add TELEFONO_BATERIA serie 0
+scoreboard players add FAX_ENVIADOS serie 0
+scoreboard players add PRENSA_TIRADA serie 0
+scoreboard players add CAMARA_ACTIVA serie 0
+scoreboard players add CAMARA_N serie 0
+scoreboard players add RULETA serie 0
+scoreboard players add CASINO_ACTIVO serie 0
+scoreboard players add MANO_JUGADOR serie 0
+scoreboard players add MANO_BANCA serie 0
+scoreboard players add CARTA_TMP serie 0
+scoreboard players add MERCADO_TRIGO serie 0
+scoreboard players add MERCADO_PAN serie 0
+scoreboard players add EXAMEN_ACTIVO serie 0
+scoreboard players add EXAMEN_ACIERTOS serie 0
+scoreboard players add EXAMEN_PREG serie 0
+scoreboard players add HOSPITAL_N serie 0
+scoreboard players add FOTOS serie 0
+scoreboard players add MUNDO_ESTATUAS serie 0
+scoreboard players add ONDA_ACTIVA serie 0
+scoreboard players add ONDA_T serie 0
+scoreboard players add FRASE_ACTIVA serie 0
+scoreboard players add SATELITE_INTENTOS serie 0
+scoreboard players add SATELITE_FALLO serie 0
+scoreboard players add TRIGO_TMP serie 0
+scoreboard players add PAPEL_TMP serie 0
+scoreboard players add TINTA_TMP serie 0
+scoreboard players add LLAMADA_N serie 0
+scoreboard players add FAX_N serie 0
 scoreboard objectives setdisplay sidebar swr
 tellraw @a [{"text":"[Stone World] ","color":"gold","bold":true},{"text":"Panel activo. Parte: /function swr:panel/informe | Viajes: /function swr:viaje/aldea (cueva, estatuas, cascada, puerto, bambu, rival, spawn)","color":"gray"}]
 tellraw @a [{"text":"[Stone World] ","color":"gold","bold":true},{"text":"Serie: /function swr:serie/historias (libro de Ruri) | /function swr:serie/cuaderno (cadena tecnologica) | /function swr:serie/medusa (era 4) | /function swr:serie/destello (el 1 de abril) | /function swr:serie/terraforming/iniciar (epilogo, tras cerrar la era 5)","color":"gray"}]
@@ -152,3 +199,4 @@ tellraw @a [{"text":"[Stone World] ","color":"gold","bold":true},{"text":"Bar de
 tellraw @a [{"text":"[Stone World] ","color":"gold","bold":true},{"text":"Pueblo: estatua (petrifica a alguien) | despetrificar (gasta fluido) | estado | obra/iniciar | obra/cancelar | horario/iniciar | horario/parar | casa/cancelar","color":"gray"}]
 tellraw @a [{"text":"[Stone World] ","color":"gold","bold":true},{"text":"Panel del pueblo: pulsa la tecla de su hueco en la barra rapida (1..9), o lleva en la mano el libro de instrucciones, y sale todo lo que hace el pueblo. Si lo pierdes: /function swr:panel/dar","color":"gold"}]
 tellraw @a [{"text":"[Stone World] ","color":"gold","bold":true},{"text":"Vida del pueblo: cada vecino levanta su casa y cumple horario (trabajo, comida, reunion y noche). Detalle en /function swr:libro/era/2.","color":"gray"}]
+tellraw @a [{"text":"[Stone World] ","color":"gold","bold":true},{"text":"Tramo A de la serie: /function swr:serie/tramo_a (cueva, prologo, Grand Bout, juicio, politica, radio, telefono, fax, prensa, casino, moneda, mercado, escuela, hospital, fotos, carteles, cementerio, Superalloy City, onda, petrificar jugador, valle lunar y Senku-1)","color":"gray"}]

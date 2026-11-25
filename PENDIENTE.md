@@ -183,3 +183,20 @@ necesita mirar el mapa.
   quién petrificar. El comando del mod ya funcionaba en `pueblo/estatua`, así que el riesgo es bajo.
 - **Las 26 fichas nuevas** no se han visto puestas; lo comprobado es que cada archivo existe, que el
   índice 0-37 es contiguo y que el validador acepta sus `VillagerData` y sus nombres.
+
+## 16. Tramo A de la serie (25/11/2026)
+
+Las 29 piezas pendientes del tramo A están escritas y se descubren con
+`/function swr:serie/tramo_a`. Lo que se puede comprobar aquí ya se comprobó: 309 pruebas,
+validador limpio, `reload` sin funciones rotas y 9/9 en el arnés. Además se ejecutaron en vivo,
+sobre un soporte de armadura, los sistemas que no dependen de un jugador real (planos, carteles,
+marcadores, contadores y `random`).
+
+Lo que sigue sin poder afirmarse sin cliente:
+
+- el aspecto de las estatuas, las camas, los carteles y las fotos;
+- si un jugador real ve los títulos, oye la radio y recibe los objetos de cada sistema;
+- la petrificación de un jugador con el mod (aquí solo se probó el guardado del inventario);
+- el Grand Bout, el juicio y la escuela jugados por dos personas de verdad.
+
+Nada de esto se da por bueno por escrito: queda como pendiente de una partida con cliente.

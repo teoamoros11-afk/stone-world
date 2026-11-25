@@ -1,7 +1,7 @@
 # Lo que sale en la serie y no está en el juego
 
 Lista de todo lo que aparece en *Dr. Stone* y hoy no se puede hacer en este pack, ordenada **de lo
-más factible a lo menos**. «Falta» significa que no lo da ni el datapack (249 funciones), ni los
+más factible a lo menos**. «Falta» significa que no lo da ni el datapack (339 funciones), ni los
 cinco mods propios (`optics-mod`, `crank-dynamo`, `pharmacy-mod`, `suika-mod`, `musica-mod`), ni
 ninguno de los 38 mods de `mods.txt` (Create, Immersive Engineering, Mekanism, CC: Tweaked,
 Ad Astra, Dr. Stone: KoS, MineColonies...). Si algo ya está, no aparece aquí.
@@ -30,10 +30,12 @@ pulido, dinamo de manivela, sulfamida y jeringa, panel, reglas duras, 34 misione
 
 ---
 
-## Tramo A — solo datapack, hoy y sin arte nuevo (29 piezas)
+## Tramo A — solo datapack, hoy y sin arte nuevo (29 piezas, todas hechas)
 
-> El 25/11/2026 se hicieron A1 (medusa con cuenta atras), A2 (fluido como frasco) y A26-A29 (los
-> cuatro planos colocables). Siguen en la tabla con el estado «hecho» para no renumerar el resto.
+> El 25/11/2026 se completo el tramo A entero. A1, A2, A26, A28 y A29 ya estaban; ahora tambien
+> A3-A25, A30-A35 y la mitad que faltaba de A27 (Superalloy City). El menu es
+> `/function swr:serie/tramo_a` y cada fila dice donde vive su comando. La columna «Estado hoy»
+> guarda lo que habia antes de esta tanda, para no reescribir la historia de la tabla.
 
 Todo esto se escribe en `panel/data/swr/function/` y se prueba por consola. Es el tramo donde el
 pack tiene más margen: la serie es, sobre todo, **sistemas con estado**, y eso es exactamente lo que
@@ -43,39 +45,39 @@ un datapack hace bien.
 |---|---|---|---|---|---|
 | A1 | Medusa con cuenta atrás, radio y activación por voz | T3 (ep. 53-55), T4 (ep. 93) | **Hecho**: `serie/medusa/iniciar`, `ciclo`, `disparar` (30 s, radio 12, 3 cargas), `voz`, `estado` y `desactivar` | `serie/medusa/*`: `schedule` para la cuenta atrás, petrificar a quien esté en un radio, frase clave por chat («¿Quieres morir?»), batería que se gasta | M |
 | A2 | Fluido milagroso como frasco, no como contador | T1 (ep. 1), T3 (ep. 55) | **Hecho**: `reino/fluido` da el frasco y `revivir`/`despetrificar` lo gastan antes del cupo | Frasco con nombre propio, receta de nítalo, frasco vacío al gastar; el `give` con componentes va por comando, no dentro de la función (ya se comprobó que ahí no parsea) | S |
-| A3 | La cueva del milagro como yacimiento vivo | T1 (ep. 1) | Escena y coordenadas | Guano que se regenera cada X, agua con nítalo, cartel con la fórmula | S |
-| A4 | Arranque desnudo y sin memoria | T1 (ep. 1) | Nada: se empieza con lo que tengas | Quitar inventario al entrar, dar el libro, fijar el punto de aparición en la costa, contador de días | S |
-| A5 | Estatuas del prólogo: Byakuya, Lillian, Taiju, Yuzuriha | T1 (ep. 24), T3 (ep. 55) | 38 fichas de aldeanos del pueblo | Estatuas con nombre y el disco de Lillian a los pies de Byakuya | S |
-| A6 | Revivir a un millón de personas | T4 (ep. 69-81) | Cupo de 60 revividos | Contador global, hitos por miles, cifra en el panel | S |
-| A7 | La biblioteca de las cien historias | T1 (ep. 17) | `serie/historias` entrega el libro | Estantería con los cien tomos, índice y la campana como catálogo | M |
-| A8 | El torneo Grand Bout | T1 (ep. 20-24) | Nada | Sorteo de parejas, rondas, reglas sin armas letales, premio y título | M |
-| A9 | El juicio de Magma y la elección de la novia | T1 (ep. 22), T3 (ep. 48) | Nada | Escena con títulos, turnos de palabra y resultado por votos | S |
-| A10 | Política de la aldea: jefa, guardián y decretos | T1 (ep. 9-24) | Ruri y Kokuyo como personajes | Votaciones en chat, decretos con efecto real (precio, turno, obra) | M |
-| A11 | Consejo de guerra con mapa y órdenes | T2-T3 (ep. 51-53) | Nada | Mesa con marcadores, órdenes por chat y cuenta atrás | M |
-| A12 | Radio con alcance, canal e interferencia | T3-T4 (ep. 62-65) | Viajes por teleport | Canal por marcador, alcance por distancia, interferencia si Stanley está cerca, mensajes en clave | M |
-| A13 | Teléfono móvil que llama | T1 (ep. 19-20), T2 (ep. 31) | Nada | Llamada = mensaje directo a un jugador a distancia, con «timbre» y coste de batería | M |
-| A14 | Fax: mandar un mapa dibujado | T4 (ep. 73, 85) | Nada | Copiar un mapa lleno a otro jugador, con papel y tinta gastados | S |
-| A15 | Imprenta y periódico | T2-T4 (papel, tinta y prensa) | Nada | Libro escrito generado por función con las noticias del día y tirada limitada | M |
-| A16 | Cámara de seguridad | T4 (ep. 88) | Nada | Al activarse, cuenta entidades en un radio y avisa por chat; la imagen real es tramo E | S |
-| A17 | Casino: ruleta y blackjack | T4 (ep. 58) | Póker completo | Ruleta con `random`, blackjack con baraja existente, banca con préstamo | M |
-| A18 | Moneda y precios | T4 (ep. 58) | Fichas de póker | Moneda con valor, precios en el bar y en el mercado | S |
-| A19 | Mercado y trueque con la aldea | T1 (ep. 12-14) | Puestos que producen | Puesto con stock, demanda y trueque por oficio | M |
-| A20 | Escuela y examen | T4 (ep. 86-87) | Nada | Pizarra, preguntas por chat, aprobado que da avance | S |
-| A21 | Hospital con camas y triaje | T1 (arco de las sulfamidas), T4 (ep. 66) | Sulfamida y jeringa del mod | Camas, heridos con efecto, cola de pacientes y cura | M |
-| A22 | Rutina propia para los seis personajes que no la tienen | Serie entera | Seis de doce la tienen | Copiar el patrón de `pueblo/horario/rutinas` para Kaseki, Ginro, Jasper, Magma, Turquoise y Sapphire | S |
-| A23 | Fotos del equipo y del pasado | T4 (ep. 85) | Nada | Mapas de 1x1 generados con el retrato; el arte, tramo B | S |
-| A24 | Carteles, nombres de calles y rótulos | Serie entera | Plaza y calles sin nombre | Letreros con texto y mapa de la aldea | S |
-| A25 | Cementerio y tumba de Byakuya | T1 (ep. 1), T3 (ep. 55) | Nada | Lápidas con nombre, el disco y una escena de visita | S |
+| A3 | La cueva del milagro como yacimiento vivo | T1 (ep. 1) | **Hecho**: `serie/cueva/montar` | Guano que se regenera cada X, agua con nítalo, cartel con la fórmula | S |
+| A4 | Arranque desnudo y sin memoria | T1 (ep. 1) | **Hecho**: `serie/arranque/iniciar` | Quitar inventario al entrar, dar el libro, fijar el punto de aparición en la costa, contador de días | S |
+| A5 | Estatuas del prólogo: Byakuya, Lillian, Taiju, Yuzuriha | T1 (ep. 24), T3 (ep. 55) | **Hecho**: `serie/prologo/estatuas` | Estatuas con nombre y el disco de Lillian a los pies de Byakuya | S |
+| A6 | Revivir a un millón de personas | T4 (ep. 69-81) | **Hecho**: `serie/millon/estado` | Contador global, hitos por miles, cifra en el panel | S |
+| A7 | La biblioteca de las cien historias | T1 (ep. 17) | **Hecho**: `serie/biblioteca/montar` | Estantería con los cien tomos, índice y la campana como catálogo | M |
+| A8 | El torneo Grand Bout | T1 (ep. 20-24) | **Hecho**: `serie/bout/iniciar` | Sorteo de parejas, rondas, reglas sin armas letales, premio y título | M |
+| A9 | El juicio de Magma y la elección de la novia | T1 (ep. 22), T3 (ep. 48) | **Hecho**: `serie/juicio/iniciar` | Escena con títulos, turnos de palabra y resultado por votos | S |
+| A10 | Política de la aldea: jefa, guardián y decretos | T1 (ep. 9-24) | **Hecho**: `serie/politica/eleccion` | Votaciones en chat, decretos con efecto real (precio, turno, obra) | M |
+| A11 | Consejo de guerra con mapa y órdenes | T2-T3 (ep. 51-53) | **Hecho**: `serie/consejo/montar` | Mesa con marcadores, órdenes por chat y cuenta atrás | M |
+| A12 | Radio con alcance, canal e interferencia | T3-T4 (ep. 62-65) | **Hecho**: `serie/radio/dar` | Canal por marcador, alcance por distancia, interferencia si Stanley está cerca, mensajes en clave | M |
+| A13 | Teléfono móvil que llama | T1 (ep. 19-20), T2 (ep. 31) | **Hecho**: `serie/telefono/dar` | Llamada = mensaje directo a un jugador a distancia, con «timbre» y coste de batería | M |
+| A14 | Fax: mandar un mapa dibujado | T4 (ep. 73, 85) | **Hecho**: `serie/fax/enviar` | Copiar un mapa lleno a otro jugador, con papel y tinta gastados | S |
+| A15 | Imprenta y periódico | T2-T4 (papel, tinta y prensa) | **Hecho**: `serie/prensa/imprimir` | Libro escrito generado por función con las noticias del día y tirada limitada | M |
+| A16 | Cámara de seguridad | T4 (ep. 88) | **Hecho**: `serie/camara/montar` | Al activarse, cuenta entidades en un radio y avisa por chat; la imagen real es tramo E | S |
+| A17 | Casino: ruleta y blackjack | T4 (ep. 58) | **Hecho**: `serie/casino/blackjack` | Ruleta con `random`, blackjack con baraja existente, banca con préstamo | M |
+| A18 | Moneda y precios | T4 (ep. 58) | **Hecho**: `serie/moneda/dar` | Moneda con valor, precios en el bar y en el mercado | S |
+| A19 | Mercado y trueque con la aldea | T1 (ep. 12-14) | **Hecho**: `serie/mercado/montar` | Puesto con stock, demanda y trueque por oficio | M |
+| A20 | Escuela y examen | T4 (ep. 86-87) | **Hecho**: `serie/escuela/pregunta` | Pizarra, preguntas por chat, aprobado que da avance | S |
+| A21 | Hospital con camas y triaje | T1 (arco de las sulfamidas), T4 (ep. 66) | **Hecho**: `serie/hospital/montar` | Camas, heridos con efecto, cola de pacientes y cura | M |
+| A22 | Rutina propia para los seis personajes que no la tienen | Serie entera | **Hecho**: `pueblo/horario/rutinas` | Copiar el patrón de `pueblo/horario/rutinas` para Kaseki, Ginro, Jasper, Magma, Turquoise y Sapphire | S |
+| A23 | Fotos del equipo y del pasado | T4 (ep. 85) | **Hecho**: `serie/fotos/revelar` | Mapas de 1x1 generados con el retrato; el arte, tramo B | S |
+| A24 | Carteles, nombres de calles y rótulos | Serie entera | **Hecho**: `serie/carteles/montar` | Letreros con texto y mapa de la aldea | S |
+| A25 | Cementerio y tumba de Byakuya | T1 (ep. 1), T3 (ep. 55) | **Hecho**: `serie/cementerio/montar` | Lápidas con nombre, el disco y una escena de visita | S |
 | A26 | La isla del tesoro jugable | T3 (ep. 47-56) | **Hecho**: `swr:isla_tesoro` y `serie/colocar/isla_tesoro` | Ciudadela, puente, altar, celda, muelle y noria | M |
-| A27 | Corn City y Superalloy City | T4 (ep. 82-94) | **Hecho Corn City**: `swr:corn_city`; Superalloy City sigue pendiente | Dos asentamientos con su plano y sus puestos | M |
+| A27 | Corn City y Superalloy City | T4 (ep. 82-94) | **Hecho**: `serie/colocar/superalloy` | Dos asentamientos con su plano y sus puestos | M |
 | A28 | La base Haber-Bosch de Xeno | T4 (ep. 65) | **Hecho**: `swr:haber_bosch` y `serie/colocar/haber_bosch` | Torre, reactores, maizal y pista de aterrizaje | M |
 | A29 | Araxá, el santuario de piedra | T4 (ep. 76) | **Hecho**: `swr:araxa` y `serie/colocar/araxa` | Recinto amurallado con la torre de la medusa | S |
-| A30 | Estatuas de todo el mundo | T4 (ep. 79-81) | Nada | Reparto de estatuas por biomas, con contador | M |
-| A31 | La onda petrificadora desde Sudamérica | T4 (ep. 69-78) | Solo el destello del 1 de abril | Onda por distancia con partículas y efecto, y su origen marcado | M |
-| A32 | Petrificar y revivir a un jugador | T4 (ep. 79, 92) | Solo aldeanos | Efecto, congelación, inventario aparte y vuelta con fluido | M |
-| A33 | «¿Quieres morir?» por radio | T4 (ep. 82) | Nada | Mensaje programado cada X días, con voz y ruido | S |
-| A34 | El valle Taurus-Littrow y la colonia de medusas | T4 (ep. 92-93) | Ad Astra da la Luna, no el yacimiento | Zona marcada, cápsula y colonia como estructuras | S |
-| A35 | El satélite Senku-1 y sus siete intentos | T4 (ep. 89) | Ad Astra da el lanzamiento | Contador de intentos con su causa de fallo y el parte de cada uno | S |
+| A30 | Estatuas de todo el mundo | T4 (ep. 79-81) | **Hecho**: `serie/estatuas/mundo` | Reparto de estatuas por biomas, con contador | M |
+| A31 | La onda petrificadora desde Sudamérica | T4 (ep. 69-78) | **Hecho**: `serie/onda/iniciar` | Onda por distancia con partículas y efecto, y su origen marcado | M |
+| A32 | Petrificar y revivir a un jugador | T4 (ep. 79, 92) | **Hecho**: `serie/petrificar/jugador` | Efecto, congelación, inventario aparte y vuelta con fluido | M |
+| A33 | «¿Quieres morir?» por radio | T4 (ep. 82) | **Hecho**: `serie/frase/programar` | Mensaje programado cada X días, con voz y ruido | S |
+| A34 | El valle Taurus-Littrow y la colonia de medusas | T4 (ep. 92-93) | **Hecho**: `serie/luna/valle` | Zona marcada, cápsula y colonia como estructuras | S |
+| A35 | El satélite Senku-1 y sus siete intentos | T4 (ep. 89) | **Hecho**: `serie/satelite/intento` | Contador de intentos con su causa de fallo y el parte de cada uno | S |
 
 **Detalles pequeños del tramo A** que van en el mismo saco y no merecen fila propia: el nombre de
 los días, el parte meteorológico, la lista de la compra del bar, el libro de visitas de la aldea,
