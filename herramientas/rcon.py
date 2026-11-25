@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """Cliente RCON minimo (sin dependencias) para el arnes de pruebas.
 
-Uso como modulo:  from rcon import Rcon;  Rcon("127.0.0.1", 25575, "clave").cmd("list")
-Uso suelto:       python3 herramientas/rcon.py <clave> "<comando>" [puerto]
+El tiempo de espera es largo a proposito: un `reload` con 40 mods bloquea el hilo
+del servidor y tarda mas que un comando normal.
 """
 from __future__ import annotations
 
@@ -13,7 +13,7 @@ import sys
 
 class Rcon:
     def __init__(self, host: str = "127.0.0.1", port: int = 25575,
-                 clave: str = "", timeout: float = 20.0):
+                 clave: str = "", timeout: float = 180.0):
         self.s = socket.create_connection((host, port), timeout=timeout)
         self.ident = 0
         self._enviar(3, clave)

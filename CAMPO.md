@@ -53,7 +53,7 @@ Ejemplo con trigo, trigo, patata en la misma parcela y empezando en 3:
 
 - **En servidor, por RCON** (23/11/2026): parcela de prueba con trigo maduro y sin cultivo anterior
   → `ULTIMA_COSECHA` = 3; se repite trigo → `R1` = 2. Es la sexta comprobación del arnés:
-  `python3 herramientas/probar_servidor.py --servidor /var/tmp/sw3` → **6/6**.
+  `python3 herramientas/probar_servidor.py --servidor /var/tmp/sw3` → **9/9**.
 - `tests/test_campo.py`: existen las diez funciones, las cuatro parcelas llevan su cuenta, la resta
   y la suma tienen sus topes, el `load` crea el objetivo y arranca el reloj, y el arnés comprueba
   la rotación.

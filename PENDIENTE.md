@@ -122,7 +122,9 @@ NeoForge: solo decorado y mapas con resource pack.
 que `CIEN` vale 100, que un poker de reyes suma 813, que `bolos/montar` deja diez bolos, que
 `swr:bar/estado` responde, que el trigo del campo da 3 y luego 2, que la medusa arma y desactiva, que
 `reino/fluido` responde y que los cuatro planos se colocan con `place template`. Sale con 0 solo si
-las nueve pasan y apaga lo que encendio.
+las nueve pasan y apaga lo que encendio. Antes de mandar `reload` espera a que el log diga
+`Done (` y lo reintenta hasta tres veces: sin eso, el puerto abre antes de que carguen los 40
+mods y el `reload` se comia el tiempo de espera del socket.
 
 ```
 python3 herramientas/probar_servidor.py --servidor /var/tmp/sw3 --solo-listar   # sin tocar nada
@@ -163,7 +165,7 @@ seccion H de `SERIE.md` (los inventos que la serie no muestra) y del arco del ba
 | Higiene y saneamiento | SERIE H | jabon (ya hay receta), agua limpia y letrinas: menos enfermedad en la colonia |
 | Contabilidad y raciones | SERIE 6.4 y 9.3 | cuenta de raciones por dia y aviso cuando baje de un minimo; es marcador, se prueba por RCON |
 | Cartografia | SERIE H | mapa del barco y del pueblo con marcadores, no solo el mapa de vanilla |
-| Arado y rotacion de cultivos | SERIE H | hecho: `swr:campo` (cuatro parcelas, rendimiento 1..3 y la comprobacion 6/6 del arnes); ver `CAMPO.md` | hecho |
+| Arado y rotacion de cultivos | SERIE H | hecho: `swr:campo` (cuatro parcelas, rendimiento 1..3 y la comprobacion del arnes (9/9)); ver `CAMPO.md` | hecho |
 | Trampas y control de plagas | SERIE H | que el grano almacenado se pierda sin trampas |
 
 Arado ya esta hecho y lo comprueba el arnes. Le quedan contabilidad y trampas, que tambien se

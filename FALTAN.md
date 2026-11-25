@@ -1,7 +1,7 @@
 # Lo que sale en la serie y no está en el juego
 
 Lista de todo lo que aparece en *Dr. Stone* y hoy no se puede hacer en este pack, ordenada **de lo
-más factible a lo menos**. «Falta» significa que no lo da ni el datapack (211 funciones), ni los
+más factible a lo menos**. «Falta» significa que no lo da ni el datapack (249 funciones), ni los
 cinco mods propios (`optics-mod`, `crank-dynamo`, `pharmacy-mod`, `suika-mod`, `musica-mod`), ni
 ninguno de los 38 mods de `mods.txt` (Create, Immersive Engineering, Mekanism, CC: Tweaked,
 Ad Astra, Dr. Stone: KoS, MineColonies...). Si algo ya está, no aparece aquí.
@@ -23,7 +23,7 @@ sobreviva a `/reload`. **L** = arte, entidad o renderer nuevos.
 Antes de la lista, lo que **sí** está, para que no se confunda con un hueco: petrificación y fluido
 (Dr. Stone: KoS), cueva del milagro, bar del Perseus con póker de 52 cartas y bolos, campo con
 rotación de cuatro parcelas, pueblo con 16 solares, calles, plaza, obra por capas, horario y seis
-rutinas, doce personajes con ficha, tripulación del Perseus con zarpe, ocho destinos de viaje,
+rutinas, 38 personajes con ficha, tripulación del Perseus con zarpe, ocho destinos de viaje,
 libro de campo por eras, las cien historias, el disco de Lilian, el casco de sandía, la medusa como
 trofeo, el destello del 1 de abril, el epílogo *TERRAFORMING*, gafas de Kinro, telescopio, banco de
 pulido, dinamo de manivela, sulfamida y jeringa, panel, reglas duras, 34 misiones y 14 avances.

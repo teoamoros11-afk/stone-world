@@ -172,8 +172,26 @@ def main() -> int:
         print(f"RCON no responde en {host}:{puerto} tras {args.espera}s (mira {log})")
         return 2
 
+    # El puerto RCON abre antes de que terminen de cargar los mods. Un `reload` a
+    # media carga bloquea el hilo del servidor y el socket se rinde; se espera a
+    # que el log diga "Done (" y, si aun asi tarda, se reintenta.
+    ultimo = args.servidor / "logs" / "latest.log"
+    for _ in range(180):
+        if ultimo.exists() and "Done (" in ultimo.read_text(errors="ignore"):
+            break
+        time.sleep(1)
+
     r = Rcon(host, puerto, clave)
-    r.cmd("reload")
+    for intento in range(1, 4):
+        try:
+            r.cmd("reload")
+            break
+        except OSError as error:
+            print(f"el reload no respondio ({error}); reintento {intento}/3")
+            time.sleep(10)
+    else:
+        print("el servidor no acepta reload: mira el log antes de seguir")
+        return 2
     time.sleep(4)
 
     fallos = 0

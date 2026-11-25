@@ -1,6 +1,14 @@
-"""Pruebas de las referencias: ids y objetivos que no existen."""
+"""Pruebas de las referencias: ids y objetivos que no existen.
+
+Además de lo que comprueba el validador con un pack de mentira, aquí se recorre el
+pack real: ninguna llamada `function swr:x/y` puede apuntar a un archivo ausente, y
+los recuentos de la documentación tienen que cuadrar con lo que hay en disco.
+"""
 
 from __future__ import annotations
+
+import re
+from pathlib import Path
 
 from validador import revisar
 
@@ -87,3 +95,41 @@ def test_objetivo_de_otro_namespace_no_se_puede_comprobar(pack):
     pack.funcion("load", "scoreboard objectives add sed_thirst dummy\n")
     pack.funcion("tick", "execute if score @s sed_thirst matches 1.. run say hola\n")
     assert not _errores(pack)
+
+
+RAIZ = Path(__file__).resolve().parent.parent
+PANEL = RAIZ / "panel" / "data"
+FUNCIONES = PANEL / "swr" / "function"
+PATRON = re.compile(r'(?:^|\s)(?:function|schedule\s+\S+\s+function)\s+([a-z0-9_]+:[a-z0-9_/]+)')
+
+
+def test_todas_las_llamadas_del_pack_real_existen():
+    rotas = []
+    for archivo in sorted(PANEL.rglob("*.mcfunction")):
+        for numero, linea in enumerate(archivo.read_text(encoding="utf-8").splitlines(), 1):
+            if linea.lstrip().startswith("#"):
+                continue
+            for encontrado in PATRON.finditer(linea):
+                espacio, ruta = encontrado.group(1).split(":", 1)
+                if not (PANEL / espacio / "function" / f"{ruta}.mcfunction").exists():
+                    rotas.append(f"{encontrado.group(1)} ({archivo.relative_to(PANEL)}:{numero})")
+    assert not rotas, "llamadas a funciones inexistentes:\n" + "\n".join(rotas)
+
+
+def test_el_recuento_de_funciones_de_faltan_cuadra():
+    total = len(list(FUNCIONES.rglob("*.mcfunction")))
+    texto = (RAIZ / "FALTAN.md").read_text(encoding="utf-8")
+    assert f"({total} funciones)" in texto, f"FALTAN.md no dice que hay {total} funciones"
+
+
+def test_faltan_nombra_las_38_fichas():
+    texto = (RAIZ / "FALTAN.md").read_text(encoding="utf-8")
+    assert "38 personajes con ficha" in texto
+
+
+def test_cancelar_casa_se_puede_descubrir():
+    """Una función útil que nadie nombra es una función que no existe para el jugador."""
+    estado = (FUNCIONES / "pueblo" / "estado.mcfunction").read_text(encoding="utf-8")
+    carga = (FUNCIONES / "load.mcfunction").read_text(encoding="utf-8")
+    assert "pueblo/casa/cancelar" in estado
+    assert "casa/cancelar" in carga
