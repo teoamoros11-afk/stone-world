@@ -2,7 +2,7 @@
 
 Cada estatua que pones con `/function swr:pueblo/estatua` sale con **una ficha fija**: nombre,
 aldea de Minecraft (que cambia ropa y tono de piel del aldeano), oficio, nivel y un objeto en
-la mano. No es un sorteo: el indice de estatua (`ESTATUAS mod 12`) elige la ficha, siempre en
+la mano. No es un sorteo: el indice de estatua (`ESTATUAS mod 38`) elige la ficha, siempre en
 el mismo orden, y lo que ves petrificado es lo que revive.
 
 El porque de que sea fijo y no al azar: un aldeano aleatorio con el nombre de Kohaku no es
@@ -99,7 +99,7 @@ oficio ya tiene puesto y no hay nada que contar de ellos que el pueblo no haga y
 
 ## Como esta hecho
 
-- `swr:personajes/asignar` calcula `SUERTE = ESTATUAS mod 12` y llama a la ficha que toca.
+- `swr:personajes/asignar` calcula `SUERTE = ESTATUAS mod 38` y llama a la ficha que toca.
 - Cada ficha es un archivo pequeño (`swr:personajes/kohaku`, `.../chrome`, …) con tres cosas:
   `data merge entity @s` con el nombre (y su color), `VillagerData` (tipo de aldea, oficio y
   nivel), el tag `swr_canon` y el objeto en la mano.
@@ -120,3 +120,44 @@ oficio ya tiene puesto y no hay nada que contar de ellos que el pueblo no haga y
 
 Ojo con el nivel: los oficios sin puesto (`none`, `cleric`, `weaponsmith`…) aceptan nivel, pero
 un `none` con nivel 4 no significa nada; Suika se queda en 1 a proposito.
+
+## Las 26 fichas nuevas (25/11/2026)
+
+Las doce primeras siguen siendo la aldea de Ishigami. Detras van las 26 del resto del reparto, en
+este orden, que es el que reparte `asignar` (indice 12 a 37). Ninguna lleva tag `swr_oficio_N`: no
+ocupan los seis puestos del pueblo, asi que el reparto de oficios no las manda a trabajar y se
+quedan en la plaza o en su casa. Su oficio de aldeano existe igual, y su ropa cambia con el.
+
+| # | Personaje | Aldea (Minecraft) | Oficio | Nivel | En la mano | Nombre |
+|---|---|---|---|---|---|---|
+| 13 | Tsukasa | llanura | armero de guerra | 5 | hacha de hierro | rojo oscuro |
+| 14 | Hyoga | pantano | armero | 5 | tridente | morado oscuro |
+| 15 | Gen | desierto | bibliotecario | 3 | libro | lila |
+| 16 | Ukyo | taiga | flechero | 3 | arco | aguamarina |
+| 17 | Taiju | llanura | granjero | 4 | pan | verde oscuro |
+| 18 | Yuzuriha | sabana | peletera | 3 | hilo | rosa |
+| 19 | Byakuya | llanura | pescador | 4 | cristal | dorado |
+| 20 | Lillian | llanura | clerigo | 3 | bloque musical | lila |
+| 21 | Ryusui | desierto | cartografo | 5 | brujula | dorado |
+| 22 | Francois | taiga | carnicero | 4 | tarta | amarillo |
+| 23 | Sai | nieve | bibliotecario | 5 | papel | azul |
+| 24 | Moz | jungla | armero de guerra | 4 | espada de hierro | rojo |
+| 25 | Ibara | jungla | clerigo | 5 | corazon del mar | gris oscuro |
+| 26 | Kirisame | jungla | flechera | 3 | flecha | gris |
+| 27 | Soyuz | jungla | cartografo | 3 | mapa | aguamarina |
+| 28 | Amaryllis | jungla | granjera | 2 | amapola | lila |
+| 29 | Matsukaze | taiga | armero de guerra | 4 | espada de hierro | blanco |
+| 30 | Chelsea | sabana | cartografa | 3 | mapa | verde |
+| 31 | Luna | llanura | clerigo | 3 | frasco de vidrio | lila |
+| 32 | Xeno | taiga | bibliotecario | 5 | cohete de feria | aguamarina oscuro |
+| 33 | Stanley | desierto | flechero | 5 | ballesta | rojo oscuro |
+| 34 | Brody | sabana | herrero | 4 | lingote de hierro | dorado |
+| 35 | Joel | nieve | herrero | 4 | reloj | gris |
+| 36 | Charlotte | llanura | flechera | 2 | flecha | rojo |
+| 37 | Max | llanura | pescador | 2 | bacalao | azul |
+| 38 | Carlos | desierto | pastor | 2 | catalejo | amarillo |
+
+Con esto el reparto es de **38 fichas** y el indice de estatua da la vuelta cada 38. Las que
+comparten ropa se distinguen por el delantal y el objeto: Stanley y Charlotte son flecheros, pero
+uno lleva ballesta y la otra flecha; Luna y Lillian son clerigos, pero una lleva frasco y la otra
+bloque musical.

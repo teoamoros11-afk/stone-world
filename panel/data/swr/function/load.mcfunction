@@ -48,6 +48,17 @@ scoreboard players add CASA_T swr 0
 # si el servidor se reinicio con casas a medio hacer, su reloj vuelve a andar
 execute if score CASA_T swr matches 1.. run schedule function swr:pueblo/casa/reloj 20t replace
 scoreboard players set DOCE swr 12
+scoreboard players set TREINTA_Y_OCHO swr 38
+# fluido milagroso como frasco: la botella con nombre vale por una dosis (si no, se gasta el cupo)
+scoreboard players add FRASCO swr 0
+# medusa de la isla del tesoro: carga, cuenta atras y radio
+scoreboard players add MEDUSA_CARGA swr 0
+scoreboard players add MEDUSA_T swr 0
+scoreboard players add MEDUSA_R swr 0
+scoreboard players add MEDUSA_INIT swr 0
+execute unless score MEDUSA_INIT swr matches 1 run scoreboard players set MEDUSA_CARGA swr 3
+execute unless score MEDUSA_INIT swr matches 1 run scoreboard players set MEDUSA_R swr 12
+execute unless score MEDUSA_INIT swr matches 1 run scoreboard players set MEDUSA_INIT swr 1
 # produccion y oficios del pueblo
 scoreboard players add PROD swr 0
 scoreboard players add PROD_T swr 0

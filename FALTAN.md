@@ -30,7 +30,10 @@ pulido, dinamo de manivela, sulfamida y jeringa, panel, reglas duras, 34 misione
 
 ---
 
-## Tramo A — solo datapack, hoy y sin arte nuevo (35 piezas)
+## Tramo A — solo datapack, hoy y sin arte nuevo (29 piezas)
+
+> El 25/11/2026 se hicieron A1 (medusa con cuenta atras), A2 (fluido como frasco) y A26-A29 (los
+> cuatro planos colocables). Siguen en la tabla con el estado «hecho» para no renumerar el resto.
 
 Todo esto se escribe en `panel/data/swr/function/` y se prueba por consola. Es el tramo donde el
 pack tiene más margen: la serie es, sobre todo, **sistemas con estado**, y eso es exactamente lo que
@@ -38,8 +41,8 @@ un datapack hace bien.
 
 | # | Qué falta | Dónde sale | Estado hoy | Cómo se haría | Coste |
 |---|---|---|---|---|---|
-| A1 | Medusa con cuenta atrás, radio y activación por voz | T3 (ep. 53-55), T4 (ep. 93) | Solo trofeo: `serie/medusa` da un corazón del mar y el avance | `serie/medusa/*`: `schedule` para la cuenta atrás, petrificar a quien esté en un radio, frase clave por chat («¿Quieres morir?»), batería que se gasta | M |
-| A2 | Fluido milagroso como frasco, no como contador | T1 (ep. 1), T3 (ep. 55) | Contador de dosis en `reino/revivir` | Frasco con nombre propio, receta de nítalo, frasco vacío al gastar; el `give` con componentes va por comando, no dentro de la función (ya se comprobó que ahí no parsea) | S |
+| A1 | Medusa con cuenta atrás, radio y activación por voz | T3 (ep. 53-55), T4 (ep. 93) | **Hecho**: `serie/medusa/iniciar`, `ciclo`, `disparar` (30 s, radio 12, 3 cargas), `voz`, `estado` y `desactivar` | `serie/medusa/*`: `schedule` para la cuenta atrás, petrificar a quien esté en un radio, frase clave por chat («¿Quieres morir?»), batería que se gasta | M |
+| A2 | Fluido milagroso como frasco, no como contador | T1 (ep. 1), T3 (ep. 55) | **Hecho**: `reino/fluido` da el frasco y `revivir`/`despetrificar` lo gastan antes del cupo | Frasco con nombre propio, receta de nítalo, frasco vacío al gastar; el `give` con componentes va por comando, no dentro de la función (ya se comprobó que ahí no parsea) | S |
 | A3 | La cueva del milagro como yacimiento vivo | T1 (ep. 1) | Escena y coordenadas | Guano que se regenera cada X, agua con nítalo, cartel con la fórmula | S |
 | A4 | Arranque desnudo y sin memoria | T1 (ep. 1) | Nada: se empieza con lo que tengas | Quitar inventario al entrar, dar el libro, fijar el punto de aparición en la costa, contador de días | S |
 | A5 | Estatuas del prólogo: Byakuya, Lillian, Taiju, Yuzuriha | T1 (ep. 24), T3 (ep. 55) | Doce fichas de aldeanos del pueblo | Estatuas con nombre y el disco de Lillian a los pies de Byakuya | S |
@@ -63,10 +66,10 @@ un datapack hace bien.
 | A23 | Fotos del equipo y del pasado | T4 (ep. 85) | Nada | Mapas de 1x1 generados con el retrato; el arte, tramo B | S |
 | A24 | Carteles, nombres de calles y rótulos | Serie entera | Plaza y calles sin nombre | Letreros con texto y mapa de la aldea | S |
 | A25 | Cementerio y tumba de Byakuya | T1 (ep. 1), T3 (ep. 55) | Nada | Lápidas con nombre, el disco y una escena de visita | S |
-| A26 | La isla del tesoro jugable | T3 (ep. 47-56) | Viaje por teleport | Ciudadela, puente, altar, celda, muelle y noria | M |
-| A27 | Corn City y Superalloy City | T4 (ep. 82-94) | Nada | Dos asentamientos con su plano y sus puestos | M |
-| A28 | La base Haber-Bosch de Xeno | T4 (ep. 65) | Nada | Torre, reactores, maizal y pista de aterrizaje | M |
-| A29 | Araxá, el santuario de piedra | T4 (ep. 76) | Nada | Recinto amurallado con la torre de la medusa | S |
+| A26 | La isla del tesoro jugable | T3 (ep. 47-56) | **Hecho**: `swr:isla_tesoro` y `serie/colocar/isla_tesoro` | Ciudadela, puente, altar, celda, muelle y noria | M |
+| A27 | Corn City y Superalloy City | T4 (ep. 82-94) | **Hecho Corn City**: `swr:corn_city`; Superalloy City sigue pendiente | Dos asentamientos con su plano y sus puestos | M |
+| A28 | La base Haber-Bosch de Xeno | T4 (ep. 65) | **Hecho**: `swr:haber_bosch` y `serie/colocar/haber_bosch` | Torre, reactores, maizal y pista de aterrizaje | M |
+| A29 | Araxá, el santuario de piedra | T4 (ep. 76) | **Hecho**: `swr:araxa` y `serie/colocar/araxa` | Recinto amurallado con la torre de la medusa | S |
 | A30 | Estatuas de todo el mundo | T4 (ep. 79-81) | Nada | Reparto de estatuas por biomas, con contador | M |
 | A31 | La onda petrificadora desde Sudamérica | T4 (ep. 69-78) | Solo el destello del 1 de abril | Onda por distancia con partículas y efecto, y su origen marcado | M |
 | A32 | Petrificar y revivir a un jugador | T4 (ep. 79, 92) | Solo aldeanos | Efecto, congelación, inventario aparte y vuelta con fluido | M |
