@@ -45,7 +45,7 @@ un datapack hace bien.
 | A2 | Fluido milagroso como frasco, no como contador | T1 (ep. 1), T3 (ep. 55) | **Hecho**: `reino/fluido` da el frasco y `revivir`/`despetrificar` lo gastan antes del cupo | Frasco con nombre propio, receta de nítalo, frasco vacío al gastar; el `give` con componentes va por comando, no dentro de la función (ya se comprobó que ahí no parsea) | S |
 | A3 | La cueva del milagro como yacimiento vivo | T1 (ep. 1) | Escena y coordenadas | Guano que se regenera cada X, agua con nítalo, cartel con la fórmula | S |
 | A4 | Arranque desnudo y sin memoria | T1 (ep. 1) | Nada: se empieza con lo que tengas | Quitar inventario al entrar, dar el libro, fijar el punto de aparición en la costa, contador de días | S |
-| A5 | Estatuas del prólogo: Byakuya, Lillian, Taiju, Yuzuriha | T1 (ep. 24), T3 (ep. 55) | Doce fichas de aldeanos del pueblo | Estatuas con nombre y el disco de Lillian a los pies de Byakuya | S |
+| A5 | Estatuas del prólogo: Byakuya, Lillian, Taiju, Yuzuriha | T1 (ep. 24), T3 (ep. 55) | 38 fichas de aldeanos del pueblo | Estatuas con nombre y el disco de Lillian a los pies de Byakuya | S |
 | A6 | Revivir a un millón de personas | T4 (ep. 69-81) | Cupo de 60 revividos | Contador global, hitos por miles, cifra en el panel | S |
 | A7 | La biblioteca de las cien historias | T1 (ep. 17) | `serie/historias` entrega el libro | Estantería con los cien tomos, índice y la campana como catálogo | M |
 | A8 | El torneo Grand Bout | T1 (ep. 20-24) | Nada | Sorteo de parejas, rondas, reglas sin armas letales, premio y título | M |
@@ -157,10 +157,9 @@ propio; todo lo que se mueve hoy lo mueve Create.
 | D13 | Internet entre ciudades | T4 (ep. 89) | Nada | Red de módems y foro por chat | M |
 | D14 | Why-Man y la colonia de medusas | T4 (ep. 93) | Nada | Entidad con voz y diálogo; la colonia, tramo A | L |
 
-**Fichas que faltan de personajes** (mismo trabajo que las doce actuales, sin entidad nueva):
-Tsukasa, Hyoga, Gen, Ukyo, Taiju, Yuzuriha, Byakuya, Lillian, Ryusui, Francois, Sai, Moz, Ibara,
-Kirisame, Soyuz, Amaryllis, Matsukaze, Chelsea, Luna, Xeno, Stanley, Brody, Joel, Charlotte, Max y
-Carlos. Son 26 fichas; cada una es media tarde y no necesita mod.
+**Fichas de personajes**: las 26 que faltaban ya están hechas; con las doce de la aldea suman 38 fichas,
+una por personaje con su nombre, su oficio y su objeto. No queda ninguna pendiente y una prueba
+comprueba que cada ficha sigue documentada en `PERSONAJES.md`.
 
 ## Tramo E — cliente: modelo, renderer, animación o shader (11 piezas)
 
