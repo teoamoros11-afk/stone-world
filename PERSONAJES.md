@@ -113,7 +113,8 @@ oficio ya tiene puesto y no hay nada que contar de ellos que el pueblo no haga y
 
 1. Copia una ficha, cambia nombre, `type` (plains, taiga, savanna, desert, snow, swamp, jungle),
    `profession`, `level` y el objeto.
-2. Súmala al final de `swr:personajes/asignar` y sube el divisor (`DOCE` en `load`) a 13, o
+2. Súmala al final de `swr:personajes/asignar`, sube el divisor (`TREINTA_Y_OCHO` en `load`)
+a 39 y añade una `matches 38` más, o
    cambia la ficha que quieras sustituir.
 3. Anade la fila a la tabla de arriba y pasa `./comprobar_todo.sh`: el validador comprueba que
    la funcion existe y que el JSON del nombre esta bien cerrado.

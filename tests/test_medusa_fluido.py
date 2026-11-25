@@ -63,6 +63,12 @@ def test_la_medusa_avisa_antes_de_gastar_una_carga():
     assert i_aviso < i_carga, "gasta la carga antes de comprobar si ya habia una activa"
 
 
+def test_el_estado_dice_si_esta_armada():
+    estado = lee("serie/medusa/estado.mcfunction")
+    assert "Armada y contando" in estado
+    assert "Sin armar" in estado
+
+
 def test_el_fluido_se_entrega_como_frasco():
     texto = lee("reino/fluido.mcfunction")
     assert "minecraft:experience_bottle" in texto
@@ -77,6 +83,7 @@ def test_revivir_gasta_el_frasco_antes_que_el_cupo():
         "scoreboard players remove CUPO swr 1"
     )
     assert "unless score CUPO swr matches 1.." in texto, "se perdio el aviso de cupo agotado"
+    assert "con un frasco de fluido milagroso" in texto, "no distingue el pago con frasco"
 
 
 def test_despetrificar_gasta_el_frasco_antes_que_el_cupo():

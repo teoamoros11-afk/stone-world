@@ -11,5 +11,6 @@ execute if score FRASCO swr matches 0 run scoreboard players remove CUPO swr 1
 advancement grant @s only swr:serie/fluido
 scoreboard players add REVIDOS swr 1
 execute if score FRASCO swr matches 0 if score CUPO swr matches 0 run tellraw @a [{"text":"[Reino] Ultima dosis de fluido gastada. A partir de aqui, la aldea crece solo con los que ya viven.","color":"dark_red","bold":true}]
-tellraw @a [{"text":"[Reino] Revivido ","color":"green"},{"score":{"name":"REVIDOS","objective":"swr"},"color":"green"},{"text":". Quedan ","color":"green"},{"score":{"name":"CUPO","objective":"swr"},"color":"green"},{"text":" dosis de fluido.","color":"green"}]
+execute if score FRASCO swr matches 1 run tellraw @a [{"text":"[Reino] Revivido ","color":"green"},{"score":{"name":"REVIDOS","objective":"swr"},"color":"green"},{"text":" con un frasco de fluido milagroso. El cupo sigue en ","color":"green"},{"score":{"name":"CUPO","objective":"swr"},"color":"green"},{"text":" dosis.","color":"green"}]
+execute unless score FRASCO swr matches 1 run tellraw @a [{"text":"[Reino] Revivido ","color":"green"},{"score":{"name":"REVIDOS","objective":"swr"},"color":"green"},{"text":". Quedan ","color":"green"},{"score":{"name":"CUPO","objective":"swr"},"color":"green"},{"text":" dosis de fluido.","color":"green"}]
 scoreboard players set FRASCO swr 0

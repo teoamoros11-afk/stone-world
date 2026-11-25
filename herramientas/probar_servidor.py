@@ -31,6 +31,9 @@ COMPROBACIONES = [
     "bolos: montar deja los diez bolos en la mesa",
     "bar: swr:bar/estado existe y responde",
     "campo: trigo maduro da 3 y repetirlo en la misma parcela baja a 2",
+    "medusa: iniciar gasta una carga y desactivar deja el reloj a cero",
+    "fluido: reino/fluido existe y entrega un frasco",
+    "planos: los cuatro place template colocan sin error",
 ]
 
 
@@ -113,6 +116,27 @@ def comprobar(r: Rcon, nombre: str) -> tuple[bool, str]:
         r.cmd("kill @e[tag=swr_parcela_1]")
         ok = "has 3" in primera and "has 2" in segunda
         return (ok, f"primera={primera.strip()} repetida={segunda.strip()}")
+    if nombre.startswith("medusa"):
+        r.cmd("scoreboard players set MEDUSA_CARGA swr 3")
+        salida = r.cmd("function swr:serie/medusa/iniciar")
+        reloj = r.cmd("scoreboard players get MEDUSA_T swr")
+        r.cmd("function swr:serie/medusa/desactivar")
+        r.cmd("function swr:serie/medusa/estado")
+        r.cmd("function swr:serie/medusa/voz")
+        roto = "Unknown function" in salida or "Failed to load function" in salida
+        return (not roto and "has" in reloj, f"iniciar={salida.strip()[:60]} reloj={reloj.strip()}")
+    if nombre.startswith("fluido"):
+        salida = r.cmd("function swr:reino/fluido")
+        roto = "Unknown function" in salida or "Failed to load function" in salida
+        return (not roto, salida.strip()[:120])
+    if nombre.startswith("planos"):
+        fallos = []
+        for plano in ("isla_tesoro", "corn_city", "haber_bosch", "araxa"):
+            salida = r.cmd(f"place template swr:{plano} 0 200 0")
+            if "Unknown" in salida or "Failed" in salida or "error" in salida.lower():
+                fallos.append(f"{plano}: {salida.strip()[:60]}")
+        r.cmd("fill 0 200 0 30 220 30 minecraft:air")
+        return (not fallos, "; ".join(fallos))
     return (False, "comprobacion desconocida")
 
 

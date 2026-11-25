@@ -11,6 +11,7 @@ from pathlib import Path
 RAIZ = Path(__file__).resolve().parent.parent
 ESTRUCTURAS = RAIZ / "panel" / "data" / "swr" / "structure"
 COLOCAR = RAIZ / "panel" / "data" / "swr" / "function" / "serie" / "colocar"
+FUNCIONES = RAIZ / "panel" / "data" / "swr" / "function"
 PLANOS = ("isla_tesoro", "corn_city", "haber_bosch", "araxa")
 
 
@@ -49,3 +50,9 @@ def test_el_generador_reproduce_los_archivos():
         text=True,
     )
     assert resultado.returncode == 0, resultado.stdout + resultado.stderr
+
+
+def test_hay_un_menu_para_los_cuatro_planos():
+    texto = (FUNCIONES / "serie" / "colocar.mcfunction").read_text(encoding="utf-8")
+    for nombre in PLANOS:
+        assert f"swr:serie/colocar/{nombre}" in texto, f"el menu no ofrece {nombre}"

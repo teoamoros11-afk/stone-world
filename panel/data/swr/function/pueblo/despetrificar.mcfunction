@@ -13,4 +13,6 @@ execute if score FRASCO swr matches 0 run scoreboard players remove CUPO swr 1
 # el fluido milagroso, por fin: se concede al gastar una dosis de verdad
 advancement grant @s only swr:serie/fluido
 execute as @e[tag=swr_estatua,distance=..6,sort=nearest,limit=1] run function swr:pueblo/despetrificar_uno
+execute if score FRASCO swr matches 1 run tellraw @a [{"text":"[Pueblo] ","color":"gold","bold":true},{"text":"Vuelve a la vida con un frasco de fluido milagroso. El cupo sigue en ","color":"green"},{"score":{"name":"CUPO","objective":"swr"},"color":"green"},{"text":".","color":"green"}]
+execute if score FRASCO swr matches 0 run tellraw @a [{"text":"[Pueblo] ","color":"gold","bold":true},{"text":"Vuelve a la vida. Quedan ","color":"green"},{"score":{"name":"CUPO","objective":"swr"},"color":"green"},{"text":" dosis de fluido.","color":"green"}]
 scoreboard players set FRASCO swr 0
