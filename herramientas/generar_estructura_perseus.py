@@ -127,6 +127,31 @@ def arboladura():
         poner(31, y - 1, 0, VELA)
 
 
+def salon():
+    """Barra del Perseus y mesa de poker, dentro del propio NBT.
+
+    La cubierta tiene 7 de manga y los troncos en x=8 y x=20, asi que el hueco
+    libre de proa (x 19-26) es el unico donde caben las dos cosas sin comerse
+    el invernadero ni los escalones. La mesa de bolos no entra: pide 12 m y la
+    cubierta no los tiene; se monta aparte con swr:bar/bolos/montar.
+    """
+    # la barra, pegada a la borda de proa: cinco barriles con tapa de losa
+    for j in range(-2, 3):
+        poner(26, 5, j, "minecraft:barrel")
+        poner(26, 6, j, "minecraft:smooth_stone_slab")
+    # cinco taburetes mirando a la barra
+    for j in range(-2, 3):
+        poner(25, 5, j, "minecraft:oak_stairs[facing=east]")
+    # la mesa de poker: tablero de 3x3 y dos asientos a los lados
+    for x in range(19, 22):
+        for j in range(-1, 2):
+            poner(x, 5, j, MADERA_OSCURA)
+    poner(22, 5, -1, "minecraft:oak_stairs[facing=west]")
+    poner(22, 5, 1, "minecraft:oak_stairs[facing=west]")
+    # un farol sobre la barra, colgado del palo de mesana
+    poner(26, 7, 0, "minecraft:lantern")
+
+
 # ------------------------------------------------------------------ NBT
 def _nombre(s):
     b = s.encode("utf-8")
@@ -161,8 +186,7 @@ def escribir_nbt(destino, nombre_raiz, compuesto):
 
 
 def estructura_nbt():
-    paleta = sorted({MADERA, MADERA_OSCURA, PINO, CRISTAL, VELA, HIERRO,
-                     "minecraft:oak_log", "minecraft:air"})
+    paleta = sorted(set(bloques.values()) | {"minecraft:air"})
     indice = {n: i for i, n in enumerate(paleta)}
     lista_bloques = []
     for x in range(SX):
@@ -184,11 +208,13 @@ def main():
     casco()
     cubierta_superior()
     arboladura()
+    salon()
     comp, paleta, indice = estructura_nbt()
     escribir_nbt(SALIDA, "", comp)
     solidos = sum(1 for n in bloques.values())
     print(f"estructura: {SX}x{SY}x{SZ} bloques | solidos: {solidos} | paleta: {len(paleta)}")
     print(f"  cubierta (15,4,4) = {bloques.get((15, 4, 0), 'aire')} en el barco")
+    print(f"  barra (26,5,0) = {bloques.get((26, 5, 0), 'aire')} | mesa (20,5,0) = {bloques.get((20, 5, 0), 'aire')}")
     print(f"escrito {SALIDA} ({SALIDA.stat().st_size} bytes)")
     print("colocacion: /place template swr:perseus")
 

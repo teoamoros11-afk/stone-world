@@ -70,7 +70,8 @@ picar ni poner bloques ni con datapack: eso solo lo hacen jugadores, goles o mod
 ### Metodo 1: colocar la estructura (recomendado)
 
 El barco ya esta modelado bloque a bloque en `panel/data/swr/structure/perseus.nbt`
-(32 x 24 x 9, 792 bloques solidos; se regenera con
+(32 x 24 x 9, 814 bloques solidos: casco, cubierta, tres palos, barra del salon y una mesa de poker;
+se regenera con
 `python3 herramientas/generar_estructura_perseus.py`). El origen es la esquina de popa
 a la altura de la quilla, asi que hay que dejar agua (o aire) y 4 bloques de calado libre debajo:
 

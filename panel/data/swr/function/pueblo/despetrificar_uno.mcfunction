@@ -7,6 +7,8 @@ tag @s add swr_vecino
 tag @s add swr_agradecido
 scoreboard players add VECINOS swr 1
 scoreboard players add REVIDOS swr 1
+scoreboard players add REVIDOS_TOTAL serie 1
+function swr:serie/millon/hito
 particle minecraft:block{block_state:"minecraft:stone"} ~ ~1 ~ 0.4 0.6 0.4 0.2 50 normal
 particle minecraft:happy_villager ~ ~1 ~ 0.4 0.6 0.4 0.05 12 normal
 playsound minecraft:block.stone.break master @a ~ ~ ~ 0.9 0.7

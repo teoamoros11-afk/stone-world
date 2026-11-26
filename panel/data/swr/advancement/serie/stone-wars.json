@@ -2,7 +2,10 @@
   "parent": "swr:serie/aldea",
   "display": {
     "icon": {
-      "id": "minecraft:blast_furnace"
+      "id": "minecraft:paper",
+      "components": {
+        "minecraft:custom_model_data": 7410
+      }
     },
     "title": {
       "text": "La logística es el arma"

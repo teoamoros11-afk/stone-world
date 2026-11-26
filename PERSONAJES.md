@@ -2,7 +2,7 @@
 
 Cada estatua que pones con `/function swr:pueblo/estatua` sale con **una ficha fija**: nombre,
 aldea de Minecraft (que cambia ropa y tono de piel del aldeano), oficio, nivel y un objeto en
-la mano. No es un sorteo: el indice de estatua (`ESTATUAS mod 12`) elige la ficha, siempre en
+la mano. No es un sorteo: el indice de estatua (`ESTATUAS mod 38`) elige la ficha, siempre en
 el mismo orden, y lo que ves petrificado es lo que revive.
 
 El porque de que sea fijo y no al azar: un aldeano aleatorio con el nombre de Kohaku no es
@@ -32,6 +32,42 @@ granjero, pastor, pescador, flechero, bibliotecario), asi que esos personajes se
 a su puesto en el horario. Los que tienen oficio sin puesto (clerigo, armero, carnicero,
 cartografo, peletera) se quedan en la plaza o en su casa: su oficio existe, pero el pueblo no
 tiene mesa para el.
+
+## Lo que se ve de cada uno
+
+**No hay skins.** Un aldeano de Minecraft no acepta una textura propia: el juego tiene **siete
+ropas**, una por tipo de aldea, y encima el delantal del oficio. Eso, el color del nombre y el
+objeto de la mano es todo lo que se puede cambiar, y un resource pack no lo arregla porque
+cambia a todos los aldeanos a la vez, no a uno. La ficha es, por tanto, una eleccion de ropa
+entre siete, no un traje a medida.
+
+| # | Personaje | Ropa (aldea) | Delantal (oficio) | Nivel | En la mano | Nombre |
+|---|---|---|---|---|---|---|
+| 1 | Kohaku | llanura | flechera | 4 | hacha de piedra | dorado |
+| 2 | Chrome | taiga | bibliotecario | 3 | frasco de vidrio | aguamarina |
+| 3 | Ruri | llanura | clerigo | 3 | amatista | lila |
+| 4 | Kaseki | sabana | cantero | 5 | pico de hierro | gris |
+| 5 | Suika | jungla | ninguno | 1 | trozo de sandia | verde |
+| 6 | Ginro | desierto | pescador | 1 | bacalao | amarillo |
+| 7 | Kinro | pantano | armero | 4 | espada de hierro | azul |
+| 8 | Magma | sabana | carnicero | 2 | hacha de piedra | rojo |
+| 9 | Kokuyo | taiga | cartografo | 4 | mapa | blanco |
+| 10 | Jasper | nieve | pastor | 2 | lana | azul oscuro |
+| 11 | Turquoise | desierto | granjera | 2 | trigo | turquesa |
+| 12 | Sapphire | nieve | peletera | 2 | cuero | azul claro |
+
+Solo dos parejas comparten ropa, y se distinguen sin problema por el delantal, el objeto y el
+color del nombre: Kohaku y Ruri (llanura) son cazadora y sacerdotisa, y Jasper y Sapphire
+(nieve) son pastor y peletera. Jungla y pantano quedan para una sola persona cada uno, que es
+lo mas cerca que se puede estar de un traje distinto sin salirse del juego.
+
+Lo que **no** se puede poner en el aldeano, y conviene saberlo antes de pedirlo: nada de ropa
+encima. Las gafas de Kinro y el casco de sandia de Suika existen como objetos de mod
+(`stoneoptics:kinro_glasses` y `suikacasco:watermelon_helmet`), pero los lleva el jugador, no
+el aldeano: un aldeano no renderiza armadura. El casco ocupa la cabeza entera, que es el
+tamano de la cabeza del jugador; una cascara mas grande pide un renderer propio. Un traje de
+verdad pide un mod con renderer propio o cabezas de jugador con textura, y las cabezas
+necesitan un PNG alojado; esta apuntado en `PENDIENTE.md`.
 
 ## Rutinas propias
 
@@ -63,7 +99,7 @@ oficio ya tiene puesto y no hay nada que contar de ellos que el pueblo no haga y
 
 ## Como esta hecho
 
-- `swr:personajes/asignar` calcula `SUERTE = ESTATUAS mod 12` y llama a la ficha que toca.
+- `swr:personajes/asignar` calcula `SUERTE = ESTATUAS mod 38` y llama a la ficha que toca.
 - Cada ficha es un archivo pequeño (`swr:personajes/kohaku`, `.../chrome`, …) con tres cosas:
   `data merge entity @s` con el nombre (y su color), `VillagerData` (tipo de aldea, oficio y
   nivel), el tag `swr_canon` y el objeto en la mano.
@@ -77,10 +113,52 @@ oficio ya tiene puesto y no hay nada que contar de ellos que el pueblo no haga y
 
 1. Copia una ficha, cambia nombre, `type` (plains, taiga, savanna, desert, snow, swamp, jungle),
    `profession`, `level` y el objeto.
-2. Súmala al final de `swr:personajes/asignar` y sube el divisor (`DOCE` en `load`) a 13, o
+2. Súmala al final de `swr:personajes/asignar`, sube el divisor (`TREINTA_Y_OCHO` en `load`)
+a 39 y añade una `matches 38` más, o
    cambia la ficha que quieras sustituir.
 3. Anade la fila a la tabla de arriba y pasa `./comprobar_todo.sh`: el validador comprueba que
    la funcion existe y que el JSON del nombre esta bien cerrado.
 
 Ojo con el nivel: los oficios sin puesto (`none`, `cleric`, `weaponsmith`…) aceptan nivel, pero
 un `none` con nivel 4 no significa nada; Suika se queda en 1 a proposito.
+
+## Las 26 fichas nuevas (25/11/2026)
+
+Las doce primeras siguen siendo la aldea de Ishigami. Detras van las 26 del resto del reparto, en
+este orden, que es el que reparte `asignar` (indice 12 a 37). Ninguna lleva tag `swr_oficio_N`: no
+ocupan los seis puestos del pueblo, asi que el reparto de oficios no las manda a trabajar y se
+quedan en la plaza o en su casa. Su oficio de aldeano existe igual, y su ropa cambia con el.
+
+| # | Personaje | Aldea (Minecraft) | Oficio | Nivel | En la mano | Nombre |
+|---|---|---|---|---|---|---|
+| 13 | Tsukasa | llanura | armero de guerra | 5 | hacha de hierro | rojo oscuro |
+| 14 | Hyoga | pantano | armero | 5 | tridente | morado oscuro |
+| 15 | Gen | desierto | bibliotecario | 3 | libro | lila |
+| 16 | Ukyo | taiga | flechero | 3 | arco | aguamarina |
+| 17 | Taiju | llanura | granjero | 4 | pan | verde oscuro |
+| 18 | Yuzuriha | sabana | peletera | 3 | hilo | rosa |
+| 19 | Byakuya | llanura | pescador | 4 | cristal | dorado |
+| 20 | Lillian | llanura | clerigo | 3 | bloque musical | lila |
+| 21 | Ryusui | desierto | cartografo | 5 | brujula | dorado |
+| 22 | Francois | taiga | carnicero | 4 | tarta | amarillo |
+| 23 | Sai | nieve | bibliotecario | 5 | papel | azul |
+| 24 | Moz | jungla | armero de guerra | 4 | espada de hierro | rojo |
+| 25 | Ibara | jungla | clerigo | 5 | corazon del mar | gris oscuro |
+| 26 | Kirisame | jungla | flechera | 3 | flecha | gris |
+| 27 | Soyuz | jungla | cartografo | 3 | mapa | aguamarina |
+| 28 | Amaryllis | jungla | granjera | 2 | amapola | lila |
+| 29 | Matsukaze | taiga | armero de guerra | 4 | espada de hierro | blanco |
+| 30 | Chelsea | sabana | cartografa | 3 | mapa | verde |
+| 31 | Luna | llanura | clerigo | 3 | frasco de vidrio | lila |
+| 32 | Xeno | taiga | bibliotecario | 5 | cohete de feria | aguamarina oscuro |
+| 33 | Stanley | desierto | flechero | 5 | ballesta | rojo oscuro |
+| 34 | Brody | sabana | herrero | 4 | lingote de hierro | dorado |
+| 35 | Joel | nieve | herrero | 4 | reloj | gris |
+| 36 | Charlotte | llanura | flechera | 2 | flecha | rojo |
+| 37 | Max | llanura | pescador | 2 | bacalao | azul |
+| 38 | Carlos | desierto | pastor | 2 | catalejo | amarillo |
+
+Con esto el reparto es de **38 fichas** y el indice de estatua da la vuelta cada 38. Las que
+comparten ropa se distinguen por el delantal y el objeto: Stanley y Charlotte son flecheros, pero
+uno lleva ballesta y la otra flecha; Luna y Lillian son clerigos, pero una lleva frasco y la otra
+bloque musical.

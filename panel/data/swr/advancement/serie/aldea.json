@@ -2,7 +2,10 @@
   "parent": "swr:serie/fluido",
   "display": {
     "icon": {
-      "id": "minecraft:bell"
+      "id": "minecraft:paper",
+      "components": {
+        "minecraft:custom_model_data": 7401
+      }
     },
     "title": {
       "text": "La aldea de las cien historias"

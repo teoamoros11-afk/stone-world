@@ -2,7 +2,10 @@
   "parent": "swr:serie/aldea",
   "display": {
     "icon": {
-      "id": "minecraft:written_book"
+      "id": "minecraft:paper",
+      "components": {
+        "minecraft:custom_model_data": 7405
+      }
     },
     "title": {
       "text": "Las cien historias"

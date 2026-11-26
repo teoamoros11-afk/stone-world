@@ -2,7 +2,10 @@
   "parent": "swr:serie/despertar",
   "display": {
     "icon": {
-      "id": "minecraft:glass_bottle"
+      "id": "minecraft:paper",
+      "components": {
+        "minecraft:custom_model_data": 7403
+      }
     },
     "title": {
       "text": "El fluido milagroso"

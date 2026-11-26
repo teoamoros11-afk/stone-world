@@ -20,3 +20,5 @@ execute as @e[tag=swr_casa_lista,tag=swr_solar_14] at @s run tp @e[tag=swr_vecin
 execute as @e[tag=swr_casa_lista,tag=swr_solar_15] at @s run tp @e[tag=swr_vecino,tag=swr_solar_15] ~ ~ ~
 execute as @e[tag=swr_casa_lista,tag=swr_solar_16] at @s run tp @e[tag=swr_vecino,tag=swr_solar_16] ~ ~ ~
 execute as @e[tag=swr_vecino,tag=swr_casa_hecha] at @s run particle minecraft:cloud ~ ~ ~ 0.3 0.2 0.3 0.01 5 normal
+# lo que dejan los puestos en la despensa del bar, una vez al dia
+function swr:bar/acopio

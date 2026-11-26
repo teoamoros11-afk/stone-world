@@ -36,7 +36,7 @@ def lineas_utiles(texto: str) -> list[str]:
 
 def test_cada_personaje_tiene_su_ficha_y_su_tag():
     nombres = personajes()
-    assert len(nombres) == 12, f"asignar reparte {len(nombres)} personajes, se esperan 12"
+    assert len(nombres) == 38, f"asignar reparte {len(nombres)} personajes, se esperan 38"
     for nombre in nombres:
         ruta = PERSONAJES / f"{nombre}.mcfunction"
         assert ruta.is_file(), f"falta la ficha de {nombre}"
@@ -90,3 +90,15 @@ def test_ninguna_rutina_deja_el_cuerpo_sin_mirar():
         coincide = re.search(r"tp @e\[[^\]]+\] (~[0-9.+-]* ~[0-9.+-]* ~[0-9.+-]*) facing (~[0-9.+-]* ~[0-9.+-]* ~[0-9.+-]*)", linea)
         if coincide:
             assert coincide.group(1) != coincide.group(2), f"facing degenerado: {linea}"
+
+
+def test_el_modulo_de_las_fichas_cuadra_con_las_fichas_que_hay():
+    """ESTATUAS mod N tiene que ser N igual al numero de fichas, o hay indices mudos."""
+    texto = (PERSONAJES / "asignar.mcfunction").read_text(encoding="utf-8")
+    assert "TREINTA_Y_OCHO" in texto, "asignar no usa el modulo de 38"
+    carga = (FUNCIONES / "load.mcfunction").read_text(encoding="utf-8")
+    assert "scoreboard players set TREINTA_Y_OCHO swr 38" in carga, "load no fija el modulo en 38"
+    casos = [int(n) for n in re.findall(r"SUERTE swr matches (\d+) run function swr:personajes/", texto)]
+    assert casos == list(range(len(personajes()))), (
+        f"los indices no van de 0 a {len(personajes()) - 1}: {casos}"
+    )

@@ -14,6 +14,7 @@ from __future__ import annotations
 
 from .jsons import comprobar as comprobar_jsons
 from .modelo import Pack, Problema, cargar
+from .recursos import comprobar as comprobar_recursos
 from .funciones import (
     comprobar as comprobar_funciones,
     comprobar_referencias,
@@ -32,6 +33,7 @@ def revisar(raiz) -> list[Problema]:
     pack = cargar(raiz)
     problemas = list(pack.problemas)
     problemas.extend(comprobar_jsons(pack))
+    problemas.extend(comprobar_recursos(pack))
     for archivo in pack.de_tipo("function"):
         problemas.extend(comprobar_funciones(archivo))
     problemas.extend(comprobar_referencias(pack))

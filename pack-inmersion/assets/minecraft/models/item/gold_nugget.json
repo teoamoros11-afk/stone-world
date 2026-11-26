@@ -1,0 +1,44 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "minecraft:item/gold_nugget"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "custom_model_data": 7201
+      },
+      "model": "swr:item/denario"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 7211
+      },
+      "model": "swr:item/ficha_1"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 7212
+      },
+      "model": "swr:item/ficha_5"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 7213
+      },
+      "model": "swr:item/ficha_10"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 7214
+      },
+      "model": "swr:item/ficha_25"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 7215
+      },
+      "model": "swr:item/ficha_100"
+    }
+  ]
+}

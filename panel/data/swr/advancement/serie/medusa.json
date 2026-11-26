@@ -2,7 +2,10 @@
   "parent": "swr:serie/perseus",
   "display": {
     "icon": {
-      "id": "minecraft:heart_of_the_sea"
+      "id": "minecraft:paper",
+      "components": {
+        "minecraft:custom_model_data": 7406
+      }
     },
     "title": {
       "text": "La medusa"

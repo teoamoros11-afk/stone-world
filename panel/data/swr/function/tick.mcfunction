@@ -16,3 +16,5 @@ execute if score TICK swr matches 100.. run function swr:panel/refrescar
 # invisible aunque las eras concedan sus avances. Se da una vez por jugador (tag).
 execute as @a[tag=!swr_raiz] run advancement grant @s only swr:serie/raiz
 execute as @a[tag=!swr_raiz] run tag @s add swr_raiz
+
+execute if score BOLOS_ACTIVO swr matches 1 run function swr:bar/bolos/check
