@@ -2,7 +2,10 @@
   "parent": "swr:serie/why",
   "display": {
     "icon": {
-      "id": "minecraft:quartz"
+      "id": "minecraft:paper",
+      "components": {
+        "minecraft:custom_model_data": 7411
+      }
     },
     "title": {
       "text": "TERRAFORMING"

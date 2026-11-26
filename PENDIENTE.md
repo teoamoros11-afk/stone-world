@@ -200,3 +200,24 @@ Lo que sigue sin poder afirmarse sin cliente:
 - el Grand Bout, el juicio y la escuela jugados por dos personas de verdad.
 
 Nada de esto se da por bueno por escrito: queda como pendiente de una partida con cliente.
+
+## 17. Tramo B parcial: texturas de la serie (26/11/2026)
+
+Se dibujaron y engancharon 75 texturas de 16x16 en `pack-inmersion/`: la medusa (corazón del
+mar, `custom_model_data` 7101), la baraja completa (52 caras, dorso y cinco fichas de 1, 5, 10,
+25 y 100), el denario, el billete y los 14 iconos de los avances. Los modelos entran como
+`overrides` del ítem vanilla, así que el ítem normal no cambia de aspecto; las cartas y fichas
+se dan con `/function swr:bar/poker/muestra` y `fichas_objeto`, y la moneda con
+`/function swr:serie/moneda/objetos`. Se regenera con
+`python3 herramientas/generar_texturas_tramo_b.py`.
+
+Comprobado: `validador/recursos.py` revisa que cada PNG de ítem mida 16x16, que cada modelo
+apunte a una textura que existe y que no haya dos `custom_model_data` repetidos en el mismo
+ítem (0 errores en el pack); `tests/test_tramo_b.py` lo comprueba sobre los archivos reales, y
+el `reload` del servidor de pruebas no dio errores de avance ni de componentes.
+
+Lo que sigue sin poder afirmarse sin cliente:
+
+- el aspecto de las 52 caras y de los iconos: si se leen a 16x16 y si el glifo de cada avance se distingue;
+- si el cliente dibuja el icono de avance a partir de `minecraft:paper` con `custom_model_data` (el dato carga; el dibujo no se vio);
+- las otras ocho piezas del tramo B (B3-B6, B8-B10 y B12), que siguen pendientes.

@@ -1,7 +1,7 @@
 # Lo que sale en la serie y no está en el juego
 
 Lista de todo lo que aparece en *Dr. Stone* y hoy no se puede hacer en este pack, ordenada **de lo
-más factible a lo menos**. «Falta» significa que no lo da ni el datapack (339 funciones), ni los
+más factible a lo menos**. «Falta» significa que no lo da ni el datapack (342 funciones), ni los
 cinco mods propios (`optics-mod`, `crank-dynamo`, `pharmacy-mod`, `suika-mod`, `musica-mod`), ni
 ninguno de los 38 mods de `mods.txt` (Create, Immersive Engineering, Mekanism, CC: Tweaked,
 Ad Astra, Dr. Stone: KoS, MineColonies...). Si algo ya está, no aparece aquí.
@@ -90,19 +90,24 @@ los fuegos artificiales del epílogo de la isla, el aviso de Dunbar al pasar de 
 El resource pack ya existe y cambia el menú, los cuadros y tres texturas propias. Aquí solo hace
 falta dibujar; el comportamiento es del tramo A o ya está.
 
+El 26/11/2026 se hicieron B1, B2, B7 y B11: la medusa, la baraja con sus fichas, la moneda y los
+catorce iconos. Las otras ocho piezas (B3-B6, B8-B10 y B12) siguen pendientes. Todo se regenera
+con `python3 herramientas/generar_texturas_tramo_b.py`, y `validador/recursos.py` vigila que
+cada textura mida 16x16 y que ningún override apunte a un modelo o a un mando que no exista.
+
 | # | Qué falta | Dónde sale | Estado hoy | Cómo se haría | Coste |
 |---|---|---|---|---|---|
-| B1 | Medusa con textura propia | T3-T4 | Corazón del mar renombrado | Textura 16x16 de piedra tallada y modelo de ítem | S |
-| B2 | Baraja y fichas con arte | T4 (ep. 58) | Nombres y palos por marcador | 52 texturas de carta y ficha | M |
+| B1 | Medusa con textura propia | T3-T4 | **Hecho**: `swr:item/medusa` en el corazón del mar (cmd 7101) | Textura 16x16 de piedra tallada y modelo de ítem | S |
+| B2 | Baraja y fichas con arte | T4 (ep. 58) | **Hecho**: 52 caras, dorso y 5 fichas; `bar/poker/muestra` y `fichas_objeto` | 52 texturas de carta y ficha | M |
 | B3 | Móvil con pantalla | T1 (ep. 19-20) | Nada | Textura de ítem y de pantalla encendida | S |
 | B4 | Dron, globo y submarino como iconos | T3-T4 | Nada | Iconos de ítem; el modelo 3D es tramo E | S |
 | B5 | Uniforme del reino | Serie entera | Ropa por tipo de aldea | Cambiar la ropa de los aldeanos en el pack (afecta a todos) | M |
 | B6 | Estandartes y banderas | T3-T4 | Nada | Diseños de estandarte por facción | S |
-| B7 | Iconos de los 14 avances | Ya existen los avances | Icono genérico | Un icono por avance | S |
+| B7 | Iconos de los 14 avances | Ya existen los avances | **Hecho**: 14 iconos (cmd 7401-7414) en el papel de cada avance | Un icono por avance | S |
 | B8 | Retratos en cuadro | T4 (ep. 85) | Tres cuadros propios | Cuatro retratos más | M |
 | B9 | Mapa de la isla dibujado a mano | T1 | `mapa-isla.png` generado | Versión «de época» para el libro | S |
 | B10 | Libro de campo ilustrado | T1-T4 | Texto plano | Ilustraciones por era | M |
-| B11 | Moneda y billetes | T4 (ep. 58) | Nada | Dos texturas | S |
+| B11 | Moneda y billetes | T4 (ep. 58) | **Hecho**: `swr:item/denario` y `swr:item/billete`; `serie/moneda/objetos` | Dos texturas | S |
 | B12 | Traje espacial (textura) | T4 (ep. 91) | Nada | Textura de armadura; el ítem es tramo C | S |
 
 ## Tramo C — un mod propio pequeño (24 piezas)

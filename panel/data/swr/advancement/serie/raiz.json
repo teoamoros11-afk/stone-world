@@ -2,7 +2,10 @@
   "display": {
     "background": "minecraft:textures/gui/advancements/backgrounds/stone.png",
     "icon": {
-      "id": "minecraft:stone"
+      "id": "minecraft:paper",
+      "components": {
+        "minecraft:custom_model_data": 7409
+      }
     },
     "title": {
       "text": "Dr. Stone",

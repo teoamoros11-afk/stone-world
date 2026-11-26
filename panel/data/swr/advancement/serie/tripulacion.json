@@ -2,7 +2,10 @@
   "parent": "swr:serie/perseus",
   "display": {
     "icon": {
-      "id": "minecraft:emerald"
+      "id": "minecraft:paper",
+      "components": {
+        "minecraft:custom_model_data": 7412
+      }
     },
     "title": {
       "text": "La tripulacion del Perseus"

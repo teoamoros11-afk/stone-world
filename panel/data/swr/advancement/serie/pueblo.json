@@ -2,7 +2,10 @@
   "parent": "swr:serie/tripulacion",
   "display": {
     "icon": {
-      "id": "minecraft:bell"
+      "id": "minecraft:paper",
+      "components": {
+        "minecraft:custom_model_data": 7408
+      }
     },
     "title": {
       "text": "El pueblo de los agradecidos"

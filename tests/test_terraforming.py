@@ -81,7 +81,10 @@ def test_el_avance_es_valido_y_cuelga_de_why():
     assert datos["parent"] == "swr:serie/why"
     assert (RAIZ / "panel" / "data" / "swr" / "advancement" / "serie" / "why.json").is_file()
     assert datos["criteria"]["hecho"]["trigger"] == "minecraft:impossible"
-    assert datos["display"]["icon"]["id"] == "minecraft:quartz"
+    icono = datos["display"]["icon"]
+    assert icono["id"] == "minecraft:paper"
+    mando = icono["components"]["minecraft:custom_model_data"]
+    assert 7401 <= mando <= 7414, f"el icono {mando} no es uno de los 14 del tramo B"
 
 
 def test_el_epilogo_no_rompe_nada():

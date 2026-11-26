@@ -305,6 +305,24 @@ Un paso cada vez, pero todos a la vez
 """
 
 
+def empaquetar():
+    """Rehace ReinoDeLaCiencia.zip con lo que hay ahora en pack-inmersion/.
+
+    Lo llaman este generador y el del tramo B: el zip es lo que se copia a
+    resourcepacks/, así que siempre tiene que salir del árbol de fuentes.
+    """
+    destino = BASE / "ReinoDeLaCiencia.zip"
+    with zipfile.ZipFile(destino, "w", zipfile.ZIP_DEFLATED) as z:
+        for archivo in sorted(BASE.rglob("*")):
+            if archivo.is_dir() or archivo.resolve() == destino.resolve():
+                continue
+            if archivo.suffix in {".zip", ".md"}:
+                continue
+            z.write(archivo, archivo.relative_to(BASE).as_posix())
+    print(f"zip {destino.name}: {destino.stat().st_size} B")
+    return destino
+
+
 def main():
     for nombre, ancho, alto, dibujo in CUADROS_VANILLA:
         im = dibujo()
@@ -328,20 +346,12 @@ def main():
     (BASE / "pack.mcmeta").write_text(
         '{\n  "pack": {\n'
         f'    "pack_format": {PACK_FORMAT},\n'
-        '    "description": "Reino de la Ciencia - cuadros y textos del pack Stone World Reborn"\n'
+        '    "description": "Reino de la Ciencia - cuadros, textos e iconos del pack Stone World Reborn"\n'
         "  }\n}\n",
         encoding="utf-8",
     )
 
-    destino = BASE / "ReinoDeLaCiencia.zip"
-    with zipfile.ZipFile(destino, "w", zipfile.ZIP_DEFLATED) as z:
-        for archivo in sorted(BASE.rglob("*")):
-            if archivo.is_dir() or archivo.resolve() == destino.resolve():
-                continue
-            if archivo.suffix in {".zip", ".md"}:
-                continue
-            z.write(archivo, archivo.relative_to(BASE).as_posix())
-    print(f"zip {destino.name}: {destino.stat().st_size} B")
+    empaquetar()
 
 
 if __name__ == "__main__":

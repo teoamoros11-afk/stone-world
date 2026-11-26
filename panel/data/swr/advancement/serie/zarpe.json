@@ -2,7 +2,10 @@
   "parent": "swr:serie/tripulacion",
   "display": {
     "icon": {
-      "id": "minecraft:oak_boat"
+      "id": "minecraft:paper",
+      "components": {
+        "minecraft:custom_model_data": 7414
+      }
     },
     "title": {
       "text": "Zarpa, Perseus"

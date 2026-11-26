@@ -2,7 +2,10 @@
   "parent": "swr:serie/aldea",
   "display": {
     "icon": {
-      "id": "minecraft:glass_pane"
+      "id": "minecraft:paper",
+      "components": {
+        "minecraft:custom_model_data": 7404
+      }
     },
     "title": {
       "text": "Las gafas de Kinro"
